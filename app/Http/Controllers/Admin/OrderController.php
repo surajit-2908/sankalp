@@ -4,146 +4,124 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
-use App\Models\Booking;
-use App\Models\BookingDetail;
-use App\Models\Product;
-use App\Models\Transaction;
-use App\Models\Setting;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\BookingCancelMail;
-use Stripe\Stripe;
-use Stripe\Refund;
+use App\Models\Order;
+use App\Models\CompanyName;
 
 class OrderController extends BaseController
 {
 
     /**
-     * orders listing
+     * Order listing
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function index()
     {
-        $bookingArr = Booking::orderBy('created_at', 'DESC')->get();
+        $orderArr = Order::orderBy('created_at', 'DESC')->get();
 
         $dataArr = [
-            "page_title" => "Orders",
-            "bookingArr" => $bookingArr
+            "page_title" => "Order",
+            "orderArr" => $orderArr
         ];
 
-        return view('pages.admin.booking.index')->with('dataArr', $dataArr);
+        return view('pages.admin.order.index')->with('dataArr', $dataArr);
     }
 
     /**
-     * order detail
+     * Order add page
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function view($booking_id)
+    public function orderAdd()
     {
-        $bookingDetail = Booking::find($booking_id);
-
+        $companyName = CompanyName::get();
         $dataArr = [
-            "page_title" => "Order Detail",
-            "bookingDetail" => $bookingDetail
+            "page_title" => "Add Order",
+            "companyName" => $companyName,
         ];
 
-        return view('pages.admin.booking.order_detail')->with('dataArr', $dataArr);
+        return view('pages.admin.order.add_order')->with('dataArr', $dataArr);
     }
 
     /**
-     * order Status
-     * @param int $id
-     * @param mix $status
+     * Order store
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function orderStatus($id, $status)
+    public function orderInsert(Request $request)
     {
-        $booking = Booking::find($id);
-        $setting = Setting::first();
-        $status_msg = "Order " . $status . " successfully.";
-        $refund_charge = "0.00";
-        if ($status == 'cancel') {
-            // $gateway = $this->braintreeInit();
-            // $refund_price = floatval(number_format($booking->total_amount - $refund_charge, 2));
-            // $result = $gateway->transaction()->refund($booking->transaction_id, [
-            //     'amount' => $refund_price,
-            //     'orderId' => $booking->booking_number
-            // ]);
-
-            $refund_charge = ($setting->refund_charge / 100) * $booking->total_amount;
-            $refund_price = round($booking->total_amount - $refund_charge, 2);
-
-            Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-            $result = Refund::create(array(
-                'charge' => $booking->transaction_id,
-                'amount' => $refund_price*100,
-            ));
-
-
-            // if (!$result->success) {
-            //     $err_msg = "An error occurred with the message: " . $result->message;
-            //     if ($result->message == 'Cannot refund transaction unless it is settled.') {
-            //         $err_msg = "Cannot refund transaction unless it is settled. It will take upto 2 hours approximately.";
-            //     }
-            //     return back()->with([
-            //         "message" => [
-            //             "result" => "error",
-            //             "msg" => $err_msg
-            //         ]
-            //     ]);
-            // }
-
-            // $transaction_id = $result->transaction->id;
-            $transaction_id = $result['id'];
-            Transaction::create([
-                'transaction_id' => $transaction_id,
-                'booking_id' => $id,
-                'amount' => $booking->total_amount,
-                'type' => "Dedited",
-                'booking_for' => "Items",
-                'transaction_date' => date('Y-m-d')
-            ]);
-            $status = 'refunded';
-            $status_msg = 'Order cancelled successfully & will be refunded in 5-10 days.';
-        }
-        $bookingDetails = BookingDetail::where('booking_id', $id)->get();
-        foreach ($bookingDetails as $data) {
-            Product::find($data->product_id)->increment('quantity', $data->quantity);
-        }
-        $booking->update([
-            'status_date' => date('Y-m-d H:i:s'),
-            'status' => $status,
-            'refund_charge' => $refund_charge,
+        $request->validate([
+            'invoice_number' => 'required',
+            'company_name' => 'required',
         ]);
-        $this->sendMail($booking->id, $status);
+
+        Order::create([
+            'invoice_number' => $request->invoice_number,
+            'company_name' => $request->company_name
+        ]);
 
         return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
-                "msg" => $status_msg
+                "msg" => "Order added successfully."
             ]
         ]);
     }
 
     /**
-     * send Mail
-     * @param mixed $bookingId
-     * @return void
+     * Order edit page
+     * @param int $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function sendMail($bookingId, $status)
+    public function orderEdit($id)
     {
-        $mail_subject = "";
-        if ($status == 'refunded')
-            $mail_subject = 'Order Cancelled';
-        else
-            $mail_subject = 'Order Delivered';
+        $orderArr = Order::find($id);
+        $dataArr = [
+            "page_title" => "Edit Order",
+            "orderArr" => $orderArr
+        ];
 
-        $bookingDetails = Booking::with('getBookingDetail.getProductDetail')->find($bookingId);
-        $bookingDetail                     =   [];
-        $bookingDetail['mail_subject']     =   $mail_subject;
-        $bookingDetail['email']            =   $bookingDetails->getUserDetail->email;
-        $bookingDetail['booking_detail']   =   $bookingDetails;
-        $bookingDetail['status']           =   $status;
+        return view('pages.admin.order.edit_order')->with('dataArr', $dataArr);
+    }
 
-        Mail::send(new BookingCancelMail($bookingDetail));
+    /**
+     * Order update
+     * @param int $id
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function orderUpdate(Request $request, $id)
+    {
+        $orderArr = Order::find($id);
+
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+
+        $updateArray['name'] = $request->name;
+        Order::find($id)->update($updateArray);
+
+        return redirect()->route('admin.order')->with([
+            "message" => [
+                "result" => "success",
+                "msg" => "Order updated successfully."
+            ]
+        ]);
+    }
+
+    /**
+     * Order remove
+     * @param int $id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function orderRemove($id)
+    {
+        Order::find($id)->delete();
+
+        return redirect()->route('admin.order')->with([
+            "message" => [
+                "result" => "success",
+                "msg" => "Order deleted successfully."
+            ]
+        ]);
     }
 }

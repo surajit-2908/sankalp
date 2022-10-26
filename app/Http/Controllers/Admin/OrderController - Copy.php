@@ -4,88 +4,88 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
-use App\Models\Brand;
+use App\Models\Order;
 
-class BrandController extends BaseController
+class OrderController extends BaseController
 {
 
     /**
-     * Brand listing
+     * Order listing
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
     public function index()
     {
-        $brandArr = Brand::orderBy('created_at', 'DESC')->get();
+        $orderArr = Order::orderBy('created_at', 'DESC')->get();
 
         $dataArr = [
-            "page_title" => "Brand",
-            "brandArr" => $brandArr
+            "page_title" => "Order",
+            "orderArr" => $orderArr
         ];
 
-        return view('pages.admin.brand.index')->with('dataArr', $dataArr);
+        return view('pages.admin.order.index')->with('dataArr', $dataArr);
     }
 
     /**
-     * Brand add page
+     * Order add page
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function brandAdd()
+    public function orderAdd()
     {
         $dataArr = [
-            "page_title" => "Add Brand",
+            "page_title" => "Add Order",
         ];
 
-        return view('pages.admin.brand.add_brand')->with('dataArr', $dataArr);
+        return view('pages.admin.order.add_order')->with('dataArr', $dataArr);
     }
 
     /**
-     * Brand store
+     * Order store
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function brandInsert(Request $request)
+    public function orderInsert(Request $request)
     {
         $request->validate([
             'name' => 'required',
         ]);
 
-        Brand::create([
+        Order::create([
             'name' => $request->name
         ]);
 
-        return redirect()->route('admin.brand')->with([
+        return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
-                "msg" => "Brand added successfully."
+                "msg" => "Order added successfully."
             ]
         ]);
     }
 
     /**
-     * Brand edit page
+     * Order edit page
      * @param int $id
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function brandEdit($id)
+    public function orderEdit($id)
     {
-        $brandArr = Brand::find($id);
+        $orderArr = Order::find($id);
         $dataArr = [
-            "page_title" => "Edit Brand",
-            "brandArr" => $brandArr
+            "page_title" => "Edit Order",
+            "orderArr" => $orderArr
         ];
 
-        return view('pages.admin.brand.edit_brand')->with('dataArr', $dataArr);
+        return view('pages.admin.order.edit_order')->with('dataArr', $dataArr);
     }
 
     /**
-     * Brand update
+     * Order update
      * @param int $id
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function brandUpdate(Request $request, $id)
+    public function orderUpdate(Request $request, $id)
     {
-        $brandArr = Brand::find($id);
+        $orderArr = Order::find($id);
 
         $request->validate([
             'name' => 'required',
@@ -93,29 +93,29 @@ class BrandController extends BaseController
 
 
         $updateArray['name'] = $request->name;
-        Brand::find($id)->update($updateArray);
+        Order::find($id)->update($updateArray);
 
-        return redirect()->route('admin.brand')->with([
+        return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
-                "msg" => "Brand updated successfully."
+                "msg" => "Order updated successfully."
             ]
         ]);
     }
 
     /**
-     * Brand remove
+     * Order remove
      * @param int $id
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function brandRemove($id)
+    public function orderRemove($id)
     {
-        Brand::find($id)->delete();
+        Order::find($id)->delete();
 
-        return redirect()->route('admin.brand')->with([
+        return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
-                "msg" => "Brand deleted successfully."
+                "msg" => "Order deleted successfully."
             ]
         ]);
     }

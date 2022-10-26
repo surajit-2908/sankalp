@@ -16,6 +16,8 @@
         <ul class="nav nav-list">
             <li><a class="{{ $controller_name == 'DashboardController' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}"><i
                         class="fa fa-tachometer"></i> Dashboard</a></li>
+            <li><a class="{{ $controller_name == 'OrderController' ? 'active' : '' }}" href="{{ route('admin.order') }}"><i
+                        class="fa fa-shopping-cart"></i> Orders</a></li>
             <li>
                 <a class="accordion-heading" data-toggle="collapse" data-target="#submenu1">
                     <span class="nav-header-primary"><i class="fa fa-calendar"></i> Product</span>

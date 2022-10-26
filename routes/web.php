@@ -112,90 +112,13 @@ Route::group([
     Route::get('feedback', ['as' => 'admin.feedback', 'uses' => 'Admin\FeedbackController@index']);
     Route::get('feedback/remove/{id}', ['as' => 'admin.feedback.remove', 'uses' => 'Admin\FeedbackController@feedbackRemove']);
 
-    Route::group(['prefix' => 'brand'], function () {
-        Route::get('', ['as' => 'admin.brand', 'uses' => 'Admin\BrandController@index']);
-        Route::get('add', ['as' => 'admin.brand.add', 'uses' => 'Admin\BrandController@brandAdd']);
-        Route::post('insert', ['as' => 'admin.brand.insert', 'uses' => 'Admin\BrandController@brandInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.brand.edit', 'uses' => 'Admin\BrandController@brandEdit']);
-        Route::post('update/{id}', ['as' => 'admin.brand.update', 'uses' => 'Admin\BrandController@brandUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.brand.remove', 'uses' => 'Admin\BrandController@brandRemove']);
-    });
-
-    Route::group(['prefix' => 'category'], function () {
-        Route::get('', ['as' => 'admin.category', 'uses' => 'Admin\CategoryController@index']);
-        Route::get('add', ['as' => 'admin.category.add', 'uses' => 'Admin\CategoryController@categoryAdd']);
-        Route::post('insert', ['as' => 'admin.category.insert', 'uses' => 'Admin\CategoryController@categoryInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.category.edit', 'uses' => 'Admin\CategoryController@categoryEdit']);
-        Route::post('update/{id}', ['as' => 'admin.category.update', 'uses' => 'Admin\CategoryController@categoryUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.category.remove', 'uses' => 'Admin\CategoryController@categoryRemove']);
-    });
-
-    Route::group(['prefix' => 'sub-category'], function () {
-        Route::get('', ['as' => 'admin.sub.category', 'uses' => 'Admin\SubCategoryController@index']);
-        Route::get('add', ['as' => 'admin.sub.category.add', 'uses' => 'Admin\SubCategoryController@subCategoryAdd']);
-        Route::post('insert', ['as' => 'admin.sub.category.insert', 'uses' => 'Admin\SubCategoryController@subCategoryInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.sub.category.edit', 'uses' => 'Admin\SubCategoryController@subCategoryEdit']);
-        Route::post('update/{id}', ['as' => 'admin.sub.category.update', 'uses' => 'Admin\SubCategoryController@subCategoryUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.sub.category.remove', 'uses' => 'Admin\SubCategoryController@subCategoryRemove']);
-    });
-
-    Route::group(['prefix' => 'variation'], function () {
-        Route::get('', ['as' => 'admin.variation', 'uses' => 'Admin\VariationController@index']);
-        Route::get('add', ['as' => 'admin.variation.add', 'uses' => 'Admin\VariationController@variationAdd']);
-        Route::post('insert', ['as' => 'admin.variation.insert', 'uses' => 'Admin\VariationController@variationInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.variation.edit', 'uses' => 'Admin\VariationController@variationEdit']);
-        Route::post('update/{id}', ['as' => 'admin.variation.update', 'uses' => 'Admin\VariationController@variationUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.variation.remove', 'uses' => 'Admin\VariationController@variationRemove']);
-    });
-
-    Route::group(['prefix' => 'variation-option'], function () {
-        Route::get('', ['as' => 'admin.variation.option', 'uses' => 'Admin\VariationOptionController@index']);
-        Route::get('add', ['as' => 'admin.variation.option.add', 'uses' => 'Admin\VariationOptionController@variationOptionAdd']);
-        Route::post('insert', ['as' => 'admin.variation.option.insert', 'uses' => 'Admin\VariationOptionController@variationOptionInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.variation.option.edit', 'uses' => 'Admin\VariationOptionController@variationOptionEdit']);
-        Route::post('update/{id}', ['as' => 'admin.variation.option.update', 'uses' => 'Admin\VariationOptionController@variationOptionUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.variation.option.remove', 'uses' => 'Admin\VariationOptionController@variationOptionRemove']);
-    });
-
-    Route::group(['prefix' => 'online-training'], function () {
-        Route::get('', ['as' => 'admin.online.training', 'uses' => 'Admin\OnlineTrainingController@index']);
-        Route::get('detail/{id}', ['as' => 'admin.online.training.detail', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingDetail']);
-        Route::get('add', ['as' => 'admin.online.training.add', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingAdd']);
-        Route::post('insert', ['as' => 'admin.online.training.insert', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.online.training.edit', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingEdit']);
-        Route::post('update/{id}', ['as' => 'admin.online.training.update', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.online.training.remove', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingRemove']);
-        Route::get('bottom/status/{id}', ['as' => 'admin.online.training.bottom.status', 'uses' => 'Admin\OnlineTrainingController@bottomStatus']);
-        Route::get('rating-remove/{id}', ['as' => 'admin.online.training.rating.remove', 'uses' => 'Admin\OnlineTrainingController@onlineTrainingRatingRemove']);
-    });
-
-    Route::group(['prefix' => 'product'], function () {
-        Route::get('', ['as' => 'admin.product', 'uses' => 'Admin\ProductController@index']);
-        Route::get('detail/{id}', ['as' => 'admin.product.detail', 'uses' => 'Admin\ProductController@productDetail']);
-        Route::get('add', ['as' => 'admin.product.add', 'uses' => 'Admin\ProductController@productAdd']);
-        Route::post('insert', ['as' => 'admin.product.insert', 'uses' => 'Admin\ProductController@productInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.product.edit', 'uses' => 'Admin\ProductController@productEdit']);
-        Route::post('update/{id}', ['as' => 'admin.product.update', 'uses' => 'Admin\ProductController@productUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.product.remove', 'uses' => 'Admin\ProductController@productRemove']);
-        Route::get('status/{id}', ['as' => 'admin.product.status', 'uses' => 'Admin\ProductController@productStatus']);
-        Route::get('featured/status/{id}', ['as' => 'admin.product.featured.status', 'uses' => 'Admin\ProductController@productFeaturedStatus']);
-        Route::post('remove/img', ['as' => 'admin.product.img.remove', 'uses' => 'Admin\ProductController@imgRemove']);
-        Route::get('rating-remove/{id}', ['as' => 'admin.product.rating.remove', 'uses' => 'Admin\ProductController@productRatingRemove']);
-    });
-    Route::get('get-sub-cat/{cat_id}', ['as' => 'admin.get.sub-cat', 'uses' => 'Admin\ProductController@getSubCat']);
-    Route::get('get-variation/{unique_id}', ['as' => 'admin.get.variation', 'uses' => 'Admin\ProductController@getVar']);
-    Route::get('get-variation-option/{variation_id}', ['as' => 'admin.get.var.opt', 'uses' => 'Admin\ProductController@getVarOpt']);
-
-    Route::group(['prefix' => 'product-variant'], function () {
-        Route::get('/{product_id}', ['as' => 'admin.product.variant', 'uses' => 'Admin\ProductVariantController@index']);
-        Route::post('update/{id}', ['as' => 'admin.product.variant.update', 'uses' => 'Admin\ProductVariantController@productVariantUpdate']);
-        Route::post('remove', ['as' => 'admin.product.variant.remove', 'uses' => 'Admin\ProductVariantController@variantRemove']);
-    });
-
-    Route::group(['prefix' => 'product-faq'], function () {
-        Route::get('/{product_id}', ['as' => 'admin.product.faq', 'uses' => 'Admin\ProductFaqController@index']);
-        Route::post('update/{id}', ['as' => 'admin.product.faq.update', 'uses' => 'Admin\ProductFaqController@productFaqUpdate']);
-        Route::post('remove', ['as' => 'admin.product.faq.remove', 'uses' => 'Admin\ProductFaqController@productFaqRemove']);
+    Route::group(['prefix' => 'order'], function () {
+        Route::get('', ['as' => 'admin.order', 'uses' => 'Admin\OrderController@index']);
+        Route::get('add', ['as' => 'admin.order.add', 'uses' => 'Admin\OrderController@orderAdd']);
+        Route::post('insert', ['as' => 'admin.order.insert', 'uses' => 'Admin\OrderController@orderInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.order.edit', 'uses' => 'Admin\OrderController@orderEdit']);
+        Route::post('update/{id}', ['as' => 'admin.order.update', 'uses' => 'Admin\OrderController@orderUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.order.remove', 'uses' => 'Admin\OrderController@orderRemove']);
     });
 
     Route::group(['prefix' => 'user'], function () {
@@ -203,35 +126,6 @@ Route::group([
         Route::get('status/{id}', ['as' => 'admin.user.status', 'uses' => 'Admin\UserController@userStatus']);
     });
 
-    Route::group(['prefix' => 'order'], function () {
-        Route::get('', ['as' => 'admin.order', 'uses' => 'Admin\OrderController@index']);
-        Route::get('view/{booking_id}', ['as' => 'admin.order.view', 'uses' => 'Admin\OrderController@view']);
-        Route::get('order-status/{booking_id}/{status}', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
-    });
-
-    Route::group(['prefix' => 'online-training-order'], function () {
-        Route::get('', ['as' => 'admin.online.training.order', 'uses' => 'Admin\OnlineTrainingOrderController@index']);
-        Route::get('view/{booking_id}', ['as' => 'admin.online.training.order.view', 'uses' => 'Admin\OnlineTrainingOrderController@view']);
-        Route::get('order-status/{booking_id}/{status}', ['as' => 'admin.online.training.order.status', 'uses' => 'Admin\OnlineTrainingOrderController@orderStatus']);
-    });
-
-    ///------------------content managements------------------------//
-
-    Route::group(['prefix' => 'testimonial'], function () {
-        Route::get('', ['as' => 'admin.testimonial', 'uses' => 'Admin\TestimonialController@index']);
-        Route::get('add', ['as' => 'admin.testimonial.add', 'uses' => 'Admin\TestimonialController@testimonialAdd']);
-        Route::post('insert', ['as' => 'admin.testimonial.insert', 'uses' => 'Admin\TestimonialController@testimonialInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.testimonial.edit', 'uses' => 'Admin\TestimonialController@testimonialEdit']);
-        Route::post('update/{id}', ['as' => 'admin.testimonial.update', 'uses' => 'Admin\TestimonialController@testimonialUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.testimonial.remove', 'uses' => 'Admin\TestimonialController@testimonialRemove']);
-    });
-
-    Route::group(['prefix' => 'content'], function () {
-        Route::get('', ['as' => 'admin.content', 'uses' => 'Admin\ContentController@index']);
-        Route::get('/{page}', ['as' => 'admin.content.listing', 'uses' => 'Admin\ContentController@content']);
-        Route::get('edit/{id}', ['as' => 'admin.content.edit', 'uses' => 'Admin\ContentController@contentEdit']);
-        Route::post('update/{id}', ['as' => 'admin.content.update', 'uses' => 'Admin\ContentController@contentUpdate']);
-    });
 });
 
 // Clear configuration cache:
