@@ -1,0 +1,839 @@
+@charset"utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+/*@font-face {
+  font-family: 'poppinsthin';
+  src: url('../fonts/poppins/poppins-thin-webfont.woff2') format('woff2'),
+       url('../fonts/poppins/poppins-thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #68613b;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    background-color: #ffffff;
+}
+
+div,
+table,
+td,
+tr,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+section,
+article,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+a,
+input,
+textarea,
+button {
+    outline: 0;
+    transition: all ease-in-out 0.3s;
+    -webkit-transition: all ease-in-out 0.3s;
+    -moz-transition: all ease-in-out 0.3s;
+    -o-transition: all ease-in-out 0.3s;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
+    border-color: #2e364a !important;
+    box-shadow: none !important;
+    outline: none;
+}
+
+select {
+    outline: 0;
+}
+
+input::placeholder {
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    border: none;
+    outline: 0;
+    color: #68613b;
+}
+
+a:hover {
+    text-decoration: none;
+    border: none;
+    outline: 0;
+    color: #ffcd00;
+}
+
+a:focus {
+    text-decoration: none;
+    border: none;
+    outline: 0;
+}
+
+button,
+button:focus {
+    text-decoration: none;
+    border: none;
+    outline: 0;
+}
+
+ul,
+ol,
+ul li,
+ol li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p:empty {
+    display: none;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+body::selection {
+    background: #00589e;
+    color: #ffffff;
+}
+
+body::-moz-selection {
+    background: #00589e;
+    color: #ffffff;
+}
+
+p {
+    font-size: 16px;
+    color: #68613b;
+    line-height: 25px;
+}
+
+
+/*================= Global Style =================*/
+.dFlx {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spaceBet {
+    justify-content: space-between;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.flLeft {
+    float: left;
+}
+
+.flRight {
+    float: right;
+}
+
+.halfWidthField {
+    position: relative;
+    width: 48%;
+    margin-bottom: 22px;
+}
+
+.FullWidthField {
+    position: relative;
+    width: 100%;
+    margin-bottom: 22px;
+}
+
+.SKPformField label {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: #68613b;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.SKPformField input,
+.SKPformField textarea {
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font-size: 16px;
+    color: #2e364a;
+}
+
+.SKPformField textarea {
+    resize: none;
+    height: 130px;
+}
+
+.SKPformField input:focus,
+.SKPformField textarea:focus,
+.SKPformField input:hover,
+.SKPformField textarea:hover {
+    border-color: #ffcd00 !important;
+}
+
+.SKPformField .checkBox li {
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.SKPformField .checkBox li:last-child {
+    margin-bottom: 0;
+}
+
+.SKPformField .checkBox input[type=checkbox] {
+    display: none;
+}
+
+.SKPformField .checkBox label {
+    font-size: 16px;
+    color: #68613b;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.SKPformField .checkBox input[type=checkbox]+label {
+    position: relative;
+    margin-left: 18px;
+}
+
+.SKPformField .checkBox input[type=checkbox]+label::after {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 1px solid #b5b5b5;
+    border-radius: 2px;
+    top: 0;
+    left: -18px;
+}
+
+.SKPformField .checkBox input[type=checkbox]:checked+label::after {
+    border-color: #ffffff;
+    background-color: #ffcd00;
+}
+
+.SKPformField .checkBox input[type=checkbox]:checked+label::before {
+    position: absolute;
+    content: '';
+    width: 11px;
+    height: 6px;
+    transform: translateX(10px) rotate(-45deg);
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    left: -24px;
+    top: 4px;
+    z-index: 2;
+}
+
+.yellowBtn {
+    display: inline-block;
+    font-size: 16px !important;
+    color: #332524 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #ffd422 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 13px 30px !important;
+}
+
+.yellowBtn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-4px);
+}
+
+.borderBtn {
+    display: inline-block;
+    font-size: 16px;
+    color: #332524;
+    font-weight: 700;
+    border: 2px solid #ffd422 !important;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    padding: 13px 30px;
+    background-color: transparent;
+}
+
+.borderBtn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-4px);
+    background-color: #ffd422;
+    color: #332524;
+}
+
+.clear {
+    display: table;
+    width: 100%;
+    float: none;
+    clear: both;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #68613b;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
+/*=========================== Login Page Style Sheet Start Here ===========================*/
+.loginBody {
+    position: relative;
+}
+
+.loginBody img.loginBg {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.loginForm {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.loginLogo {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.loginLogo img {
+    max-width: 315px;
+}
+
+.loginFormBox {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 20px 30px;
+    box-shadow: 0 0 25px rgb(0 0 0 / 8%);
+    text-align: center;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.SKPformField .rememberCheckbox label {
+    font-weight: 700;
+}
+
+.SKPformField .forgotPass {
+    font-weight: 700;
+}
+
+.loginLock {
+    margin-bottom: 25px;
+}
+
+.registerLink p a {
+    text-decoration: underline;
+    color: #e1b500;
+}
+
+/*=========================== Login Page Style Sheet End Here ===========================*/
+
+
+/*=========================== Registration Page Style Sheet Start Here ===========================*/
+.loginBody {
+    position: relative;
+}
+
+.registerForm {
+    padding: 50px 0;
+}
+
+.registerFormBox {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.registerFormBox h1 {
+    font-size: 35px;
+    color: #505050;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.registerLogo {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.registerLogo img {
+    max-width: 315px;
+}
+
+.loginLink p a {
+    text-decoration: underline;
+    color: #e1b500;
+}
+
+/*=========================== Registration Page Style Sheet End Here ===========================*/
+
+
+/*=========================== Header & Left Panel Section Style Sheet Start Here ===========================*/
+.headerSec {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.hdrLogo img {
+    max-width: 170px;
+}
+
+.hdrUser .userTitle {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.hdrUser .userPic img {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #dadada;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.hdrProfileSetting {
+    position: absolute;
+    min-width: 200px;
+    top: 70px;
+    right: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    z-index: 999;
+    display: none;
+}
+
+.hdrProfileSetting.show-user {
+    display: block;
+}
+
+.hdrProfileSetting li:not(:first-child) {
+    border-top: 1px solid #e8e8e8;
+}
+
+.hdrProfileSetting li .fa {
+    margin-right: 8px;
+}
+
+.hdrProfileSetting li a {
+    display: inline-block;
+    width: 100%;
+    padding: 8px 10px 8px 15px;
+}
+
+
+
+.bodySec {
+    position: relative;
+    width: 100%;
+}
+
+.bodyLeftPanel {
+    width: 20%;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    min-height: 100vh;
+}
+
+.bodyLeftPanel nav {
+    padding-right: 25px;
+}
+
+.bodyLeftPanel nav li {
+    font-size: 16px;
+    color: #484d54;
+    font-weight: 700;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.bodyLeftPanel nav li a {
+    position: relative;
+    color: #484d54;
+    padding: 10px 15px 10px 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+.bodyLeftPanel nav li a.accordion-heading:after {
+    position: absolute;
+    content: '';
+    background: url(../images/menu-down-icon.png) no-repeat 0 0;
+    width: 7px;
+    height: 4px;
+    top: 22px;
+    right: 0;
+}
+
+.bodyLeftPanel nav li a .fa {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.bodyLeftPanel nav li a.active {
+    background-color: #fffae5;
+    color: #fcba1c;
+    border-radius: 0 10px 10px 0;
+}
+
+.bodyLeftPanel nav li li {
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: normal;
+    margin-left: 40px;
+    line-height: 18px;
+}
+
+.bodyLeftPanel nav li li a {
+    padding: 5px 15px 5px 10px;
+}
+
+
+.bodyRightPanel {
+    position: relative;
+    width: 80%;
+    background-color: #f8fafc;
+    padding: 40px 30px;
+}
+
+.bodyRightPanel h1.pageTitle {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.SKPpagination {
+    text-align: center;
+}
+
+.SKPpagination nav {
+    display: inline-block;
+}
+
+.SKPpagination .page-link {
+    color: #484d54;
+}
+
+.SKPpagination .page-link:hover,
+.SKPpagination .page-link:focus {
+    border: 1px solid #dee2e6;
+    background-color: #fff5cb;
+}
+
+.SKPpagination .page-link:focus {
+    box-shadow: none;
+}
+
+/*=========================== Header & Left Panel Section Style Sheet End Here ===========================*/
+
+
+/*=========================== Dashboard Page Style Sheet Start Here ===========================*/
+.dashboardBody .dashFourClm {
+    width: 48.5%;
+    border: 1px solid #e9e9ea;
+    border-left-width: 10px;
+    border-radius: 10px;
+    padding: 25px 20px;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.dashboardBody .dashFourClm:hover {
+    border-left-color: #ffcd00;
+}
+
+.dashboardBody .dashFourClm h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/*=========================== Dashboard Page Style Sheet End Here ===========================*/
+
+
+/*=========================== Notification Modal Popup Style Start ===========================*/
+.notification-modal-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 999;
+}
+
+.noti-popup-box {
+    width: 650px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+}
+
+.noti-popup-box button.noti-close-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    top: 18px;
+    right: 17px;
+    z-index: 9;
+    opacity: 0.5;
+    border-radius: 100%;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 22px;
+    text-indent: 1px;
+    text-align: center;
+    text-shadow: none;
+    padding: 0;
+}
+
+.noti-pop-hdn {
+    background-color: #fffae5;
+    padding: 25px 30px;
+}
+
+.noti-pop-hdn h2 {
+    font-size: 17px;
+    color: #fcba1c;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.noti-pop-body {
+    padding: 25px 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.noti-pop-body figure {
+    width: 20%;
+}
+
+.noti-pop-body figure img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.noti-pop-body article {
+    width: 78%;
+}
+
+.noti-pop-body article .noti-title {
+    font-size: 20px;
+    color: #1e1d1d;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.noti-pop-body article .noti-title span {
+    margin-left: 15px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #fc0094;
+    padding: 4px 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.noti-pop-body article .noti-pop-contact-dtl {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.noti-pop-body article .noti-pop-contact-dtl li {
+    margin-top: 20px;
+    max-width: 60%;
+    font-size: 16px;
+    color: #868686;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.noti-pop-body article .noti-pop-contact-dtl li .fa {
+    font-size: 20px;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+
+.noti-pop-body article .noti-pop-contact-dtl li a {
+    color: #4d8ca3;
+}
+
+.noti-pop-btn {
+    border-top: 1px solid #e5e5e5;
+    margin-top: 35px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+.noti-pop-btn ul {
+    display: flex;
+    align-items: baseline;
+}
+
+.noti-pop-btn ul li {
+    margin-right: 20px;
+}
+
+.noti-pop-btn ul li button {
+    font-size: 16px;
+    color: #383737;
+    font-weight: 500;
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 8px;
+}
+
+.noti-pop-btn ul li button.cancel-btn {
+    background-color: #efefef;
+}
+
+.noti-pop-btn ul li button.submit-btn {
+    background-color: #fae991;
+}
+
+.noti-pop-btn ul li button:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-submit button {
+    font-size: 14px;
+    color: #383737;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    padding: 12px 25px;
+    text-transform: uppercase;
+}
+
+.category-submit button.cancel-btn {
+    background: #efefef;
+}
+
+.category-submit button.submit-btn {
+    background: #b5ccd4;
+}
+
+.category-submit {
+    padding: 25px 0px;
+}
+
+.category-submit ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.category-submit ul li {
+    margin-right: 7px;
+}
+
+
+/*=========================== Notification Modal Popup Style End ===========================*/

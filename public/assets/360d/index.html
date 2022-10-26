@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Spring Hotel Bequia</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<style> @-ms-viewport { width: device-width; } </style>
+<link rel="stylesheet" href="vendor/reset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="hotspots/info.css">
+</head>
+<body class="multiple-scenes ">
+	
+<div id="pano"></div>
+
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-bar-1">
+        <li class="text">Bar</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="1-bar-2">
+        <li class="text">Bar 2</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="2-basketball">
+        <li class="text">Basketball Court</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="3-breakfast-sitting">
+        <li class="text">Breakfast Area</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="4-catwalk">
+        <li class="text">Catwalk</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="5-chess">
+        <li class="text">Chess</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="6-dining-outside">
+        <li class="text">Dining Room</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="7-driveway">
+        <li class="text">Driveway</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="9-entrance">
+        <li class="text">Entrance</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="8-entrace-inner">
+        <li class="text">Entrance Inner</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="10-gameroom-1">
+        <li class="text">Game Room</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="11-gameroom-2">
+        <li class="text">Game Room 2</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="12-gym">
+        <li class="text">Gym</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="13-hammock">
+        <li class="text">Hammock</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="16-lower-5-main">
+        <li class="text">Mustique Suite</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="17-lower-5-terrace">
+        <li class="text">Mustique Terrace</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="20-lower-room-entrance">
+        <li class="text">Lower Rooms</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="14-lower-1-main">
+        <li class="text">Bequia Suite</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="15-lower-2-main">
+        <li class="text">Petit Nevis Suite</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="18-lower-balcony">
+        <li class="text">Lawn Access</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="19-lower-pool">
+        <li class="text">Pool</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="21-reception">
+        <li class="text">Reception</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="22-sundeck">
+        <li class="text">Sundeck</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="23-tea-room">
+        <li class="text">Tea Room</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="25-upper-2-main">
+        <li class="text">Mayreau Suite</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="24-upper-2-bath">
+        <li class="text">Mayreau Bathroom</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="27-upper-3-main">
+        <li class="text">Petit Tabac Suite</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="26-upper-3-bath">
+        <li class="text">Petit Tabac Bathroom</li>
+      </a>
+    
+    
+      <a href="javascript:void(0)" class="scene" data-id="28-upper-5-balcony">
+        <li class="text">Union Island Balcony</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="31-upper-5-main">
+        <li class="text">Union Island Suite</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="29-upper-5-bath1">
+        <li class="text">Union Island Bathroom</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="30-upper-5-bath2">
+        <li class="text">Union Island Bathroom 2</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="33-upper-6-main">
+        <li class="text">Palm Island Suite</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="32-upper-6-bath">
+        <li class="text">Palm Island Bathroom</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="34-upper-connector">
+        <li class="text">Upper Level Catwalk</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="35-upper-connector-2">
+        <li class="text">Upper Level Catwalk 2</li>
+      </a>
+    
+  </ul>
+</div>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
+
+<a href="javascript:void(0)" id="autorotateToggle">
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
+</a>
+
+<a href="javascript:void(0)" id="fullscreenToggle">
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
+</a>
+
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<div id="tooltip">
+  <div class="out">
+    <div class="in">
+      <a href="http://springhousebequia.com/restaurant-bar/" target="_blank"><div class="image"></div></a>
+    </div>
+  </div>
+  <div class="tip">
+	  <p>Read more about the bar and restaurant</p>
+  </div>
+</div>
+
+<script src="vendor/es5-shim.js"></script>
+<script src="vendor/eventShim.js"></script>
+<script src="vendor/classList.js"></script>
+<script src="vendor/requestAnimationFrame.js" ></script>
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
+<script src="data.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>

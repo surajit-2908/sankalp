@@ -1,0 +1,1353 @@
+@charset"utf-8";
+
+/*=========================== Responsive Style Sheet Start Here ===========================*/
+@media only screen and (min-width:1600px){
+
+}
+
+@media only screen and (max-width:1365px){
+	.responsive-tabs-container.accordion-lg .nav-tabs {
+		display: none;
+	}
+	
+	.responsive-tabs-container.accordion-lg .accordion-link {
+		display: block;
+	}
+}
+
+@media only screen and (max-width:1199px){
+	.edit-usr-info {
+		top: -29px;
+	}
+	.home-banner-pic img{
+		min-height: 550px;
+		object-fit: cover;
+	}
+	.sfty-msg-sec ul li h2{
+		font-size: 13px;
+	}
+	.sfty-msg-sec ul li p{
+		font-size: 14px;
+	}
+	.sfty-msg-sec{
+		height: 110px;
+	}
+	.hotel-experience-row .xprnc-item-txt h3{
+		font-size: 30px;
+	}
+	.left-video, .right-review{
+		min-height: 400px;
+	}
+	.dflt-inr-page-body h2.sub-title{
+		font-size: 26px;
+	}
+	.dflt-inr-page-body .sub-title2{
+		font-size: 21px;
+	}
+	.excursions-snorkeling-trip figure:after{
+		margin-bottom: -40px;
+	}
+	.inr-attractions-right-panel ul li img{
+		width: 65px;
+		margin-right: 8px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	.responsive-tabs-container.accordion-md .nav-tabs {
+		display: none;
+	}
+
+	.responsive-tabs-container.accordion-md .accordion-link {
+		display: block;
+	}
+	.usr-info-edit-sec ul li:not(:last-child) {
+		margin-right: 15px;
+	}
+	.st-vincent-hdn-right-clmn h1 br{
+		display: none;
+	}
+	.st-vincent-hdn-right-clmn h1{
+		font-size: 45px;
+	}
+
+	
+}
+
+@media only screen and (max-width:991px){
+	.boxWrap{
+		width:100%;
+	}
+	.bannerbuttonprt{
+		flex-direction: column;
+	}
+	.event_list li{
+		flex-direction: column;
+	}
+	.eventdesc {
+		width: 100%;
+		margin-top: 20px;
+	}
+	.spcl-price-sub-div{
+		margin-bottom: 20px;
+	}
+	.edit-usr-info {
+		top: -40px;
+	}
+	.usr-info-edit-sec ul li{
+		margin-right: 0;
+	}
+	.usr-info-edit-sec ul li:not(:last-child){
+		margin-right: 0;
+	}
+	.blue-hdr-row{
+		justify-content: center;
+	}
+	.blue-hdr-right-contact{
+		display: none;
+	}
+	.close-blue-hdr{
+		display: inline-block;
+	}
+	.mob-date-room-sec{
+		display: block;
+	}
+	.mob-date-room-sec.reservation-area-top{
+		top: 105px;
+	}
+	.mob-date-room-sec.top-date-room-sec.reservation-area-top{
+		top: 65px;
+	}
+	.menu-hdr{
+		padding: 15px 0;
+	}
+	.mnu-hdr-row{
+		text-align: left;
+	}
+	.logo img{
+		width: 250px;
+	}
+	.mob-chat{
+		display: inline-block;
+	}
+	.menu-icon{
+		margin-top: 5px;
+	}
+	.main-header{
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 99;
+		background-color: #ffffff;
+	}
+	.home-banner-sec{
+		margin-top: 45px;
+	}
+	.home-banner-pic img {
+		min-height: 350px;
+	}
+	.home-banner-cap ul.facility{
+		display: none;
+	}
+	.choose-date-room{
+		display: none;
+	}
+	.home-banner-cap h1 {
+		font-size: 30px;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+	.home-banner-cap{
+		margin-top:30px;
+	}
+	.sfty-msg-sec{
+		height: auto;
+		padding: 15px 0;
+	}
+	.sfty-msg-sec ul li{
+		margin: 10px 0;
+	}
+	.sfty-msg-sec ul li article{
+		width: 58%;
+		margin: 0 0 0 4%;
+	}
+	.convention-centre{
+		width:80px!important;
+		height: 80px;
+		margin-top:0;
+	}
+	.sfty-msg-sec ul li img{
+		top: 0;
+	}
+	.hotel-experience-body-sec{
+		padding: 40px 0;
+	}
+	.hotel-experience-row{
+		margin-top: 0;
+	}
+	.home-experience-item-one, .home-experience-item-two{
+		width: 100%;
+		margin: 8px 0;
+	}
+	.hotel-experience-row figure, .hotel-experience-row figure img{
+		height: auto;
+	}
+	.hotel-experience-row figure img{
+		max-height: 280px;
+	}
+	.hotel-experience-row .single-ladies{ text-align: center; }
+	.hotel-experience-row .single-ladies img{ width: auto; }
+	.left-video, .right-review{
+		width: 100%;
+		margin: 8px 0;
+		min-height: inherit;
+		height: auto;
+	}
+	.right-review{
+		padding: 20px 25px 60px 25px;
+	}
+	.main-footer{
+		padding: 40px 0;
+	}
+	.footer-left-clmn h2{
+		display: block;
+		margin: 40px 0 0 0;
+	}
+	.ftr-contact-info, .footer-main-menu{
+		display: none;
+	}
+	.footer-left-clmn, .footer-right-clmn, .footer-middle-menu-clmn{
+		width: 100%;
+	}
+	.footer-middle-menu-clmn{
+		padding-left: 0;
+	}
+	.footer-main-menu ul, .footer-main-menu ul:last-child{
+		width: 100%;
+	}
+	.footer-logo{
+		text-align: center;
+	}
+	.footer-menu-hdn{
+		margin: 25px 0 0 0;
+	}
+	.footer-row h2{
+		position: relative;
+		font-size: 13px;
+		text-transform: uppercase;
+		border-bottom: 1px solid #555;
+		padding-bottom: 8px;
+		margin-bottom: 8px;
+	}
+	.footer-logo img{
+		width: 100%;
+	}
+	.footer-row h2:after{
+		position: absolute;
+		content: '';
+		width: 20px;
+		height: 12px;
+		background: url(../images/down-arrow1.png) no-repeat 0 0;
+		top: 5px;
+		right: 5px;
+	}
+	.footer-right-clmn{
+		text-align: center;
+		margin-top: 25px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.footer-right-clmn figure{
+		margin: 0 10px 25px 10px;
+	}
+	.footer-right-clmn figure img{
+		max-width: 150px;
+	}
+	.scl-mda{
+		width: 100%;
+		justify-content: center;
+	}
+	.mob-btn{
+		display: inline-block !important;
+	}
+	.web-btn{
+		display: none !important;
+	}
+	.inr-room-item figure{
+		margin-bottom: 15px;
+		height: 200px;
+	}
+	.inr-room-item figure, .inr-room-item article {
+		width: 100%;
+	}
+	.reservation-sec{
+		margin-top: 110px !important;
+	}
+	.reservation-sec .step-title{
+		white-space: pre-wrap;
+		margin-left: 18px;
+	}
+	.reservation-sec .step-number{
+		font-size: 0;
+	}
+	.reservation-sec li.active .step-number{
+		font-size: 16px;
+	}
+	.reservation-sec li span{
+		/*position: absolute;*/
+		left: 0;
+		top: 0;
+	}
+	.room-count-popup {
+		margin-top: 15px;
+		width: 100%;
+	}
+	.dflt-inr-page-body{
+		margin-top: 85px;
+	}
+	.inr-room-page-row {
+		padding: 25px 0 8px 0;
+	}
+	.inr-room-content-area article{ order: 1; margin-top: 25px; }
+	.inr-room-content-area figure img{ width: 100%; }
+	.inr-room-content-area figure:after{ display: none; }
+	.inr-room-content-area figure, .inr-room-content-area article{
+		width: 100%;
+		height: auto;
+	}
+	.usr-info-edit-sec{
+		margin-top: 8px;
+	}
+	.usr-info-edit-sec ul{
+		max-width: 100%;
+		margin-top: 30px;
+		margin-right: 0;
+	}
+	.usr-info-edit-sec ul li{
+		width: 100%;
+		margin: 4px 0;
+	}
+	.slct-room-description{
+		width: 35%;
+	}
+	.room-pay-price-btn{
+		width: 25%
+	}
+	.room-pay-price-btn .price{
+		margin-bottom: 0;
+	}
+	.room-pay-price-btn li:not(:last-child){
+		margin-bottom: 18px;
+	}
+	.rental-option-room, .rental-option-calculation{
+		width: 100%;
+	}
+	.rental-option-calculation{
+		margin-top: 20px;
+	}
+	.discount-package-row, .rcomnded-srvc-row{
+		justify-content: center;
+	}
+	.discount-item, .rcomnded-srvc-item{
+		width: 48%;
+		margin: 10px 1%;
+	}
+	.inr-contact-info-item{
+		width: 100%;
+		max-width: 400px;
+		margin: 10px auto;
+	}
+	.inr-left-map, .inr-right-contact-form{
+		width: 100%;
+	}
+	.inr-left-map{
+		height: 350px;
+		margin-bottom: 25px;
+	}
+	.amenities-itm-sec ul li{
+		width: 31%;
+	}
+	.inr-staff-itm {
+		width: 22%;
+		margin-left: 3%;
+	}
+	.inr-staff-itm.staff-content{
+		width: 100%;
+		margin: 20px 0 0 0;
+	}
+	.excursions-snorkeling-trip article, .excursions-snorkeling-trip figure, .excursions-snorkeling-trip figure img{
+		width: 100%;
+	}
+	.excursions-snorkeling-trip article{
+		order: 1;
+		margin-top: 25px;
+	}
+	.excursions-snorkeling-trip figure:after{
+		display: none;
+	}
+	ul.full-day-excursion-list > li{
+		width: 100%;
+		max-width: 450px;
+		margin: 10px auto;
+	}
+	.inr-attractions-left-panel{
+		width: 100%;
+		order: 1;
+	}
+	.inr-attractions-right-panel{
+		width: 100%;
+		max-width: 350px;
+		padding: 25px 15px;
+		margin: 0 auto 40px auto;
+	}
+	.inr-attractions-right-panel ul li img{
+		width: 80px;
+	}
+	.guest-rental-agreement-list-sec, .inr-waiver-sec{
+		margin-top: 20px;
+	}
+	.guest-rental-agreement-list-sec > ul > li{
+		width: 100%;
+		padding: 20px 15px;
+	}
+	.guest-rental-agreement-list-sec > ul > li:nth-child(even) {
+		background-color: #f3f3f3;
+	}
+	.inr-rental-agreement-page .sub-title2{
+		font-size: 16px;
+	}
+	.inr-rental-agreement-page p{
+		font-size: 13px;
+	}
+	.where-bequia-clmn{
+		width: 100%;
+		max-width: 500px;
+		margin: 10px auto;
+	}
+	.where-bequia-clmn img{
+		width: 100%;
+		max-height: 250px;
+		object-fit: cover;
+	}
+	.Vincent-grenadines-history-sec img{
+		max-width: 400px;
+	}
+	.temperature-table{
+		overflow-x: scroll;
+	}
+	.temperature-table table{
+		width: 1000px;
+	}
+	.inr-restaurant-first-column, .inr-restaurant-second-column, .inr-restaurant-last-column{
+		width: 100%;
+	}
+	.inr-restaurant-row-area ul{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.inr-restaurant-row-area ul li{
+		width: 48%;
+		margin: 15px 1%;
+	}
+	.inr-restaurant-row-area article h3{
+		font-size: 18px;
+	}
+	.st-vincent-hdn-right-clmn{
+		padding: 30px 20px;
+	}
+	.st-vincent-hdn-right-clmn h1 br{
+		display: none;
+	}
+	.st-vincent-hdn-right-clmn h1{
+		font-size: 35px;
+	}
+}
+
+
+@media only screen and (max-width:767px){
+	.flex-quan {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+	.reserve-eve-rest{
+		width: 100%;
+	}
+	.top_sectionImgprt{
+		flex-direction: column;
+		margin-top:20px;
+	}
+	.rightCOntsection{
+		width:100%;
+	}
+
+	.specialPricesection{
+		flex-direction: column;
+	}	
+	.price-div{
+		width:100%;
+	}
+	a.dflt-btn1, button.dflt-btn1{
+		font-size: 14px;
+		padding: 10px 30px;
+	}
+	.reserve-eve-rest .dflt-btn1{
+		margin-left: 0px;
+	}
+	.logo img {
+		width: 200px;
+	}
+	.footer-row{
+		padding: 0 20px;
+	}
+	.sfty-msg-sec ul{
+		align-items: flex-start;
+	}
+	.sfty-msg-sec ul li{
+		margin: 0;
+	}
+	.sfty-msg-sec ul li img{
+		max-height: 100px;
+	}
+	.sfty-msg-sec ul li p{
+		display: none;
+	}
+	.mob-date-room-sec .dflt-btn1 {
+		font-size: 11px;
+		padding: 8px 5px;
+	}
+	.hotel-experience-row{
+		display: block;
+	}
+	.hotel-experience-row figure img {
+		min-height: 270px;
+	}
+	.hotel-experience-row .xprnc-item-txt .dflt-btn1, .hotel-experience-row .xprnc-item-txt .dflt-btn2 {
+		margin-top: 8px;
+	}
+	.left-video iframe{
+		min-height: 300px;
+	}
+	.lightpick__month-title{
+		margin-top: 0;
+	}
+	.lightpick {
+		margin-top: 15px;
+	}
+	.date-col .form-control {
+		width: 100%;
+	}
+	.dflt-inr-page-body h2.sub-title{
+		font-size: 20px;
+	}
+	.how-to-get-video{
+		height: 300px;
+	}
+	.travel-links ul li span{
+		width: auto;
+		margin-right: 25px;
+	}
+	.slct-room-pic, .slct-room-description, .room-pay-price-btn{
+		width: 100%;
+	}
+	.slct-room-description{
+		margin: 20px 0;
+	}
+	.slct-room-pic img{
+		max-height: 250px;
+	}
+	.discount-item, .rcomnded-srvc-item{
+		width: 100%;
+		margin: 10px 0;
+	}
+	.glry-row li{
+		width: 32%;
+		margin: 4px 0;
+	}
+	.explore-floor-plan-item{
+		width: 100%;
+		max-width: 350px;
+		margin: 10px auto;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.priceSection{
+		flex-direction:column;
+	}
+	.priceSection p{
+		margin-bottom:20px;
+	}
+	.priceSection .laterprice{
+		margin-left:0px;
+	}
+	.responsive-tabs-container.accordion-sm .nav-tabs {
+		display: none;
+	}
+	.responsive-tabs-container.accordion-sm .accordion-link {
+		display: block;
+	}
+	.responsive-tabs-container[class*="accordion-"] .tab-pane {
+		border:1px solid #ddd;
+		border-top:none;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-width: medium 1px 1px;
+		margin-bottom: 10px;
+		margin-top: -10px;
+		padding: 15px;
+	}
+}
+
+@media only screen and (max-width:767px){
+	.resevebtn{
+		padding: 10px 41px !important;
+	}
+
+	.hotel-experience-row .xprnc-item-txt .responsive-des{		
+		margin: 10px auto;
+		padding: 5px 0;
+	}
+	.succes-msg{
+		width:85%;
+	}
+
+	.art-tour-form h2.sub-title{
+		font-size:25px;
+	}
+	.reserve-eve-rest{
+		padding: 20px 20px;
+	}
+	.reserve-eve-rest .art-tour-form ul li{
+		width:100%;
+	}
+	.book_cartbody {
+		padding: 10px 0;
+	}
+
+	.cartbody table tbody tr td{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.cartbody table tbody tr td:first-child{
+		text-align: left;
+	}
+	.cartbody table tbody tr td:before{
+		content: attr(title);
+		display: block;
+		font-weight: bold;
+		font-size: 15px;
+		color: #ffa400;
+		margin-bottom: 11px;
+	}
+	.cartbody table thead{
+		display: none;
+	}
+	.cartbody table tbody tr:nth-child(odd){
+		background: #f0fffe;
+		border-radius: 0;
+	}
+	.cartbody table tbody tr:nth-child(even){
+		background: #d4fcf9;
+		border-radius: 0;
+	}
+	.cartbody {
+		padding: 50px 0;
+	}
+	.subtotalprt{
+		width:90%;
+	}
+	.logo img {
+		width: 200px;
+	}
+	.footer-row{
+		padding: 0 20px;
+	}
+	.sfty-msg-sec ul{
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+	.sfty-msg-sec ul li{
+		margin: 0;
+	}
+	.sfty-msg-sec ul li img{
+		max-height: 100px;
+	}
+	.sfty-msg-sec ul li p{
+		display: none;
+	}
+	.mob-date-room-sec .dflt-btn1 {
+		font-size: 11px;
+		padding: 8px 5px;
+	}
+	.hotel-experience-row{
+		display: block;
+	}
+	.hotel-experience-row figure img {
+		min-height: 270px;
+	}
+	.hotel-experience-row .xprnc-item-txt .dflt-btn1, .hotel-experience-row .xprnc-item-txt .dflt-btn2 {
+		margin-top: 8px;
+	}
+	.left-video iframe{
+		min-height: 300px;
+	}
+	.lightpick__month-title{
+		margin-top: 0;
+	}
+	.lightpick {
+		margin-top: 0;
+		position: absolute;
+		top: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		overflow: scroll;
+		border-radius: 0 !important;
+	}
+	.lightpick__months{
+		display: block;
+	}
+	.lightpick__month-title {
+		margin: 0;
+		margin-top: -0px !important;
+		margin-bottom: 10px;
+		width: 100%;
+		padding: 0;
+		text-align: center;
+		padding-right: 30px;
+	}
+	.lightpick__toolbar {
+		display: flex;
+		justify-content: flex-start;
+		margin-top: 10px;
+	}
+	.lightpick__footer {
+		padding: 0 10px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-top: 10px;
+	}
+	.lightpick__apply-action {
+		color: #fff;
+		background-color: red;
+		width: 32px;
+		height: 32px;
+		border-radius: 100%;
+		margin-top: 5px;		
+	}
+	.lightpick__reset-action {
+		color: #000;
+		background-color: #ddd;
+		width: 32px;
+		height: 32px;
+		border-radius: 100%;
+		margin: 5px;	
+	}
+	.date-col .form-control {
+		width: 100%;
+	}
+	.dflt-inr-page-body h2.sub-title{
+		font-size: 20px;
+	}
+	.how-to-get-video{
+		height: 300px;
+	}
+	.travel-links ul li span{
+		width: auto;
+		margin-right: 25px;
+	}
+	.slct-room-pic, .slct-room-description, .room-pay-price-btn{
+		width: 100%;
+	}
+	.slct-room-description{
+		margin: 20px 0;
+	}
+	.slct-room-pic img{
+		max-height: 250px;
+	}
+	.discount-item, .rcomnded-srvc-item{
+		width: 100%;
+		margin: 10px 0;
+	}
+	.responsive-tabs-container.accordion-xs .nav-tabs {
+		display: none;
+	}
+	.travel-links ul li a{display: block;}
+	.responsive-tabs-container.accordion-xs .accordion-link {
+		display: block;
+	}
+
+	.responsive-tabs-container[class*="accordion-"] .tab-pane {
+		border:1px solid #ddd;
+		border-top:none;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-width: medium 1px 1px;
+		margin-bottom: 10px;
+		margin-top: -10px;
+		padding: 15px;
+	}
+	.rental-option-room ul li {
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0px;
+		border-top: 1px solid #eaeaea;
+		padding-bottom: 25px;
+	}
+	.rental-option-room img{
+		max-width: 100%;
+		max-height: 100%;	
+	}
+	.rental-option-body-sec {
+		padding: 40px 0;
+	}
+	.xtra-rcomnded-sec h2 {
+		font-size: 20px;
+	}
+	.tab-content .nav-item {
+		font-size: 15px;
+	}
+	.xtra-rcomnded-sec .tab-content h3 {
+		font-size: 20px;
+	}
+	.amenities-itm-sec ul li{
+		width: 48%;
+	}
+	.inr-staff-itm {
+		width: 30%;
+		margin-left: 3%;
+	}
+	.inr-floor-plan-sec li figure, .inr-floor-plan-sec li article{
+		width: 100%;
+	}
+	.inr-floor-plan-sec > ul > li:nth-child(even) figure{
+		order: 0;
+	}
+	.full-day-excursion-sec, .inr-excursions-page .travel-links{
+		margin-top: 15px;
+	}
+	.travel-links ul li{
+		font-size: 13px;
+		padding: 8px 10px;
+	}
+	.inr-excursions-page .travel-links ul li span{
+		width: 100%;
+		margin-bottom: 8px;
+	}
+	.seasonal-rate-sec ul li.trow .tcol-1, .seasonal-rate-sec ul li.thed .tcol-1{
+		display: none;
+	}
+	.inr-rental-agreement-page{
+		padding-bottom: 20px;
+	}
+	.geology-ecosystem-clmn{
+		width: 100%;
+		max-width: 500px;
+		margin: 10px auto;
+	}
+	.geology-ecosystem-clmn img{
+		width: 100%;
+		max-height: 250px;
+		object-fit: cover;
+	}
+	.geology-ecosystem-sec{
+		padding: 25px 0;
+		margin-top: 25px;
+	}
+	.where-bequia-row, .geology-ecosystem-row{
+		margin-top: 0;
+	}
+	.Vincent-grenadines-history-sec p br{
+		display: none;
+	}
+	.Vincent-grenadines-history-sec img.float-right, .Vincent-grenadines-history-sec img.float-left{
+		float: none !important;
+		clear: both;
+		margin: 15px 0;
+		max-width: 100%;
+	}
+	.Vincent-grenadines-history-sec{
+		padding-bottom: 0;
+	}
+	.inr-discover-bequia-page{
+		padding-bottom: 20px;
+	}
+	.inr-restaurant-row-area ul li{
+		width: 100%;
+		max-width: 350px;
+		margin: 10px auto;
+	}
+	.useful-link-sec{
+		padding: 25px 10px;
+	}
+	.useful-link-sec .sub-title2{
+		font-size: 18px;
+	}
+	.st-vincent-hdn-left-clmn, .st-vincent-hdn-right-clmn{
+		width: 100%;
+	}
+
+	.priceSection{
+		flex-direction:column;
+	}
+	.priceSection p{
+		margin-bottom:20px;
+	}
+	.priceSection .laterprice{
+		margin-left:0px;
+	}
+}
+
+
+@media only screen and (max-width:575px){
+
+	.available-room{
+		width: auto;
+		align-items: center;
+		font-size: 14px;
+		display: inline-block;
+	}
+
+	.full-div{
+		flex-direction:column;
+	}
+	.flex-quan{
+		align-items: center;
+	}
+	
+	.response-msg {
+		width: 90%;
+		margin: 30px auto;
+		text-align: center;
+	}
+	.msg-btn {
+		display: block;
+	}
+	.flex-quan {
+		justify-content: center;
+	}
+	.lightpick{
+		width: 92%;
+	}
+	.mob-date-room-sec ul li:first-child{
+		width: 58%;
+	}
+	.mob-date-room-sec ul li:last-child{
+		width: 40%;
+	}
+	.hotel-experience-body-sec .hdn h2{
+		font-size: 20px;
+	}
+	.hotel-experience-body-sec .hdn {
+		margin: 0 auto 35px auto;
+	}
+	.home-experience-item-one figure img{
+		max-height: inherit;
+		min-height: 300px;
+	}
+	.footer-right-clmn figure img{
+		max-width: 150px;
+	}
+	.popup-choose-date-room li.room-book .room-count, .popup-choose-date-room li.room-book .adult-count, .popup-choose-date-room li.room-book .kids-count{
+		width: 100%;
+		margin: 0 0 15px;
+	}
+	.footer-right-clmn figure img {
+		max-width: 120px;
+	}
+	.inr-room-item {
+		width: 100%;
+		max-width: 350px;
+		margin: 10px auto;
+		display: block;
+	}
+	.inr-room-item figure img {
+		max-height: 250px;
+	}
+	.agree-field input[type=checkbox]+label {
+		font-size: 14px;
+		line-height: 1.5;
+	}
+	.dflt-inr-page-body{
+		margin-top: 70px;
+	}
+	.dflt-inr-page-body h1.page-title{
+		font-size: 20px;
+	}
+	.dflt-inr-page-body p{
+		font-size: 13px;
+	}
+	.inr-room-content-area article{
+		margin-top: 15px;
+	}
+	.inr-room-content-area h2{
+		font-size: 20px;
+		margin-bottom: 5px;
+	}
+	.dflt-inr-page-body ul li{
+		font-size: 14px;
+		line-height: 1.6;
+	}
+	.card-field h3{
+		font-size: 16px;
+	}
+	.rental-option-room figure{
+		width: 100%;
+		text-align: center;
+	}
+	.rental-option-room article{
+		width: 100%;
+		margin: 20px 0 0 0;
+		text-align: center;
+	}
+	.inr-contact-info-row{
+		margin-top: 15px;
+	}
+	.inr-left-map{
+		height: 300px;
+	}
+	.inr-right-contact-form{
+		padding: 15px;
+	}
+	.amenities-page{
+		padding-bottom: 0;
+	}
+	.guest-services-page, .destination-weddings-page{
+		padding-bottom: 20px;
+	}
+	.guest-srvc-item, .destination-weddings-item{
+		padding: 15px;
+		margin: 15px 0;
+	}
+	.faq-accordion > ul > li h3{
+		font-size: 14px;
+	}
+	.faq-accordion > ul > li h3 > a:after{
+		right: 10px;
+	}
+	.inr-floor-plan-sec{
+		margin-top: 20px;
+	}
+	.inr-floor-plan-sec li article{
+		padding: 20px 15px;
+	}
+	.inr-attractions-row{
+		margin-top: 15px;
+	}
+	.seasonal-rate-sec ul li.thed, .seasonal-rate-sec ul li.trow .tcol-1{
+		display: none;
+	}
+	.seasonal-rate-sec ul li .tcol:before{
+		content: attr(data-label);
+		font-size: 16px;
+		color: #0c2d86;
+		font-weight: 600;
+		text-align: left;
+		padding-right: 10px;
+	}
+	.seasonal-rate-sec ul li .tcol{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		margin: 15px 0;
+	}
+	.seasonal-rate-sec ul li .tcol a.dflt-btn1{
+		padding: 8px 35px;
+	}
+	.art-tour-form{
+		padding: 15px 10px;
+	}
+	.main-sub-hdn-sec h2{
+		font-size: 35px;
+	}
+	.main-sub-hdn-sec h3{
+		font-size: 25px;
+	}
+	.dflt-inr-page-body .sub-title2{
+		font-size: 20px;
+	}
+	.st-vincent-hdn-right-clmn h1, .st-vincent-hdn-right-clmn h1 span{
+		font-size: 25px;
+	}
+	.st-vincent-nemo-sec article p{
+		font-size: 16px;
+	}
+	.health-srvc-sub-comite-page.inr-st-vincent-page li{
+		font-size: 14px !important;
+		font-weight: normal !important;
+	}
+	figure.st-vincent-logo-img{
+		padding-top: 50px;
+	}
+	.phased-process-entry h2.sub-title{
+		margin-bottom: 0;
+	}
+	.st-vincent-aim-sec, .st-vincent-objective-sec, .phased-process-entry .hdn, .phased-process-entry article, .establish-risk-sec .hdn, .establish-risk-sec article, .arrival-process-sec, .discharge-requirment-sec, .inr-st-vincent-page-last-nb-sec{
+		padding: 20px;
+	}
+}
+
+
+
+@media only screen and (max-width:479px){
+	.slct-room-pic img {
+		max-height: 200px;
+	}
+	.slct-room-pic img {
+		width: 80%;
+	}
+	.event_list li .slct-room-pic {
+		width: 330px;
+	}
+	.resevebtn{
+		padding: 10px 38px !important;
+	}
+	.resevebtn {
+		width: 135px;
+	}
+
+	.sfty-msg-sec ul li figure{
+		width:20%;
+	}
+	.sfty-msg-sec ul{
+		flex-direction: column;
+	}
+	.sfty-msg-sec ul li{
+		margin-bottom: 20px;
+		width:100%;
+		flex-wrap: inherit;
+	}
+	.convention-centre{
+		width:80px!important;
+		height: 80px;
+	}
+
+	.home-banner-cap .dflt-btn1{
+		padding: 10px 40px !important;
+	}
+	.reserveBtn{
+		font-size: 14px !important;
+		padding: 10px 40px !important;
+		box-shadow: none !important;
+	}
+	.flexColumn{
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+	.flexColumn button{
+		margin-bottom: 20px;
+	}
+	.flexColumn a{
+		margin-top: 0;
+	}
+	.top-contact-info-hdr{
+		font-size: 11px;
+	}
+	.blue-hdr-row{
+		justify-content: flex-start;
+	}
+	.close-blue-hdr{
+		right: 15px;
+	}
+	.close-blue-hdr img{
+		max-width: 15px;
+	}
+	.logo img{
+		width: 140px;
+	}
+	.menu-icon{
+		margin-top: 0;
+	}
+	.hmbrgr-icon{
+		width: 30px;
+		height: 20px;
+		top: 4px;
+	}
+	.hmbrgr-icon span{
+		width: 22px;
+		height: 3px;
+	}
+	.hmbrgr-icon span:nth-child(2){
+		top: 7px;
+	}
+	.hmbrgr-icon span:nth-child(3){
+		top: 14px;
+	}
+	.mob-date-room-sec.top-date-room-sec, .mob-date-room-sec.top-date-room-sec.reservation-area-top{
+		top: 50px;
+	}
+	.mob-date-room-sec.reservation-area-top {
+		top: 92px;
+	}
+	.mob-date-room-sec ul li:first-child{
+		width: 55%;
+	}
+	.mob-date-room-sec ul li:last-child{
+		width: 43%;
+	}
+	.mob-date-room-sec .dflt-btn1{
+		font-size: 10px;
+	}
+	.popup-choose-date-room .t-datepicker-day{
+		left: -25px;
+	}
+	.hotel-experience-row .xprnc-item-txt h3{
+		font-size: 25px;
+	}
+	.home-banner-sec {
+		margin-top: 36px;
+	}
+	.sfty-msg-sec ul li h2 {
+		font-size: 11px;
+	}
+	.sfty-msg-sec ul li p {
+		font-size: 12px;
+	}
+	.sfty-msg-sec ul li figure img{
+		max-height: 60px;
+	}
+	.footer-right-clmn{
+		margin-top: 15px;
+	}
+	.footer-right-clmn figure img {
+		max-width: 95px;
+	}
+	.proceed-btn .dflt-btn1 {
+		font-size: 14px;
+		box-shadow: none;
+		padding: 11px 50px;
+		display: block;
+		text-align: center;
+	}
+	.lightpick__month{
+		width: 100%;
+	}
+	.dflt-inr-page-body ul li{
+		word-break: break-word;
+	}
+	button.dflt-btn1{
+		width: 100%;
+	}
+	.glry-row li, .restaurent-bar-page-body .glry-row li{
+		width: 48.7%;
+	}
+	.amenities-itm-sec ul li{
+		width: 100%;
+		max-width: 300px;
+		margin: 10px auto;
+	}
+	.inr-staff-itm {
+		width: 45%;
+		margin-left: 5%;
+	}
+	.guest-srvc-item h3 .srvc-icon{
+		font-size: 40px;
+		margin-right: 8px;
+	}
+	.guest-srvc-item h3.sub-title2{
+		font-size: 20px;
+	}
+	.st-vincent-hdn-right-clmn h1, .st-vincent-hdn-right-clmn h1 span{
+		font-size: 18px;
+	}
+}
+
+
+@media only screen and (max-width:400px){
+	.event_list li .slct-room-pic {
+		width: 310px;
+	}
+
+	.hotel-experience-row .xprnc-item-txt .responsive-des{		
+		margin: 5px auto;
+		padding: 5px 0;
+	}
+	
+	.mob-date-room-sec ul li:first-child{
+		width: 50%;
+	}
+	.mob-date-room-sec ul li:last-child{
+		width: 48%;
+	}
+	nav.navbar.show-nav{
+		width: 270px;
+	}
+	nav .navbar-nav li{
+		font-size: 13px;
+	}
+	nav .navbar-nav li a{
+		padding: 7px 6px 7px 18px;
+	}
+	.footer-right-clmn figure {
+		margin: 0 5px 25px 5px;
+	}
+	.pmnt-field label {
+		font-size: 16px;
+	}
+	.payment-option-wraper h3 {
+		font-size: 14px;
+	}
+	.pay-option-btn2 .dflt-btn1, .pay-option-btn2 .dflt-btn1.pay-let{
+		font-size: 14px;
+		padding: 7px 25px;
+	}
+	.dflt-inr-page-body h1.page-title{
+		font-size: 15px;
+	}
+	.how-to-get-video{
+		height: 200px;
+	}
+	.how-to-get-video iframe{
+		padding: 5px;
+	}
+	.reservation-step-sec ul li.active .step-number, .reservation-step-sec ul li.active .step-title{
+		font-size: 14px;
+	}
+	.room-pay-price-btn .dflt-btn1, .room-pay-price-btn .dflt-btn2{
+		font-size: 13px;
+		padding: 6px 20px;
+	}
+	.room-pay-price-btn .price{
+		font-size: 14px;
+	}
+	.room-pay-price-btn .pay-save{
+		font-size: 13px;
+	}
+	.discount-checkbox input[type=checkbox]+label{
+		font-size: 12px;
+	}
+	.discount-checkbox label span{
+		margin-right: 3px;
+	}
+	.inr-left-map{
+		height: 220px;
+	}
+}
+
+
+@media only screen and (max-width:359px){
+	.home-banner-cap .dflt-btn1 {
+		padding: 10px 40px !important;
+	}
+	.logo img {
+		width: 120px;
+	}
+	.rental-option-body-sec .proceed-checkout a {
+		font-size: 14px;
+		padding: 12px 30px;
+	}
+	.restaurent-bar-page-body .glry-row li{
+		width: 100%;
+	}
+	.inr-attractions-right-panel ul li img{
+		width: 70px;
+	}
+}
+/*=========================== Responsive Style Sheet End Here ===========================*/
