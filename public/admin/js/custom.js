@@ -19,7 +19,7 @@ $(document).ready(function(){
 	  $("body").toggleClass("body-fixed");
 	});
 });
-  
+
 $(document).ready(function () {
 	$('.navbar-toggler').on('click', function () {
 	  $('.navbar-toggler').toggleClass('open');
@@ -93,3 +93,5 @@ $(document).ready(function () {
 	});
 
 });
+
+$('#bootstrap-data-table-export').DataTable();

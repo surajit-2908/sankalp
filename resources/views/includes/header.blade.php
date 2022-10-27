@@ -12,3 +12,6 @@
 <link type="text/css" href="{{ asset('admin/css/owl.carousel.min.css') }}" rel="stylesheet">
 <!-- Custom Css -->
 <link type="text/css" href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+
+<!-- Data Tables -->
+<link type="text/css" href="{{ asset('admin/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
