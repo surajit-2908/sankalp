@@ -1,14 +1,14 @@
 @extends('layouts.admin-dashboard')
 @section('content')
+<div class="bodyRightPanel dashboardBody">
+    <div class="dFlx spaceBet">
+        <h1 class="pageTitle mb20">Add Order</h1>
+        <a class="addNew" href="{{ route('admin.order') }}">Back</a>
+    </div>
     <div class="admin-body-area">
         <!-- Booking Status Section Start -->
         <div class="booking-status-sec order-list-sec">
-            <div class="category-list-hdn">
-                <h2>Add Order</h2>
-                <h3 class="create-cat">
-                    <a href="{{ route('admin.order') }}">Back</a>
-                </h3>
-            </div>
+           
 
 
             <div class="order-list-area">
@@ -34,12 +34,13 @@
                         </div>
                     </div>
 
-                    <button class="submit-btn subbtn" type="submit">Submit</button>
+                    <button class="submit-btn subBtn" type="submit">Submit</button>
                 </form>
 
             </div>
         </div>
 
+    </div>
     </div>
     <!-- Booking Status Section Start -->
 @stop

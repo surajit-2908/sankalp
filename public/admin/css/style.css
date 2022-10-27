@@ -334,7 +334,7 @@ p {
 }
 
 .mb20 {
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 /*=========================== Login Page Style Sheet Start Here ===========================*/
@@ -835,5 +835,61 @@ p {
     margin-right: 7px;
 }
 
+.addNew{
+    font-size: 15px;
+    border: solid 1px #007bff;
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #007bff;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+.addNew:hover{
+    border: solid 1px #007bff;
+    border-radius: 5px;
+    color: #fff;
+    background: #007bff;
+}
 
+.subBtn{
+    font-size: 15px;
+    border: solid 1px #ffcd00;
+    background: #ffcd00;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: #000;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+.subBtn:hover{
+    border: solid 1px #007bff;
+    border-radius: 5px;
+    color: #fff;
+    background: #007bff;
+}
+
+.table1 .container-fluid{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+.table1 .table.dataTable{
+    border-collapse:collapse !important;
+}
+.table1 .table thead{
+    background: #fff;
+}
+.table1 .table thead th{
+    border-bottom: none!important;
+    background: #fff;
+}
+.table1 tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+.table1 tbody tr:nth-of-type(even) {
+    background-color: rgb(255,255,255);
+}
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin: 12px 0 !important;
+}
 /*=========================== Notification Modal Popup Style End ===========================*/
