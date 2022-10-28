@@ -17,7 +17,7 @@
             <li><a class="{{ $controller_name == 'DashboardController' ? 'active' : '' }}"
                     href="{{ route('admin.dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
             <li><a class="{{ $controller_name == 'CompanyController' ? 'active' : '' }}"
-                    href="{{ route('admin.company') }}"><i class="fa fa-shopping-cart"></i> Companies</a></li>
+                    href="{{ route('admin.company') }}"><i class="fa fa-shopping-building-o"></i> Company</a></li>
             <li><a class="{{ $controller_name == 'OrderController' ? 'active' : '' }}"
                     href="{{ route('admin.order') }}"><i class="fa fa-shopping-cart"></i> Orders</a></li>
             <li>
