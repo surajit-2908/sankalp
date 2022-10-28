@@ -118,7 +118,17 @@ Route::group([
         Route::post('insert', ['as' => 'admin.order.insert', 'uses' => 'Admin\OrderController@orderInsert']);
         Route::get('edit/{id}', ['as' => 'admin.order.edit', 'uses' => 'Admin\OrderController@orderEdit']);
         Route::post('update/{id}', ['as' => 'admin.order.update', 'uses' => 'Admin\OrderController@orderUpdate']);
+        Route::get('status/{id}/{status}', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
         Route::get('remove/{id}', ['as' => 'admin.order.remove', 'uses' => 'Admin\OrderController@orderRemove']);
+    });
+
+    Route::group(['prefix' => 'company'], function () {
+        Route::get('', ['as' => 'admin.company', 'uses' => 'Admin\CompanyController@index']);
+        Route::get('add', ['as' => 'admin.company.add', 'uses' => 'Admin\CompanyController@companyAdd']);
+        Route::post('insert', ['as' => 'admin.company.insert', 'uses' => 'Admin\CompanyController@companyInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.company.edit', 'uses' => 'Admin\CompanyController@companyEdit']);
+        Route::post('update/{id}', ['as' => 'admin.company.update', 'uses' => 'Admin\CompanyController@companyUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.company.remove', 'uses' => 'Admin\CompanyController@companyRemove']);
     });
 
     Route::group(['prefix' => 'user'], function () {

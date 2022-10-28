@@ -13,11 +13,11 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'invoice_number', 'company_name', 'order_confirmed', 'production', 'packaging', 'delivery'
+        'id', 'invoice_number', 'company_name_id', 'order_confirmed', 'production', 'packaging', 'delivery'
     ];
 
     public function getComapanyName()
     {
-        return $this->hasOne(CompanyName::class, 'id', 'company_name');
+        return $this->hasOne(Company::class, 'id', 'company_name_id');
     }
 }

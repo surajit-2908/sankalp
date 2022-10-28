@@ -14,12 +14,14 @@
     <div class="dFlx">
         @include('includes.sidebar')
 
+        <div class="bodyRightPanel dashboardBody">
 
-        @include('includes.message')
-        @include('includes.err-msg')
+            @include('includes.message')
+            @include('includes.err-msg')
 
-        @yield('content')
+            @yield('content')
 
+        </div>
         <!-- ===================== Admin Profile Update Modal Popup Start ===================== -->
         <div class="notification-modal-popup" id="myModalChangePassword">
             <div class="noti-popup-box">
@@ -73,11 +75,13 @@
         </div>
 </section>
 
+{{-- @include('includes.footer-text') --}}
 @include('includes.footer')
 
 @stack('script')
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $('.multi-delete-confirm').on('click', function(event) {
         event.preventDefault();

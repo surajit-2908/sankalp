@@ -1,6 +1,5 @@
 @extends('layouts.admin-dashboard')
 @section('content')
-<div class="bodyRightPanel dashboardBody">
     <div class="dFlx spaceBet">
         <h1 class="pageTitle mb20">Add Order</h1>
         <a class="addNew" href="{{ route('admin.order') }}">Back</a>
@@ -8,7 +7,7 @@
     <div class="admin-body-area">
         <!-- Booking Status Section Start -->
         <div class="booking-status-sec order-list-sec">
-           
+
 
 
             <div class="order-list-area">
@@ -24,7 +23,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group">
                                 <label>Company Name</label>
-                                <select name="company_name" class="form-control" required="">
+                                <select name="company_name_id" class="form-control" required="">
                                     <option value="">Select Company Name</option>
                                     @foreach ($dataArr['companyName'] as $companyName)
                                         <option value="{{ $companyName->id }}">{{ $companyName->company_name }}</option>
@@ -40,7 +39,6 @@
             </div>
         </div>
 
-    </div>
     </div>
     <!-- Booking Status Section Start -->
 @stop

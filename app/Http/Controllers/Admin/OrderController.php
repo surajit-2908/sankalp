@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\CompanyName;
+use App\Models\Company;
 
 class OrderController extends BaseController
 {
@@ -32,10 +32,10 @@ class OrderController extends BaseController
      */
     public function orderAdd()
     {
-        $companyName = CompanyName::get();
+        $companies = Company::get();
         $dataArr = [
             "page_title" => "Add Order",
-            "companyName" => $companyName,
+            "companyName" => $companies,
         ];
 
         return view('pages.admin.order.add_order')->with('dataArr', $dataArr);
@@ -50,12 +50,12 @@ class OrderController extends BaseController
     {
         $request->validate([
             'invoice_number' => 'required',
-            'company_name' => 'required',
+            'company_name_id' => 'required',
         ]);
 
         Order::create([
             'invoice_number' => $request->invoice_number,
-            'company_name' => $request->company_name
+            'company_name_id' => $request->company_name_id
         ]);
 
         return redirect()->route('admin.order')->with([
@@ -104,6 +104,32 @@ class OrderController extends BaseController
             "message" => [
                 "result" => "success",
                 "msg" => "Order updated successfully."
+            ]
+        ]);
+    }
+
+    /**
+     * Order update
+     * @param int $id
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function orderStatus($id, $status)
+    {
+        $orderArr = Order::find($id);
+
+        if ($orderArr->$status)
+            $status_val = "";
+        else
+            $status_val = now();
+
+        $updateArray[$status] = $status_val;
+        $orderArr->update($updateArray);
+
+        return redirect()->route('admin.order')->with([
+            "message" => [
+                "result" => "success",
+                "msg" => "Order status successfully."
             ]
         ]);
     }

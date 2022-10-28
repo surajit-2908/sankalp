@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyName extends Model
+class Company extends Model
 {
-    protected $table = 'company_names';
+    protected $table = 'companies';
 
     /**
      * The attributes that are mass assignable.
