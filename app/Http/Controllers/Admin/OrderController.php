@@ -129,7 +129,7 @@ class OrderController extends BaseController
         return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
-                "msg" => "Order status successfully."
+                "msg" => "Order status updated successfully."
             ]
         ]);
     }
