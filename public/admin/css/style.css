@@ -329,8 +329,12 @@ p {
     color: #68613b;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-top: 20px;
+    padding: 10px;
     text-align: center;
+}
+
+.dashboard-footer {
+    border-top: 1px solid #e5e5e5;
 }
 
 .mb20 {
@@ -835,24 +839,25 @@ p {
     margin-right: 7px;
 }
 
-.addNew{
+.addNew {
     font-size: 15px;
-    border: solid 1px #007bff;
+    border: solid 1px #fcba1c;
     background: #fff;
     border-radius: 5px;
     padding: 5px 15px;
-    color: #007bff;
+    color: #fcba1c;
     margin-bottom: 30px;
     display: inline-block;
 }
-.addNew:hover{
-    border: solid 1px #007bff;
+
+.addNew:hover {
+    border: solid 1px #fcba1c;
     border-radius: 5px;
     color: #fff;
-    background: #007bff;
+    background: #fcba1c;
 }
 
-.subBtn{
+.subBtn {
     font-size: 15px;
     border: solid 1px #ffcd00;
     background: #ffcd00;
@@ -862,34 +867,133 @@ p {
     margin-bottom: 30px;
     display: inline-block;
 }
-.subBtn:hover{
-    border: solid 1px #007bff;
+
+.subBtn:hover {
+    border: solid 1px #ffcd00;
     border-radius: 5px;
     color: #fff;
-    background: #007bff;
+    background: #ffcd00;
 }
 
-.table1 .container-fluid{
+.table1 .container-fluid {
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
-.table1 .table.dataTable{
-    border-collapse:collapse !important;
+
+.table1 .table.dataTable {
+    border-collapse: collapse !important;
 }
-.table1 .table thead{
+
+.table1 .table thead {
     background: #fff;
 }
-.table1 .table thead th{
-    border-bottom: none!important;
+
+.table1 .table thead th {
+    border-bottom: none !important;
     background: #fff;
 }
+
 .table1 tbody tr:nth-of-type(odd) {
-    background-color: rgba(0,0,0,.05);
+    background-color: rgba(0, 0, 0, .05);
 }
+
 .table1 tbody tr:nth-of-type(even) {
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
+
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     margin: 12px 0 !important;
 }
+
 /*=========================== Notification Modal Popup Style End ===========================*/
+div.dataTables_length select {
+    color: #fcba1c !important;
+    border-color: #fcba1c !important;
+    /* background-color: red !important; */
+}
+
+div.dataTables_length select:hover {
+    color: #fcba1c !important;
+    /* background-color: yellow !important; */
+}
+
+
+.present_prt {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.present-field {
+    width: 48%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    background: #fffae5;
+    border-radius: 10px;
+}
+
+.present-field select {
+    height: 26px;
+    background: none;
+    border: none;
+    font-size: 13px;
+    line-height: 0px;
+    padding: 3px 13px;
+}
+
+.present-field label {
+    font-weight: 500;
+    width: 50%;
+    background: #fffae5;
+    padding: 10px 5px 5px 13px;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.present-field span {
+    background: #f9f9f8;
+    display: block;
+    padding: 5px;
+    width: calc(100% -118px);
+    width: calc(100% - 118px);
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -moz-border-radius-bottomright: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 14px;
+}
+
+.present-field span input:not(submit) {
+    height: 26px;
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 13px;
+}
+
+.present-field span input:required {
+    box-shadow: none;
+}
+
+.present-field span .text-success {
+    color: #2cde54 !important;
+}
+
+.present-field span .text-danger {
+    color: #ee5d6a !important;
+}

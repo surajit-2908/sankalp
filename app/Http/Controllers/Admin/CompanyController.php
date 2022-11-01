@@ -125,7 +125,7 @@ class CompanyController extends BaseController
             return redirect()->route('admin.company')->with([
                 "message" => [
                     "result" => "error",
-                    "msg" => "Company can not deleted, Order exsist."
+                    "msg" => "Order exsist. Company can not be deleted."
                 ]
             ]);
         }

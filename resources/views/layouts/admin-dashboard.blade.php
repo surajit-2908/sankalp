@@ -75,7 +75,7 @@
         </div>
 </section>
 
-{{-- @include('includes.footer-text') --}}
+@include('includes.footer-text')
 @include('includes.footer')
 
 @stack('script')

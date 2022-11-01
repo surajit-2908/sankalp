@@ -1,1 +1,1 @@
-<p class="copyright">Copyright &copy; {{ date('Y') }} sankalp.com</p>
+<p class="copyright dashboard-footer">Copyright &copy; {{ date('Y') }} sankalp.com</p>

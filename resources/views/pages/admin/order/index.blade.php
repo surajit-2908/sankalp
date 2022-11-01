@@ -34,43 +34,59 @@
                                         {{ $order->getComapanyName->company_name }}
                                     </td>
                                     <td title="Order Confirmed">
-                                        <a href="{{ route('admin.order.status', [$order->id, 'order_confirmed']) }}"
-                                            title="Order Confirmed" class="status-confirm">
-                                            @if ($order->order_confirmed)
-                                                <i class="fa fa-toggle-on chat"></i>
+                                        @if (!$order->production)
+                                            <a href="{{ route('admin.order.status', [$order->id, 'order_confirmed']) }}"
+                                                title="Order Confirmed" class="status-confirm">
                                             @else
-                                                <i class="fa fa-toggle-off chat"></i>
-                                            @endif
+                                                <a href="javascript:void(0)" title="Order Confirmed">
+                                        @endif
+                                        @if ($order->order_confirmed)
+                                            <i class="fa fa-toggle-on chat"></i>
+                                        @else
+                                            <i class="fa fa-toggle-off chat"></i>
+                                        @endif
                                         </a>
                                     </td>
                                     <td title="Production">
-                                        <a href="{{ route('admin.order.status', [$order->id, 'production']) }}"
-                                            title="Production" class="status-confirm">
-                                            @if ($order->production)
-                                                <i class="fa fa-toggle-on chat"></i>
+                                        @if (!$order->packaging && $order->order_confirmed)
+                                            <a href="{{ route('admin.order.status', [$order->id, 'production']) }}"
+                                                title="Production" class="status-confirm">
                                             @else
-                                                <i class="fa fa-toggle-off chat"></i>
-                                            @endif
+                                                <a href="javascript:void(0)" title="Production">
+                                        @endif
+                                        @if ($order->production)
+                                            <i class="fa fa-toggle-on chat"></i>
+                                        @else
+                                            <i class="fa fa-toggle-off chat"></i>
+                                        @endif
                                         </a>
                                     </td>
                                     <td title="Packaging">
-                                        <a href="{{ route('admin.order.status', [$order->id, 'packaging']) }}"
-                                            title="Packaging" class="status-confirm">
-                                            @if ($order->packaging)
-                                                <i class="fa fa-toggle-on chat"></i>
+                                        @if (!$order->delivery && $order->production)
+                                            <a href="{{ route('admin.order.status', [$order->id, 'packaging']) }}"
+                                                title="Packaging" class="status-confirm">
                                             @else
-                                                <i class="fa fa-toggle-off chat"></i>
-                                            @endif
+                                                <a href="javascript:void(0)" title="Packaging">
+                                        @endif
+                                        @if ($order->packaging)
+                                            <i class="fa fa-toggle-on chat"></i>
+                                        @else
+                                            <i class="fa fa-toggle-off chat"></i>
+                                        @endif
                                         </a>
                                     </td>
                                     <td title="Delivery">
-                                        <a href="{{ route('admin.order.status', [$order->id, 'delivery']) }}"
-                                            title="Delivery" class="status-confirm">
-                                            @if ($order->delivery)
-                                                <i class="fa fa-toggle-on chat"></i>
+                                        @if ($order->packaging)
+                                            <a href="{{ route('admin.order.status', [$order->id, 'delivery']) }}"
+                                                title="Delivery" class="status-confirm">
                                             @else
-                                                <i class="fa fa-toggle-off chat"></i>
-                                            @endif
+                                                <a href="javascript:void(0)" title="Delivery">
+                                        @endif
+                                        @if ($order->delivery)
+                                            <i class="fa fa-toggle-on chat"></i>
+                                        @else
+                                            <i class="fa fa-toggle-off chat"></i>
+                                        @endif
                                         </a>
                                     </td>
                                     <td title="Action">

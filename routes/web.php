@@ -20,26 +20,8 @@ Route::get('/', function () {
 });
 
 // Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
-Route::get('/about', ['as' => 'about', 'uses' => 'Frontend\IndexController@about']);
 Route::get('/contact', ['as' => 'contact', 'uses' => 'Frontend\IndexController@contact']);
 Route::post('/save-contact', ['as' => 'save.contact', 'uses' => 'Frontend\IndexController@saveContact']);
-Route::get('/online-training', ['as' => 'online.training', 'uses' => 'Frontend\IndexController@onlineTraining']);
-Route::post('/online-training-payment', ['as' => 'online.training.payment', 'uses' => 'Frontend\IndexController@payment']);
-Route::post('/online-training-booking/{id}', ['as' => 'online.training.booking', 'uses' => 'Frontend\IndexController@booking']);
-
-Route::get('/user-login/{product_slug?}', ['as' => 'user.login', 'uses' => 'Frontend\AuthController@login']);
-Route::post('/post-login', ['as' => 'login.user', 'uses' => 'Frontend\AuthController@loginUser']);
-Route::get('/sign-up', ['as' => 'signup', 'uses' => 'Frontend\AuthController@signUp']);
-Route::get('/email-verify/{email}', ['as' => 'email.verify', 'uses' => 'Frontend\AuthController@emailVerify']);
-Route::post('/post-sign-up', ['as' => 'signup.user', 'uses' => 'Frontend\AuthController@signUpUser']);
-
-Route::get('/forgot-password', ['as' => 'forgot.password', 'uses' => 'Frontend\AuthController@forgotPassword']);
-Route::post('/reset-password', ['as' => 'reset.password', 'uses' => 'Frontend\AuthController@resetPassword']);
-Route::get('/reset-password/{otp}', ['as' => 'reset.new.password', 'uses' => 'Frontend\AuthController@resetNewPassword']);
-Route::post('/update-forgot-password', ['as' => 'update.forgot.password', 'uses' => 'Frontend\AuthController@updateForgotPassword']);
-
-Route::get('/shop/{cat_slug?}', ['as' => 'shop', 'uses' => 'Frontend\ShopController@shop']);
-Route::get('/product-details/{product_slug}', ['as' => 'product.detail', 'uses' => 'Frontend\ShopController@productDetail']);
 
 //Authorized routes
 Route::group([
@@ -92,10 +74,6 @@ Route::group([
     Route::get('/', ['as' => 'admin', 'uses' => 'Admin\AuthController@index']);
     Route::get('/', ['as' => 'login', 'uses' => 'Admin\AuthController@index']);
     Route::post('login', ['as' => 'admin.login', 'uses' => 'Admin\AuthController@login']);
-    Route::get('forgotpassword', ['as' => 'admin.forgotpassword', 'uses' => 'Admin\AuthController@forgotPassword']);
-    Route::post('sendpasswordresetlink', ['as' => 'admin.sendpasswordresetlink', 'uses' => 'Admin\AuthController@sendPasswordResetLink']);
-    Route::get('resetpassword/{token}', ['as' => 'admin.resetpassword', 'uses' => 'Admin\AuthController@resetPassword']);
-    Route::post('dopasswordreset', ['as' => 'admin.dopasswordreset', 'uses' => 'Admin\AuthController@doPasswordReset']);
 });
 
 Route::group([
@@ -106,11 +84,6 @@ Route::group([
     Route::get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@index']);
 
     Route::post('profile/change_password', ['as' => 'admin.profile.change_password', 'uses' => 'Admin\ProfileController@changePassword']);
-    Route::get('settings', ['as' => 'admin.settings', 'uses' => 'Admin\ProfileController@setting']);
-    Route::post('update-settings/{id}', ['as' => 'admin.update.settings', 'uses' => 'Admin\ProfileController@updateSetting']);
-
-    Route::get('feedback', ['as' => 'admin.feedback', 'uses' => 'Admin\FeedbackController@index']);
-    Route::get('feedback/remove/{id}', ['as' => 'admin.feedback.remove', 'uses' => 'Admin\FeedbackController@feedbackRemove']);
 
     Route::group(['prefix' => 'order'], function () {
         Route::get('', ['as' => 'admin.order', 'uses' => 'Admin\OrderController@index']);
@@ -130,16 +103,16 @@ Route::group([
         Route::post('update/{id}', ['as' => 'admin.company.update', 'uses' => 'Admin\CompanyController@companyUpdate']);
         Route::get('remove/{id}', ['as' => 'admin.company.remove', 'uses' => 'Admin\CompanyController@companyRemove']);
     });
-
-    Route::group(['prefix' => 'user'], function () {
-        Route::get('', ['as' => 'admin.user', 'uses' => 'Admin\UserController@index']);
-        Route::get('status/{id}', ['as' => 'admin.user.status', 'uses' => 'Admin\UserController@userStatus']);
+    Route::group(['prefix' => 'enquiry'], function () {
+        Route::get('', ['as' => 'admin.enquiry', 'uses' => 'Admin\EnquiryController@index']);
+        Route::get('status/{id}/{status}', ['as' => 'admin.enquiry.status', 'uses' => 'Admin\EnquiryController@enquiryStatus']);
+        Route::get('view/{id}', ['as' => 'admin.enquiry.view', 'uses' => 'Admin\EnquiryController@enquiryView']);
     });
 
 });
 
 // Clear configuration cache:
-// Route::get('/optimize-clear', function () {
-//     $status = Artisan::call('optimize:clear');
-//     return '<h1>Configurations optimize cleared</h1>';
-// });
+Route::get('/optimize-clear', function () {
+    $status = Artisan::call('optimize:clear');
+    return '<h1>Configurations optimize cleared</h1>';
+});

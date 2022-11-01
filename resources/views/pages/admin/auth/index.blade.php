@@ -24,7 +24,7 @@
         <div class="loginForm">
             <div class="container">
                 <div class="loginLogo">
-                    <a href="index.html"><img src="{{ asset('admin/images/logo.png') }}" alt=""></a>
+                    <a href="{{ route('login') }}"><img src="{{ asset('admin/images/logo.png') }}" alt=""></a>
                 </div>
                 <div class="loginFormBox">
                     <div class="loginLock">
