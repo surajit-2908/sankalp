@@ -997,3 +997,13 @@ div.dataTables_length select:hover {
 .present-field span .text-danger {
     color: #ee5d6a !important;
 }
+
+.page-link {
+    color: #fcba1c !important;
+}
+.page-item.active .page-link {
+    color: #fff !important;
+}
+.page-link:focus {
+    box-shadow: none !important;
+}

@@ -94,6 +94,6 @@ class IndexController extends BaseController
         $bookingDetail['booking_detail']   =   $booking;
         $bookingDetail['training_data']   =   $onlineTrainingData;
 
-        Mail::send(new OnlineTrainingBookingSuccessMail($bookingDetail));
+        Mail::send(new ContactEmail($bookingDetail));
     }
 }
