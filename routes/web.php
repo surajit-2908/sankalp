@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 
 // Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
-Route::get('/contact', ['as' => 'contact', 'uses' => 'Frontend\IndexController@contact']);
-Route::post('/save-contact', ['as' => 'save.contact', 'uses' => 'Frontend\IndexController@saveContact']);
+Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
+Route::get('/enquiry', ['as' => 'enquiry', 'uses' => 'Frontend\IndexController@enquiry']);
+Route::get('/reload-captcha', ['as' => 'reload.captcha', 'uses' => 'Frontend\IndexController@reloadCaptcha']);
+Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);
 
 //Authorized routes
 Route::group([

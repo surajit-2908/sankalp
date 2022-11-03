@@ -53,7 +53,7 @@
                                 <input type="checkbox" name="popular_theme" id="popular_theme4">
                                 <label for="popular_theme4">Remember me</label>
                             </div>
-                            <p class="forgotPass"><a href="#">Forgot Password?</a></p>
+                            <p class="forgotPass"><a href="javascript:void(0)">Forgot Password?</a></p>
                         </div> --}}
                         <div class="FullWidthField">
                             <input type="submit" class="yellowBtn" name="" value="Login to Dashboard">

@@ -1,0 +1,376 @@
+@charset"utf-8";
+
+/*=========================== Responsive Style Sheet Start Here ===========================*/
+@media only screen and (min-width:1600px){
+
+}
+
+@media only screen and (max-width:1365px){
+
+}
+
+@media only screen and (max-width:1199px){
+	.inrShopItemSec .inrShopItemClm{
+		width: 25%;
+	}
+}
+
+
+@media only screen and (max-width:991px){
+	.mainHeader{
+		padding: 15px 0;
+	}
+	.hideMob{
+		display: none;
+	}
+	.hdrLogo{
+		flex: 1;
+	}
+	.mobLoginSearch{
+		display: block;
+		background-color: #ffffff;
+		padding: 10px 15px 10px 10px;
+	}
+	.hdrLoginCart{
+		margin-right: 20px;
+	}
+	.hdrLoginCart li{
+		margin-left: 0 !important;
+	}
+	.headerMenu{
+		padding: 0;
+		font-weight: 300;
+	}
+	.mobLoginSearch p{
+	  font-size: 14px;
+	  color: #595959;
+	  font-weight: 500;
+	  line-height: 1;
+    text-transform: initial;
+    letter-spacing: initial;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    white-space: nowrap;
+	}
+	.mobLoginSearch p a{
+	  color: #595959;
+	  padding: 5px;
+	}
+	.mobLoginSearch p .fa-search{
+	  font-size: 18px;
+	}
+	.mobLoginSearch p .mobCart{
+		margin: 0 0 0 25px;
+		padding: 5px;
+	}
+
+	.hdrLogo img{
+		max-width: 200px;
+	}
+
+	.xplrClctionItem h3{
+		font-size: 16px;
+	}
+	.xplrClctionImage{
+		height: 250px;
+	}
+	.srvcItemArea{
+		margin-top: 0;
+	}
+	.srvcItem img{
+  	opacity: 0.7;
+  	max-height: 413px;
+	}
+	.srvcItemTitle{
+	  opacity: 1;
+	  visibility: visible;
+	  bottom: 50%;
+	  margin-bottom: -20px;
+	}
+	.aboutHdnArea{
+		margin-bottom: 0;
+	}
+	.aboutContentArea .aboutImg{
+		width: 100%;
+		text-align: center;
+	}
+	.aboutContentArea .aboutImg img{
+		width: auto;
+		max-height: 300px;
+	}
+	.aboutContentArea .aboutText{
+	  width: 100%;
+	  order: 1;
+	  margin-top: 30px;
+	}
+	.aboutContentArea p{
+		margin-bottom: 15px;
+	}
+
+	.blogListClm, .pressListClm{
+		width: 50%;
+	}
+	.inrRepairBtmImg{
+		padding-top: 20px;
+	}
+	.leftContactForm .formHalfClm{
+		width: 100%;
+	}
+	.srchFilterSortRow h2{
+		display: block;
+		width: 100%;
+		margin-bottom: 25px;
+	}
+	.inrShopItemSec .inrShopItemClm{
+		width: 33%;
+	}
+}
+
+
+@media only screen and (max-width:767px){
+	.hdrLogo img{
+		max-width: 150px;
+	}
+	.homeBanner .bnrImageItm img{
+		max-height: 350px;
+	}
+	.xplrClctionSec{
+		padding: 30px 0;
+	}
+	.xplrClctionItemArea{
+		margin-top: 30px;
+	}
+	.xplrClctionItem{
+		width: 50%;
+		margin-bottom: 35px;
+	}
+	.xplrClctionItem h3{
+		margin-top: 15px;
+	}
+	.srvcItemArea{
+		flex-direction: column;
+	}
+	.srvcClm{
+		width: 100%;
+	}
+	.srvcItem{
+		margin-bottom: 15px;
+	}
+	.serviceSection{
+		padding-bottom: 30px;
+	}
+	.aboutSec{
+		padding: 30px 0;
+	}
+	.aboutHdnArea h2{
+		font-size: 16px;
+		line-height: 28px;
+	}
+	.aboutContentArea p{
+		font-size: 14px;
+		line-height: 25px;
+	}
+	.mainFooter{
+		padding-top: 30px;
+	}
+	.ftrClm{
+		width: 100%;
+	}
+	.ftrMenu{
+		text-align: center;
+	}
+	.modal.show .modal-dialog{
+		width: 90%;
+		max-width: 90%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.inrAboutPaperCuttingPic{
+		margin-top: 15px;
+	}
+	.pressListClm{
+		padding: 0 8px;
+		margin-bottom: 25px;
+	}
+	.pressListClm h3{
+		font-size: 14px;
+		line-height: 22px;
+	}
+	.inrRepairBtmImg li{
+  	width: 48%;
+	}
+	.inrContactBody{
+		margin-top: 0;
+	}
+	.inrContactBody .leftContactForm, .inrContactBody .leftContactAddress{
+		width: 100%;
+	}
+	.weavPageBodyContent .space60{
+		height: 10px !important;
+	}
+	.weavPageBodyContent .leftText, .weavPageBodyContent .rightImage{
+		width: 100%;
+	}
+	.srchFilterSortRow .dFlx{
+		justify-content: space-between;
+	}
+	.srchFilterSortRow .srchFilterSortBox{
+		width: 32%;
+		margin: 0;
+	}
+	.srchFilterSortRow .srchFilterSortBox.SearchField{
+		margin: 15px 0 0 0;
+		width: 100%;
+	}
+	.inrShopItemSec .inrShopItemClm{
+		width: 50%;
+	}
+	.upliftBodyImg{
+	  padding: 10px;
+	  margin: 0 auto 35px auto;
+	}
+	.upliftBodyImg:before{
+	  border-top: 5px solid #000000;
+	  border-right: 5px solid #000000;
+	}
+	.upliftBodyImg:after{
+	  border-bottom: 5px solid #000000;
+	  border-left: 5px solid #000000;
+	}
+	.valuationFormBg p.textCenter{
+		padding: 0;
+	}
+	.valuationFormBg .formHalfClm{
+		width: 100%;
+	}
+
+
+	.inrBodySec{
+		padding: 30px 0;
+	}
+	.innerBannerVideo{
+		height: 300px;
+	}
+	.secHdn{
+		font-size: 25px;
+		margin-bottom: 20px;
+	}
+	.inrTitleHdnSec{
+		max-width: 100%;
+		margin-bottom: 35px;
+	}
+	.inrTitleHdnSec h2{
+		font-size: 15px;
+		line-height: 26px;
+	}
+	.inrTextContentArea img.flLeft, .inrTextContentArea img.flRight{
+		float: none;
+		margin: 0 0 20px 0;
+		max-width: 100%;
+	}
+	.inrTextContentArea iframe{
+		width: 100%;
+	}
+	.inrTextContentArea iframe.flLeft, .inrTextContentArea iframe.flRight{
+		float: none;
+		margin: 0 0 20px 0;
+	}
+	.inrTextContentArea h2{
+		font-size: 25px;
+		margin-bottom: 12px;
+	}
+	.inrTextContentArea p{
+		font-size: 14px;
+		line-height: 25px;
+	}
+	.space60{
+		height: 40px;
+	}
+}
+
+
+@media only screen and (max-width:575px){
+	.hdrLoginCart{
+		margin-right: 15px;
+	}
+	.homeBanner .bnrImageItm img{
+		max-height: 250px;
+	}
+	.xplrClctionItem{
+		width: 100%;
+	}
+	.xplrClctionImage{
+		height: 300px;
+	}
+	.aboutContentArea .aboutImg img{
+		max-height: inherit;
+	}
+	.blogListClm .blogItemContent p{
+		font-size: 15px;
+		line-height: 22px;
+	}
+	.srchFilterSortRow .srchFilterSortBox.productCountBox{
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	.srchFilterSortRow .srchFilterSortBox.filterBox, .srchFilterSortRow .srchFilterSortBox.SortBox{
+		width: 48%;
+	}
+	.innerTitleBanner{
+		padding: 30px 0 15px 0;
+	}
+	.innerTitleBanner h1{
+		font-size: 30px;
+	}
+}
+
+
+
+@media only screen and (max-width:479px){
+	.blogListClm{
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	.pressListClm{
+		width: 100%;
+		padding: 0;
+	}
+	.pressListClm h3{
+		font-size: 16px;
+	}
+	.inrShopItemSec .inrShopItemClm{
+		width: 100%;
+	}
+	.inrShopItemClm .inrShopItemBox{
+		height: auto;
+		max-height: 350px;
+	}
+}
+
+
+@media only screen and (max-width:390px){
+	.srchFilterSortRow .srchFilterSortBox{
+		margin-left: 0;
+	}
+}
+
+
+@media only screen and (max-width:359px){
+	.hdrLogo img {
+    max-width: 130px;
+	}
+	.headerMenu.show-nav nav.navbar{
+		width: 85%;
+	}
+	.mobLoginSearch p .mobCart{
+		margin-left: 10px;
+	}
+	.hdrMobPhone{
+		margin-left: 10px;
+	}
+	.hdrMobMail{
+		margin-left: 10px;
+	}
+}
+/*=========================== Responsive Style Sheet End Here ===========================*/

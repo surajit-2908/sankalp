@@ -27,8 +27,8 @@
                     <span class="nav-header-primary"><i class="fa fa-calendar"></i> Product</span>
                 </a>
                 <ul class="nav nav-list collapse" id="submenu1">
-                    <li><a href="#">Filter Housing</a></li>
-                    <li><a href="#">Filter Consumable</a></li>
+                    <li><a href="javascript:void(0)">Filter Housing</a></li>
+                    <li><a href="javascript:void(0)">Filter Consumable</a></li>
                 </ul>
             </li> --}}
         </ul>
