@@ -54,7 +54,7 @@ class EnquiryController extends BaseController
         $updateArray[$status] = $enquiryArr->$status ? "0" : "1";
         $enquiryArr->update($updateArray);
 
-        return redirect()->route('admin.enquiry')->with([
+        return redirect()->back()->with([
             "message" => [
                 "result" => "success",
                 "msg" => "Enquiry status updated successfully."

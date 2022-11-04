@@ -1000,10 +1000,25 @@ div.dataTables_length select:hover {
 
 .page-link {
     color: #fcba1c !important;
+    border-color: #fcba1c;
 }
+
 .page-item.active .page-link {
     color: #fff !important;
+    border: 1px solid #fcba1c;
 }
+
 .page-link:focus {
     box-shadow: none !important;
+    border: 1px solid #fcba1c;
+}
+
+.page-item.disabled .page-link {
+    border: 1px solid #fcba1c;
+}
+
+.page-link:hover {
+    color: #fff !important;
+    background-color: #fcba1c;
+    border: 1px solid #fcba1c;
 }
