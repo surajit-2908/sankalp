@@ -14,60 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Auth::routes();
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
 Route::get('/enquiry', ['as' => 'enquiry', 'uses' => 'Frontend\IndexController@enquiry']);
 Route::get('/reload-captcha', ['as' => 'reload.captcha', 'uses' => 'Frontend\IndexController@reloadCaptcha']);
 Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);
+Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);
+Route::post('/show-tracking-details', ['as' => 'show.tracking.details', 'uses' => 'Frontend\IndexController@showTrackingDetails']);
 
-//Authorized routes
-Route::group([
-    'middleware' => ['auth'], 'prefix' => 'user'
-], function () {
-    Route::get('/logout', ['as' => 'user.logout', 'uses' => 'Frontend\AuthController@logoutUser']);
-
-    Route::get('/cart', ['as' => 'user.cart', 'uses' => 'Frontend\ShopController@cart']);
-    Route::post('/add-cart/{product_id}', ['as' => 'add.cart', 'uses' => 'Frontend\ShopController@addCart']);
-    Route::post('/remove-cart-item', ['as' => 'remove.cart.item', 'uses' => 'Frontend\ShopController@removeCartItem']);
-    Route::post('/change-quantity', ['as' => 'change.quantity', 'uses' => 'Frontend\ShopController@changeQuantity']);
-    Route::post('/change-quantity-check-out', ['as' => 'change.quantity.checkOut', 'uses' => 'Frontend\ShopController@changeQuantityChckOut']);
-
-    Route::post('/buy-now/{product_id}', ['as' => 'buy.now', 'uses' => 'Frontend\ShopController@buyNow']);
-    Route::get('/check-out', ['as' => 'check.out', 'uses' => 'Frontend\BookingController@checkOut']);
-    Route::post('/payment', ['as' => 'payment', 'uses' => 'Frontend\BookingController@payment']);
-    Route::post('/booking', ['as' => 'booking', 'uses' => 'Frontend\BookingController@booking']);
-    Route::get('/{booking_type}/booking-success', ['as' => 'booking.success', 'uses' => 'Frontend\BookingController@bookingSuccess']);
-
-    Route::get('/my-orders', ['as' => 'user.my.orders', 'uses' => 'Frontend\ProfileController@myOrder']);
-    Route::get('/online-training-orders', ['as' => 'user.online.training.orders', 'uses' => 'Frontend\ProfileController@onlineTrainingOrder']);
-
-    Route::get('/profile-info', ['as' => 'user.profile.info', 'uses' => 'Frontend\ProfileController@index']);
-    Route::post('/profile-update', ['as' => 'user.profile.update', 'uses' => 'Frontend\ProfileController@updateProflie']);
-    Route::post('/password-update', ['as' => 'user.password.update', 'uses' => 'Frontend\ProfileController@changePassword']);
-    Route::post('/update-image', ['as' => 'user.update.image', 'uses' => 'Frontend\ProfileController@updateImage']);
-
-    Route::get('/manage-address', ['as' => 'user.manage.address', 'uses' => 'Frontend\ProfileController@manageAddress']);
-    Route::post('/insert-address', ['as' => 'user.insert.address', 'uses' => 'Frontend\ProfileController@insertAddress']);
-    Route::get('/edit-address/{address_id}', ['as' => 'admin.edit.address', 'uses' => 'Frontend\ProfileController@editAddress']);
-    Route::post('/update-address/{address_id}', ['as' => 'user.update.address', 'uses' => 'Frontend\ProfileController@updateAddress']);
-    Route::post('/remove-address', ['as' => 'user.address.remove', 'uses' => 'Frontend\ProfileController@removeAddress']);
-    Route::get('/default-address/{id}', ['as' => 'user.address.default', 'uses' => 'Frontend\ProfileController@addressDefault']);
-    Route::post('/update-mobile/{address_id}', ['as' => 'user.update.mobile', 'uses' => 'Frontend\ProfileController@updateMobile']);
-
-    Route::get('/my-rating-reviews', ['as' => 'user.my.rating.review', 'uses' => 'Frontend\RatingController@myRatingReview']);
-    Route::get('/rating-reviews/{booking_number}/{product_slug}', ['as' => 'user.rating.review', 'uses' => 'Frontend\RatingController@ratingReview']);
-    Route::post('/save-reviews/{booking_number}/{product_id}', ['as' => 'user.save.rating', 'uses' => 'Frontend\RatingController@saveReview']);
-    Route::get('/remove-rating/{rating_id}', ['as' => 'user.remove.rating', 'uses' => 'Frontend\RatingController@removeRating']);
-
-    Route::get('/online-training-rating-reviews', ['as' => 'user.online.training.rating.review', 'uses' => 'Frontend\OnlineTrainingRatingController@myRatingReview']);
-    Route::get('/online-training-rating-reviews/{booking_number}/{online_training_id}', ['as' => 'user.add.online.training.rating.review', 'uses' => 'Frontend\OnlineTrainingRatingController@ratingReview']);
-    Route::post('/save-online-training-reviews/{booking_number}', ['as' => 'user.save.online.training.rating', 'uses' => 'Frontend\OnlineTrainingRatingController@saveReview']);
-    Route::get('/remove-online-training-rating/{rating_id}', ['as' => 'user.remove.online.training.rating', 'uses' => 'Frontend\OnlineTrainingRatingController@removeRating']);
-});
 
 Route::group([
     'prefix' => 'administrator'
@@ -104,10 +57,16 @@ Route::group([
         Route::post('update/{id}', ['as' => 'admin.company.update', 'uses' => 'Admin\CompanyController@companyUpdate']);
         Route::get('remove/{id}', ['as' => 'admin.company.remove', 'uses' => 'Admin\CompanyController@companyRemove']);
     });
+
     Route::group(['prefix' => 'enquiry'], function () {
         Route::get('', ['as' => 'admin.enquiry', 'uses' => 'Admin\EnquiryController@index']);
         Route::get('status/{id}/{status}', ['as' => 'admin.enquiry.status', 'uses' => 'Admin\EnquiryController@enquiryStatus']);
         Route::get('view/{id}', ['as' => 'admin.enquiry.view', 'uses' => 'Admin\EnquiryController@enquiryView']);
+    });
+
+    Route::group(['prefix' => 'tracking'], function () {
+        Route::get('', ['as' => 'admin.tracking', 'uses' => 'Admin\TrackingController@index']);
+        Route::get('remove/{id}', ['as' => 'admin.tracking.remove', 'uses' => 'Admin\TrackingController@trackingRemove']);
     });
 
 });

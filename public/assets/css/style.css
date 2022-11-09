@@ -862,6 +862,7 @@ p {
     font-size: 12px;
     color: #c1c1c3;
     line-height: 18px;
+    text-transform: uppercase;
 }
 
 .modalOrderStatus ul li.statusProduction {

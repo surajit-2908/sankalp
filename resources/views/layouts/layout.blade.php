@@ -36,7 +36,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-                </script>
+        </script>
         <!-- Bootstrap JS -->
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
         <!-- Owl Carousel JS -->
@@ -46,6 +46,47 @@
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
         <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
         @stack('scripts')
+        <script>
+            function validateEmail($email) {
+                if ($email != "") {
+                    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                    return emailReg.test($email);
+                } else {
+                    return false;
+                }
+            }
+            $(document).ready(function() {
+                $("#track-button").click(function() {
+                    let invoice_number = $("#invoice_number").val();
+                    let email = $("#email").val();
+                    if (invoice_number == "") {
+                        $("#invoice_number_error").show();
+                    } else if (!validateEmail(email)) {
+                        $("#invoice_number_error").hide();
+                        $("#email_error").show();
+                    } else {
+                        $("#invoice_number_error").hide();
+                        $("#email_error").hide();
+                        $("#track-button").val("Loading...")
+                        $.post('{{ route('show.tracking.details') }}', {
+                            "invoice_number": invoice_number,
+                            "email": email,
+                            "_token": "{!! @csrf_token() !!}"
+                        }, function(response) {
+                            $("#track-button").val("Track now")
+                            $("#modalOrderStatus").html(response);
+                        });
+                    }
+                })
+
+                $("#close-tracking").click(function() {
+                    $(".modalOrderStatus").hide();
+                    $("#invalid-invoice").hide();
+                    $("#invoice_number").val("");
+                    $("#email").val("");
+                })
+            })
+        </script>
 </body>
 
 </html>

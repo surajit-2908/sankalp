@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\BaseController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use App\Models\Enquiry;
+use App\Models\Order;
+use App\Models\Tracking;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
 
@@ -95,5 +97,21 @@ class IndexController extends BaseController
         $bookingDetail['training_data']   =   $onlineTrainingData;
 
         Mail::send(new ContactEmail($bookingDetail));
+    }
+
+
+    /**
+     * showTrackingDetails
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function showTrackingDetails(Request $request)
+    {
+        $input = $request->all();
+        $order = Order::where('invoice_number', $input['invoice_number'])->first();
+        if($order)
+            Tracking::create($input);
+
+        return view('pages.frontend.ajax_track', compact('order'));
     }
 }
