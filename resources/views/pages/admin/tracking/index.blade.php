@@ -17,6 +17,7 @@
                             <tr>
                                 <th>Invoice Number</th>
                                 <th>Email</th>
+                                <th>DateTime</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -29,6 +30,9 @@
                                     </td>
                                     <td title="Email">
                                         {{ $tracking->email }}
+                                    </td>
+                                    <td title="Email">
+                                        {{ date('h:i a, d M Y', strtotime($tracking->created_at)) }}
                                     </td>
                                     <td title="Action">
                                         <a href="{{ route('admin.tracking.remove', $tracking->id) }}" title="Delete" class="delete-confirm">
