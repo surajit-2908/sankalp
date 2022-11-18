@@ -6,7 +6,7 @@ use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin;
-use Session;
+use App\Models\UserLog;
 
 class SubAdminController extends BaseController
 {
@@ -125,6 +125,7 @@ class SubAdminController extends BaseController
     public function subAdminRemove($id)
     {
         Admin::find($id)->delete();
+        UserLog::where('user_id', $id)->delete();
 
         return redirect()->route('admin.sub.admin')->with([
             "message" => [
