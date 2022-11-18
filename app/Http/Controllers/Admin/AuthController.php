@@ -44,7 +44,7 @@ class AuthController extends BaseController
         if(Auth::guard('admin')->attempt($loginData))
         {
             // if successful, then redirect to their intended location
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->route('admin.dashboard');
         }
         else
         {

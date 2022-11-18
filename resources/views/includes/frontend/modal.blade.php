@@ -28,12 +28,12 @@
 
                 <form class="SKPformField">
                     <div class="msg-div" id="invalid-invoice" style="display:none;">
-                        <p class="alert alert-danger"><strong>Invalid Invoice Number</strong></p>
+                        <p class="alert alert-danger"><strong>Invalid Order id</strong></p>
                     </div>
                     <div class="FullWidthField">
-                        <input type="text" name="invoice_number" id="invoice_number" placeholder="Invoice number*">
+                        <input type="text" name="invoice_number" id="invoice_number" placeholder="Order id*">
                         <label class="error" id="invoice_number_error" style="display:none;">Please enter a valid
-                            invoice number</label>
+                            order id</label>
                     </div>
                     <div class="FullWidthField">
                         <input type="email" name="email" id="email" placeholder="Email address*">

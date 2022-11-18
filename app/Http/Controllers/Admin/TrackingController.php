@@ -31,7 +31,11 @@ class TrackingController extends BaseController
      */
     public function trackingRemove($id)
     {
-        Tracking::find($id)->delete();
+        $tracking = Tracking::find($id);
+        $tracking->delete();
+
+        $log = "Tracking of invoice number: " . $tracking->invoice_number . " & email: " . $tracking->email . " at " . date('h:i a, d M Y', strtotime($tracking->created_at)) . " is deleted.";
+        Self::insertUserLog($log);
 
         return redirect()->back()->with([
             "message" => [

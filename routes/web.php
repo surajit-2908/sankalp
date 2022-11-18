@@ -38,6 +38,7 @@ Route::group([
     Route::get('dashboard', ['as' => 'admin.dashboard', 'uses' => 'Admin\DashboardController@index']);
 
     Route::post('profile/change_password', ['as' => 'admin.profile.change_password', 'uses' => 'Admin\ProfileController@changePassword']);
+    Route::post('profile/update', ['as' => 'admin.profile.update', 'uses' => 'Admin\ProfileController@profileUpdate']);
 
     Route::group(['prefix' => 'order'], function () {
         Route::get('', ['as' => 'admin.order', 'uses' => 'Admin\OrderController@index']);
@@ -67,6 +68,20 @@ Route::group([
     Route::group(['prefix' => 'tracking'], function () {
         Route::get('', ['as' => 'admin.tracking', 'uses' => 'Admin\TrackingController@index']);
         Route::get('remove/{id}', ['as' => 'admin.tracking.remove', 'uses' => 'Admin\TrackingController@trackingRemove']);
+    });
+
+    Route::group(['prefix' => 'sub-admin'], function () {
+        Route::get('', ['as' => 'admin.sub.admin', 'uses' => 'Admin\SubAdminController@index']);
+        Route::get('add', ['as' => 'admin.sub.admin.add', 'uses' => 'Admin\SubAdminController@subAdminAdd']);
+        Route::post('insert', ['as' => 'admin.sub.admin.insert', 'uses' => 'Admin\SubAdminController@subAdminInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.sub.admin.edit', 'uses' => 'Admin\SubAdminController@subAdminEdit']);
+        Route::post('update/{id}', ['as' => 'admin.sub.admin.update', 'uses' => 'Admin\SubAdminController@subAdminUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.sub.admin.remove', 'uses' => 'Admin\SubAdminController@subAdminRemove']);
+    });
+
+    Route::group(['prefix' => 'user-log'], function () {
+        Route::get('', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
+        Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
     });
 
 });

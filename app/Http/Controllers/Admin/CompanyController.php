@@ -54,6 +54,9 @@ class CompanyController extends BaseController
             'company_name' => $request->company_name
         ]);
 
+        $log = "Created company name is ".$request->company_name;
+        Self::insertUserLog($log);
+
         return redirect()->route('admin.company')->with([
             "message" => [
                 "result" => "success",
@@ -92,9 +95,11 @@ class CompanyController extends BaseController
             'company_name' => 'required',
         ]);
 
-
         $updateArray['company_name'] = $request->company_name;
         Company::find($id)->update($updateArray);
+
+        $log = $companyArr->company_name. " is updated to ".$request->company_name;
+        Self::insertUserLog($log);
 
         return redirect()->route('admin.company')->with([
             "message" => [
@@ -112,8 +117,12 @@ class CompanyController extends BaseController
     public function companyRemove($id)
     {
         $oreders = Order::where('company_name_id', $id)->count();
+        $companyArr = Company::find($id);
         if (!$oreders) {
-            Company::find($id)->delete();
+            $companyArr->delete();
+
+        $log = $companyArr->company_name. " is deleted.";
+        Self::insertUserLog($log);
 
             return redirect()->route('admin.company')->with([
                 "message" => [

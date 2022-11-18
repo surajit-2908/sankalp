@@ -51,8 +51,13 @@ class EnquiryController extends BaseController
     {
         $enquiryArr = Enquiry::find($id);
 
+        $log_status = $enquiryArr->$status ? "Inactive" : "Active";
+
         $updateArray[$status] = $enquiryArr->$status ? "0" : "1";
         $enquiryArr->update($updateArray);
+
+        $log = "Enquiry of company name: " . $enquiryArr->company_name . ", key person: " . $enquiryArr->key_person . ", email: " . $enquiryArr->email . ", country: " . $enquiryArr->country . ", phone: " . $enquiryArr->phone . ", industry: " . $enquiryArr->industry . ", enquiry: " . $enquiryArr->enquiry . ", " . ucwords(str_replace('_', ' ', $status)) . " updated to " . $log_status;
+        Self::insertUserLog($log);
 
         return redirect()->back()->with([
             "message" => [

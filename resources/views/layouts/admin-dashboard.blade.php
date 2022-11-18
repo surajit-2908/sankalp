@@ -73,6 +73,57 @@
                 </div>
             </div>
         </div>
+        <!-- ===================== Admin Profile Update Modal Popup Start ===================== -->
+        <div class="notification-modal-popup" id="myModalUpdateUser">
+            <div class="noti-popup-box">
+                <button class="noti-close-btn" onclick="$('#myModalUpdateUser').hide();">X</button>
+                <div class="noti-pop-hdn">
+                    <h2>User Settings</h2>
+                </div>
+                <div class="noti-pop-body">
+                    <div class="create-form">
+                        <form method="POST" action="{{ route('admin.profile.update') }}">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name"
+                                            value="{{ Auth::user()->name }}" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="text" name="phone" value="{{ Auth::user()->phone }}" pattern="[6789][0-9]{9}" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="" value="{{ Auth::user()->email }}" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="category-submit">
+                                <ul>
+                                    <li>
+                                        <button type="button" class="cancel-btn"
+                                            onclick="$('#myModalUpdateUser').hide();">
+                                            Cancel
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="submit" class="submit-btn subbtn">Submit</button>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 
 @include('includes.footer-text')
@@ -81,7 +132,9 @@
 @stack('script')
 
 {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $('.multi-delete-confirm').on('click', function(event) {
         event.preventDefault();

@@ -53,10 +53,13 @@ class OrderController extends BaseController
             'company_name_id' => 'required',
         ]);
 
-        Order::create([
+        $order = Order::create([
             'invoice_number' => $request->invoice_number,
             'company_name_id' => $request->company_name_id
         ]);
+
+        $log = "Created order invoice number: " . $request->invoice_number . " & company: " . $order->getComapanyName->company_name;
+        Self::insertUserLog($log);
 
         return redirect()->route('admin.order')->with([
             "message" => [
@@ -98,7 +101,7 @@ class OrderController extends BaseController
 
 
         $updateArray['name'] = $request->name;
-        Order::find($id)->update($updateArray);
+        $orderArr->update($updateArray);
 
         return redirect()->route('admin.order')->with([
             "message" => [
@@ -126,6 +129,9 @@ class OrderController extends BaseController
         $updateArray[$status] = $status_val;
         $orderArr->update($updateArray);
 
+        $log = "Order with invoice number: " . $orderArr->invoice_number . " status updated to " . ucwords(str_replace('_', ' ', $status));
+        Self::insertUserLog($log);
+
         return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
@@ -141,7 +147,11 @@ class OrderController extends BaseController
      */
     public function orderRemove($id)
     {
-        Order::find($id)->delete();
+        $order = Order::find($id);
+        $order->delete();
+
+        $log = "Order with invoice number " . $order->invoice_number . " & company " . $order->getComapanyName->company_name . " is deleted.";
+        Self::insertUserLog($log);
 
         return redirect()->route('admin.order')->with([
             "message" => [

@@ -15,7 +15,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'email', 'password', 'profile_photo', 'name', 'phone', 'password_reset_token', 'token_expire_time'
+        'id', 'email', 'password', 'profile_photo', 'name', 'phone', 'admin_type', 'password_reset_token', 'token_expire_time'
     ];
 
     /**
@@ -27,9 +27,5 @@ class Admin extends Authenticatable
         'password'
     ];
 
-    public function getNameAttribute()
-    {
-        return $this->first_name . ' ' . $this->last_name;
-    }
 
 }

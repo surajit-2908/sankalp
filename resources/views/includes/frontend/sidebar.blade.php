@@ -1,7 +1,7 @@
 <div class="bodyLeftPanel">
     <nav>
         <ul class="nav nav-list">
-            <li><a href="{{ route('index') }}" class=" {{ Route::is('index') ? 'active' : '' }} "><i
+            <li><a href="{{ route('index') }}" class="{{ Route::is('index') ? 'active' : '' }}"><i
                         class="fa fa-tachometer"></i> Dashboard</a></li>
             <li>
                 <a class="accordion-heading" data-toggle="collapse" data-target="#submenu1">

@@ -24,6 +24,12 @@
                     href="{{ route('admin.enquiry') }}"><i class="fa fa-question-circle"></i> Enqueries</a></li>
             <li><a class="{{ $controller_name == 'TrackingController' ? 'active' : '' }}"
                     href="{{ route('admin.tracking') }}"><i class="fa fa-map-marker"></i> Trackings</a></li>
+            @if (Auth::user()->admin_type == 'A')
+                <li><a class="{{ $controller_name == 'SubAdminController' ? 'active' : '' }}"
+                        href="{{ route('admin.sub.admin') }}"><i class="fa fa-user"></i> Sub Admin</a></li>
+                <li><a class="{{ $controller_name == 'UserLogController' ? 'active' : '' }}"
+                        href="{{ route('admin.user.log') }}"><i class="fa fa-history"></i> User Logs</a></li>
+            @endif
         </ul>
     </nav>
 </div>

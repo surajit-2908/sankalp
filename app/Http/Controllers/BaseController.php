@@ -8,33 +8,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller as Controller;
 use Storage;
+use Auth;
+use App\Models\UserLog;
 
 
 class BaseController extends Controller
 {
     const PRODUCT_PIC = 'product_image';
-    const PRODUCT_THUMB_PIC = 'product_thumb_image';
-    const PRODUCT_PREVIEW_PIC = 'product_preview_image';
-    const ONLINE_TRAINING_FILE = 'online_training_file';
-    const USER_PIC = 'user_image';
-    const TESTIMONIAL_PIC = 'testimonial_image';
-    const CONTENT_PIC = 'content_image';
 
     /**
-     * update image
-     * @param mixed $link
+     * user log
+     * @param string $log
      * @return string
      */
-    public function getYoutubeVideoId($link)
+    public function insertUserLog($log)
     {
-        $video_id = explode("?v=", $link);
-        if (empty($video_id[1]))
-            $video_id = explode("/v/", $link);
-
-        $video_id = explode("&", $video_id[1]);
-        $video_id = $video_id[0];
-
-        return $video_id;
+        $user = Auth::guard('admin')->user();
+        if ($user->admin_type != 'A') {
+            UserLog::create([
+                'user_id' => $user->id,
+                'log' => $log
+            ]);
+        }
     }
 
     /**
@@ -93,21 +88,5 @@ class BaseController extends Controller
             $result .= mt_rand(0, 9);
         }
         return $result;
-    }
-
-    /**
-     * braintree gateway
-     * @return \Braintree\Gateway
-     */
-    public function braintreeInit()
-    {
-        $gateway = new \Braintree\Gateway([
-            'environment' => config('services.braintree.environment'),
-            'merchantId' => config('services.braintree.merchantId'),
-            'publicKey' => config('services.braintree.publicKey'),
-            'privateKey' => config('services.braintree.privateKey')
-        ]);
-
-        return $gateway;
     }
 }

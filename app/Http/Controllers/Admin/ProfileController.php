@@ -39,4 +39,26 @@ class ProfileController extends BaseController
                 ]
             ]);
     }
+
+    public function profileUpdate(Request $request)
+    {
+        // Validate the form data
+        $this->validate($request, [
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $adminArr = Auth::guard('admin')->user();
+        $updateArray['name'] = $request->name;
+        $updateArray['phone'] = $request->phone;
+        $adminUpd = Admin::find($adminArr->id)->update($updateArray);
+
+        return redirect()->intended(route('admin.dashboard'))
+            ->with([
+                "message" => [
+                    "result" => "success",
+                    "msg" => 'Profile Updated successfully'
+                ]
+            ]);
+    }
 }
