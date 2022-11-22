@@ -856,6 +856,7 @@ p {
     font-size: 13px;
     color: #4b4c52;
     line-height: 18px;
+    width: 50%;
 }
 
 .modalOrderStatus ul li.orderPlaced .orderTime,

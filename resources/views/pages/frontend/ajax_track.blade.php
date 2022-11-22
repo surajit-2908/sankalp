@@ -20,20 +20,16 @@
             @if ($order->order_confirmed)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->production ? 'Order Confirmed' : 'Order is being confirmed' }}</h4>
-                    <p class="orderNumber">#{{ $order->invoice_number }}</p>
+                    <p class="orderNumber">{{ $order->order_confirmed_remarks }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->order_confirmed)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
-                            <li class="active">1</li>
-                            <li class="active">2</li>
-                            <li class="active">3</li>
-                            <li class="active">4</li>
-                            <li class="active">5</li>
-                            <li class="active">6</li>
-                            <li class="active">7</li>
-                            <li class="active">8</li>
-                            <li>9</li>
-                            <li>10</li>
+                            @php
+                                $order_confirmed_item_arr = explode(',', $order->order_confirmed_items);
+                            @endphp
+                            @for ($i = 1; $i <= $order->quantity; $i++)
+                                <li @if (in_array($i, $order_confirmed_item_arr)) class="active" @endif>{{ $i }}</li>
+                            @endfor
                         </ul>
                     </div>
                 </li>
@@ -42,64 +38,72 @@
                     <h4>Confirm</h4>
                 </li>
             @endif
-            {{-- <p>{{ $order->order_confirmed_items }}</p>
-            <p>{{ $order->order_confirmed_remarks }}</p> --}}
 
             @if ($order->production)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->packaging ? 'Order Released' : 'Order is in Production' }}</h4>
-                    <p class="orderNumber">#{{ $order->invoice_number }}</p>
+                    <p class="orderNumber">{{ $order->production_remarks }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->production)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
-                            <li class="active">1</li>
-                            <li class="active">2</li>
-                            <li class="active">3</li>
-                            <li class="active">4</li>
-                            <li class="active">5</li>
-                            <li class="active">6</li>
-                            <li class="active">7</li>
-                            <li class="active">8</li>
-                            <li>9</li>
-                            <li>10</li>
+                            @php
+                                $production_item_arr = explode(',', $order->production_items);
+                            @endphp
+                            @for ($i = 1; $i <= $order->quantity; $i++)
+                                <li @if (in_array($i, $production_item_arr)) class="active" @endif>{{ $i }}</li>
+                            @endfor
                         </ul>
                     </div>
                 </li>
             @else
                 <li class="statusProduction">
-                    <h4>Production</h4>                    
+                    <h4>Production</h4>
                 </li>
             @endif
-            {{-- <p>{{ $order->production_items }}</p>
-            <p>{{ $order->production_remarks }}</p> --}}
 
             @if ($order->packaging)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->delivery ? 'Order Packed' : 'Order is being Packed' }}</h4>
-                    <p class="orderNumber">#{{ $order->invoice_number }}</p>
-                    <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>                    
+                    <p class="orderNumber">{{ $order->packaging_remarks }}</p>
+                    <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>
+                    <div class="abpositation">
+                        <ul class="orderTrack">
+                            @php
+                                $packaging_item_arr = explode(',', $order->packaging_items);
+                            @endphp
+                            @for ($i = 1; $i <= $order->quantity; $i++)
+                                <li @if (in_array($i, $packaging_item_arr)) class="active" @endif>{{ $i }}</li>
+                            @endfor
+                        </ul>
+                    </div>
                 </li>
             @else
                 <li class="statusPacking">
                     <h4>Packing</h4>
                 </li>
             @endif
-            {{-- <p>{{ $order->packaging_items }}</p>
-            <p>{{ $order->packaging_remarks }}</p> --}}
 
             @if ($order->delivery)
                 <li class="orderConfirmed active">
                     <h4>Order Delivered</h4>
-                    <p class="orderNumber">#{{ $order->invoice_number }}</p>
+                    <p class="orderNumber">{{ $order->delivery_remarks }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->delivery)) }}</p>
+                    <div class="abpositation">
+                        <ul class="orderTrack">
+                            @php
+                                $delivery_item_arr = explode(',', $order->delivery_items);
+                            @endphp
+                            @for ($i = 1; $i <= $order->quantity; $i++)
+                                <li @if (in_array($i, $delivery_item_arr)) class="active" @endif>{{ $i }}</li>
+                            @endfor
+                        </ul>
+                    </div>
                 </li>
             @else
                 <li class="statusDelivery">
                     <h4>Delivery</h4>
                 </li>
             @endif
-            {{-- <p>{{ $order->delivery_items }}</p>
-            <p>{{ $order->delivery_remarks }}</p> --}}
 
         </ul>
     </div>
