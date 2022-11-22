@@ -211,7 +211,12 @@
         })
 
         function inArray(needle, haystack) {
-            var haystack_arr = haystack.split(",");
+            var haystack_length = haystack.length;
+            if (haystack_length > 1)
+                var haystack_arr = haystack.split(",");
+            else
+                var haystack_arr = [haystack];
+
             for (var i = 0; i < 10; i++) {
                 if (haystack_arr[i] == needle)
                     return true;
