@@ -88,20 +88,22 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" name="name"
-                                            value="{{ Auth::user()->name }}" class="form-control" required>
+                                        <input type="text" name="name" value="{{ Auth::user()->name }}"
+                                            class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Phone</label>
-                                        <input type="text" name="phone" value="{{ Auth::user()->phone }}" pattern="[6789][0-9]{9}" class="form-control" required>
+                                        <input type="text" name="phone" value="{{ Auth::user()->phone }}"
+                                            pattern="[6789][0-9]{9}" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="email" name="" value="{{ Auth::user()->email }}" class="form-control" disabled>
+                                        <input type="email" name="" value="{{ Auth::user()->email }}"
+                                            class="form-control" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +126,7 @@
                 </div>
             </div>
         </div>
+        @stack('modals')
 </section>
 
 @include('includes.footer-text')

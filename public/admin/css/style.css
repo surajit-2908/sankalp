@@ -1022,3 +1022,25 @@ div.dataTables_length select:hover {
     background-color: #fcba1c;
     border: 1px solid #fcba1c;
 }
+
+.item-checks {
+    align-items: center;
+    display: flex;
+}
+
+.item-label {
+    margin-right: 20px;
+}
+
+.item-label label {
+    margin-left: 5px;
+    font-size: 18px;
+    margin-bottom: 0px !important;
+}
+
+.for-check {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: 3px;
+}

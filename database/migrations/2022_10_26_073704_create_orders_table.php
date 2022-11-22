@@ -17,10 +17,19 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('invoice_number')->nullable();
             $table->string('company_name_id')->nullable();
+            $table->string('quantity', 10)->nullable();
             $table->string('order_confirmed', 20)->nullable();
+            $table->string('order_confirmed_items', 20)->nullable();
+            $table->string('order_confirmed_remarks')->nullable();
             $table->string('production', 20)->nullable();
+            $table->string('production_items', 20)->nullable();
+            $table->string('production_remarks', 20)->nullable();
             $table->string('packaging', 20)->nullable();
+            $table->string('packaging_items', 20)->nullable();
+            $table->string('packaging_remarks', 20)->nullable();
             $table->string('delivery', 20)->nullable();
+            $table->string('delivery_items', 20)->nullable();
+            $table->string('delivery_remarks', 20)->nullable();
             $table->timestamps();
         });
     }

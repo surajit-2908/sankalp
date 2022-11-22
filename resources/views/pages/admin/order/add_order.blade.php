@@ -31,6 +31,13 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Quantity</label>
+                                <input type="number" name="quantity" class="form-control" max="10" min="1" value="1"
+                                    required="">
+                            </div>
+                        </div>
                     </div>
 
                     <button class="submit-btn subBtn" type="submit">Submit</button>

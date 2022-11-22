@@ -51,11 +51,13 @@ class OrderController extends BaseController
         $request->validate([
             'invoice_number' => 'required',
             'company_name_id' => 'required',
+            'quantity' => 'required',
         ]);
 
         $order = Order::create([
             'invoice_number' => $request->invoice_number,
-            'company_name_id' => $request->company_name_id
+            'company_name_id' => $request->company_name_id,
+            'quantity' => $request->quantity,
         ]);
 
         $log = "Created order invoice number: " . $request->invoice_number . " & company: " . $order->getComapanyName->company_name;
@@ -113,23 +115,34 @@ class OrderController extends BaseController
 
     /**
      * Order update
-     * @param int $id
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function orderStatus($id, $status)
+    public function orderStatus(Request $request)
     {
+        $id = $request->id;
+        $status = $request->status;
+        $items = implode(',', $request->items);
+
         $orderArr = Order::find($id);
 
-        if ($orderArr->$status)
-            $status_val = "";
-        else
-            $status_val = now();
+        // if ($orderArr->$status)
+        //     $status_val = "";
+        // else
+
+        $collumn = $status . '_items';
+        $arr = explode(',', $orderArr->$collumn);
+        $diff = array_diff($request->items, $arr);
+        $item = $diff ?  "number " .implode(',', $diff) : "no";
+
+        $status_val = now();
 
         $updateArray[$status] = $status_val;
+        $updateArray[$status . '_items'] = $items;
+        $updateArray[$status . '_remarks'] = $request->remarks;
         $orderArr->update($updateArray);
 
-        $log = "Order with invoice number: " . $orderArr->invoice_number . " status updated to " . ucwords(str_replace('_', ' ', $status));
+        $log = "Order with invoice number: " . $orderArr->invoice_number . ".. " . $item . " items, remarks: " . $request->remarks . ", status updated to " . ucwords(str_replace('_', ' ', $status));
         Self::insertUserLog($log);
 
         return redirect()->route('admin.order')->with([

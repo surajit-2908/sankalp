@@ -10,14 +10,16 @@
             <li class="statusOrder active">
                 <h4>Order</h4>
             </li>
+
             <li class="orderPlaced active">
                 <h4>Order placed</h4>
                 <p class="orderNumber">#{{ $order->invoice_number }}</p>
                 <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->created_at)) }}</p>
             </li>
+
             @if ($order->order_confirmed)
                 <li class="orderConfirmed active">
-                    <h4>{{$order->production ? "Order Confirmed" : "Order is being confirmed"}}</h4>
+                    <h4>{{ $order->production ? 'Order Confirmed' : 'Order is being confirmed' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->order_confirmed)) }}</p>
                 </li>
@@ -26,9 +28,12 @@
                     <h4>Confirm</h4>
                 </li>
             @endif
+            <p>{{ $order->order_confirmed_items }}</p>
+            <p>{{ $order->order_confirmed_remarks }}</p>
+
             @if ($order->production)
                 <li class="orderConfirmed active">
-                    <h4>{{$order->packaging ? "Order Released" : "Order is in Production"}}</h4>
+                    <h4>{{ $order->packaging ? 'Order Released' : 'Order is in Production' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->production)) }}</p>
                 </li>
@@ -37,9 +42,12 @@
                     <h4>Production</h4>
                 </li>
             @endif
+            <p>{{ $order->production_items }}</p>
+            <p>{{ $order->production_remarks }}</p>
+
             @if ($order->packaging)
                 <li class="orderConfirmed active">
-                    <h4>{{$order->delivery ? "Order Packed" : "Order is being Packed"}}</h4>
+                    <h4>{{ $order->delivery ? 'Order Packed' : 'Order is being Packed' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>
                 </li>
@@ -48,6 +56,9 @@
                     <h4>Packing</h4>
                 </li>
             @endif
+            <p>{{ $order->packaging_items }}</p>
+            <p>{{ $order->packaging_remarks }}</p>
+
             @if ($order->delivery)
                 <li class="orderConfirmed active">
                     <h4>Order Delivered</h4>
@@ -59,6 +70,9 @@
                     <h4>Delivery</h4>
                 </li>
             @endif
+            <p>{{ $order->delivery_items }}</p>
+            <p>{{ $order->delivery_remarks }}</p>
+
         </ul>
     </div>
 @else

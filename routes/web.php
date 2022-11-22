@@ -46,7 +46,7 @@ Route::group([
         Route::post('insert', ['as' => 'admin.order.insert', 'uses' => 'Admin\OrderController@orderInsert']);
         Route::get('edit/{id}', ['as' => 'admin.order.edit', 'uses' => 'Admin\OrderController@orderEdit']);
         Route::post('update/{id}', ['as' => 'admin.order.update', 'uses' => 'Admin\OrderController@orderUpdate']);
-        Route::get('status/{id}/{status}', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
+        Route::post('status', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
         Route::get('remove/{id}', ['as' => 'admin.order.remove', 'uses' => 'Admin\OrderController@orderRemove']);
     });
 
