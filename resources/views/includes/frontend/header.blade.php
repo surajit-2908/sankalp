@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="dFlx spaceBet alignCenter">
             <div class="hdrLogo">
-                <a href="{{ route('enquiry') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="" /></a>
+                <a href="{{ route('index') }}"><img src="{{ asset('assets/images/logo.png') }}" alt="" /></a>
             </div>
             <div class="hdrRightPrt">
                 <ul class="dFlx alignCenter">
