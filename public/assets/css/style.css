@@ -836,6 +836,7 @@ p {
 .modalOrderStatus ul li.orderConfirmed {
     background-image: url(../images/order-placed-icon-disable.png);
     background-position: 6px 2px;
+    position: relative;
 }
 
 .modalOrderStatus ul li.orderPlaced.active,
@@ -982,3 +983,34 @@ p {
 #reload img {
     cursor: pointer;
 }
+.abpositation{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+}
+.abpositation ul.orderTrack{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.abpositation ul.orderTrack li{
+    width: 20%;
+    background: #e8e6e3;
+    border: solid 1px #000;
+    text-align: center;
+    line-height: 30px;
+    padding: 0;
+    min-height: auto;
+    overflow: inherit;
+    margin: 0;
+    color: #000;
+}
+.abpositation ul.orderTrack li:after{
+    display: none;
+}
+.abpositation ul.orderTrack li.active{
+    background: #ffe496;
+}
+
+

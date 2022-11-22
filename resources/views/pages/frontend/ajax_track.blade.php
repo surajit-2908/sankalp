@@ -22,6 +22,20 @@
                     <h4>{{ $order->production ? 'Order Confirmed' : 'Order is being confirmed' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->order_confirmed)) }}</p>
+                    <div class="abpositation">
+                        <ul class="orderTrack">
+                            <li class="active">1</li>
+                            <li class="active">2</li>
+                            <li class="active">3</li>
+                            <li class="active">4</li>
+                            <li class="active">5</li>
+                            <li class="active">6</li>
+                            <li class="active">7</li>
+                            <li class="active">8</li>
+                            <li>9</li>
+                            <li>10</li>
+                        </ul>
+                    </div>
                 </li>
             @else
                 <li class="orderConfirmed">
@@ -36,10 +50,24 @@
                     <h4>{{ $order->packaging ? 'Order Released' : 'Order is in Production' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->production)) }}</p>
+                    <div class="abpositation">
+                        <ul class="orderTrack">
+                            <li class="active">1</li>
+                            <li class="active">2</li>
+                            <li class="active">3</li>
+                            <li class="active">4</li>
+                            <li class="active">5</li>
+                            <li class="active">6</li>
+                            <li class="active">7</li>
+                            <li class="active">8</li>
+                            <li>9</li>
+                            <li>10</li>
+                        </ul>
+                    </div>
                 </li>
             @else
                 <li class="statusProduction">
-                    <h4>Production</h4>
+                    <h4>Production</h4>                    
                 </li>
             @endif
             {{-- <p>{{ $order->production_items }}</p>
@@ -49,7 +77,7 @@
                 <li class="orderConfirmed active">
                     <h4>{{ $order->delivery ? 'Order Packed' : 'Order is being Packed' }}</h4>
                     <p class="orderNumber">#{{ $order->invoice_number }}</p>
-                    <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>
+                    <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>                    
                 </li>
             @else
                 <li class="statusPacking">
