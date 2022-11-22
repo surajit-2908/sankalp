@@ -23,10 +23,10 @@
                         <tbody>
                             @foreach ($dataArr['userLogArr'] as $userLog)
                                 <tr>
-                                    <td title="Company Name">
+                                    <td title="User">
                                         {{ $userLog->getUser->name }}
                                     </td>
-                                    <td title="Company Name">
+                                    <td title="Log">
                                         {{ $userLog->log }}
                                     </td>
                                     <td title="DateTime">
