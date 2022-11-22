@@ -28,8 +28,8 @@
                     <h4>Confirm</h4>
                 </li>
             @endif
-            <p>{{ $order->order_confirmed_items }}</p>
-            <p>{{ $order->order_confirmed_remarks }}</p>
+            {{-- <p>{{ $order->order_confirmed_items }}</p>
+            <p>{{ $order->order_confirmed_remarks }}</p> --}}
 
             @if ($order->production)
                 <li class="orderConfirmed active">
@@ -42,8 +42,8 @@
                     <h4>Production</h4>
                 </li>
             @endif
-            <p>{{ $order->production_items }}</p>
-            <p>{{ $order->production_remarks }}</p>
+            {{-- <p>{{ $order->production_items }}</p>
+            <p>{{ $order->production_remarks }}</p> --}}
 
             @if ($order->packaging)
                 <li class="orderConfirmed active">
@@ -56,8 +56,8 @@
                     <h4>Packing</h4>
                 </li>
             @endif
-            <p>{{ $order->packaging_items }}</p>
-            <p>{{ $order->packaging_remarks }}</p>
+            {{-- <p>{{ $order->packaging_items }}</p>
+            <p>{{ $order->packaging_remarks }}</p> --}}
 
             @if ($order->delivery)
                 <li class="orderConfirmed active">
@@ -70,8 +70,8 @@
                     <h4>Delivery</h4>
                 </li>
             @endif
-            <p>{{ $order->delivery_items }}</p>
-            <p>{{ $order->delivery_remarks }}</p>
+            {{-- <p>{{ $order->delivery_items }}</p>
+            <p>{{ $order->delivery_remarks }}</p> --}}
 
         </ul>
     </div>
