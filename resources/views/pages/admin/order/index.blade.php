@@ -60,7 +60,8 @@
                                     </td>
                                     <td title="Production">
                                         {{-- @if (!$order->packaging && $order->order_confirmed) --}}
-                                        <a href="javascript:void(0)" title="Production" class="status-update"
+                                        <a href="javascript:void(0)" title="Production"
+                                            @if ($order->order_confirmed) class="status-update" @endif
                                             data-id="{{ $order->id }}" data-status="production"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->production_items }}"
@@ -77,7 +78,8 @@
                                     </td>
                                     <td title="Packaging">
                                         {{-- @if (!$order->delivery && $order->production) --}}
-                                        <a href="javascript:void(0)" title="Packaging" class="status-update"
+                                        <a href="javascript:void(0)" title="Packaging"
+                                            @if ($order->production) class="status-update" @endif
                                             data-id="{{ $order->id }}" data-status="packaging"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->packaging_items }}"
@@ -94,7 +96,8 @@
                                     </td>
                                     <td title="Delivery">
                                         {{-- @if ($order->packaging) --}}
-                                        <a href="javascript:void(0)" title="Delivery" class="status-update"
+                                        <a href="javascript:void(0)" title="Delivery"
+                                            @if ($order->packaging) class="status-update" @endif
                                             data-id="{{ $order->id }}" data-status="delivery"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->delivery_items }}"
