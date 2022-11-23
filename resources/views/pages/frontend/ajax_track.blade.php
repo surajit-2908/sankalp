@@ -20,7 +20,9 @@
             @if ($order->order_confirmed)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->production ? 'Order Confirmed' : 'Order is being confirmed' }}</h4>
-                    <p class="orderNumber">{{ $order->order_confirmed_remarks }}</p>
+                    <p class="orderNumber">
+                        {{ $order->order_confirmed_remarks ? $order->order_confirmed_remarks : '#' . $order->invoice_number }}
+                    </p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->order_confirmed)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
@@ -42,7 +44,8 @@
             @if ($order->production)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->packaging ? 'Order Released' : 'Order is in Production' }}</h4>
-                    <p class="orderNumber">{{ $order->production_remarks }}</p>
+                    <p class="orderNumber">
+                        {{ $order->production_remarks ? $order->production_remarks : '#' . $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->production)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
@@ -64,7 +67,8 @@
             @if ($order->packaging)
                 <li class="orderConfirmed active">
                     <h4>{{ $order->delivery ? 'Order Packed' : 'Order is being Packed' }}</h4>
-                    <p class="orderNumber">{{ $order->packaging_remarks }}</p>
+                    <p class="orderNumber">
+                        {{ $order->packaging_remarks ? $order->packaging_remarks : '#' . $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->packaging)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
@@ -86,7 +90,8 @@
             @if ($order->delivery)
                 <li class="orderConfirmed active">
                     <h4>Order Delivered</h4>
-                    <p class="orderNumber">{{ $order->delivery_remarks }}</p>
+                    <p class="orderNumber">
+                        {{ $order->delivery_remarks ? $order->delivery_remarks : '#' . $order->invoice_number }}</p>
                     <p class="orderTime">{{ date('h:i a, d M Y', strtotime($order->delivery)) }}</p>
                     <div class="abpositation">
                         <ul class="orderTrack">
