@@ -994,24 +994,32 @@ p {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    justify-content: flex-end;
 }
 .abpositation ul.orderTrack li{
-    width: 20%;
-    background: #e8e6e3;
-    border: solid 1px #000;
+    width: 30px;
+    background: #f0f0f0;
+    border: solid 1px #dedede;
     text-align: center;
-    line-height: 30px;
+    line-height: 29px;
     padding: 0;
     min-height: auto;
     overflow: inherit;
     margin: 0;
-    color: #000;
+    color: #969696;
+    border-radius: 5px;
+    height: 30px;
+    margin: 0 3px 3px 0;
+    font-size: 13px;
+    font-weight: 600;
 }
 .abpositation ul.orderTrack li:after{
     display: none;
 }
 .abpositation ul.orderTrack li.active{
     background: #ffe496;
+    border: solid 1px #ffd55c;
+    color: #4b4c52;
 }
 
 
