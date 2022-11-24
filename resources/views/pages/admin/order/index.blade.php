@@ -156,7 +156,7 @@
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
                                     <label>Remarks</label>
-                                    <textarea name="remarks" id="remarks" class="form-control"></textarea>
+                                    <textarea name="remarks" id="remarks" rows="4" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
