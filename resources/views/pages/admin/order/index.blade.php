@@ -135,7 +135,7 @@
         <div class="noti-popup-box">
             <button class="noti-close-btn" onclick="$('#myModalOrderStatus').hide();">X</button>
             <div class="noti-pop-hdn">
-                <h2>Order Status</h2>
+                <h2>Order <span id="modal-heading"></span> Status</h2>
             </div>
             <div class="noti-pop-body">
                 <div class="create-form">
@@ -183,9 +183,10 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.status-update').click(function() {
+                let status = $(this).data('status');
                 $("#items").html("");
                 $('#id').val($(this).data('id'));
-                $('#status').val($(this).data('status'));
+                $('#status').val(status);
                 $('#remarks').val($(this).data('remark'));
                 let selected_items = $(this).data('selected');
 
@@ -198,13 +199,10 @@
                         html +=
                         `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}"><label for="quantity${i}"> ${i} </label></div>`;
                 }
-                // for (let i = 1; i <= $(this).data('quantity'); i++) {
-                //     if (inArray(i, selected_items))
-                //         html += `<option value="${i}" selected>${i}</option>`;
-                //     else
-                //         html += `<option value="${i}">${i}</option>`;
-                // }
                 $("#items").append(html);
+                if (status == 'order_confirmed')
+                    status = 'confirmed';
+                $("#modal-heading").html(status);
 
                 $('#myModalOrderStatus').show();
             })
