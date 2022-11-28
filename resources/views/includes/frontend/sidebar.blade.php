@@ -8,7 +8,15 @@
                     <span class="nav-header-primary"><i class="fa fa-calendar"></i> Product</span>
                 </a>
                 <ul class="nav nav-list collapse" id="submenu1">
-                    <li><a href="javascript:void(0)">Filter Housing</a></li>
+                    <li>
+                        <a class="accordion-heading2" data-toggle="collapse" data-target="#submenu5">
+                            <span class="nav-header-primary">Filter Housing</span>
+                        </a> 
+                    <ul class="nav nav-list collapse" id="submenu5">
+                        <li><a href="javascript:void(0)">fdfdfd</a></li>
+                        <li><a href="javascript:void(0)">dfdfd</a></li>
+                     </ul>               
+                    </li>
                     <li><a href="javascript:void(0)">Filter Consumable</a></li>
                 </ul>
             </li>
