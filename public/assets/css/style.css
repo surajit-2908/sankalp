@@ -490,7 +490,15 @@ p {
     top: 22px;
     right: 10px;
 }
-
+.bodyLeftPanel nav li a.accordion-heading2:after {
+    position: absolute;
+    content: '';
+    background: url(../images/menu-down-icon.png) no-repeat 0 0;
+    width: 7px;
+    height: 4px;
+    top: 18px;
+    right: 0;
+}
 .bodyLeftPanel nav li a .fa {
     margin-right: 10px;
     font-size: 18px;
@@ -506,8 +514,8 @@ p {
     margin-top: 0;
     font-size: 15px;
     font-weight: normal;
-    margin-left: 40px;
-    line-height: 18px;
+    margin-left: 30px;
+    line-height: 25px;
 }
 
 .bodyLeftPanel nav li li a {
