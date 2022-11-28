@@ -16,7 +16,7 @@
                             <tr>
                                 <th>Invoice Number</th>
                                 <th>Company Name</th>
-                                <th>Quantity</th>
+                                <th>Line Item</th>
                                 <th>Order Confirmed</th>
                                 <th>Production</th>
                                 <th>Packaging</th>
@@ -38,7 +38,7 @@
                                     <td title="Company Name">
                                         {{ $order->getComapanyName->company_name }}
                                     </td>
-                                    <td title="Quantity">
+                                    <td title="Line Item">
                                         {{ $order->quantity }}
                                     </td>
                                     <td title="Order Confirmed">

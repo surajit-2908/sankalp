@@ -13,13 +13,27 @@
                 </ul>
             </li>
             <li>
+                <a class="accordion-heading" data-toggle="collapse" data-target="#submenu4">
+                    <span class="nav-header-primary"><i class="fa fa-calendar"></i> Accessories</span>
+                </a>
+                <ul class="nav nav-list collapse" id="submenu4">
+                    <li><a href="javascript:void(0)">“O” rings</a></li>
+                    <li><a href="javascript:void(0)">Filter Pads</a></li>
+                    <li><a href="javascript:void(0)">Gasket</a></li>
+                    <li><a href="javascript:void(0)">Non Woven Pads</a></li>
+                </ul>
+            </li>
+            <li>
                 <a class="accordion-heading" data-toggle="collapse" data-target="#submenu2">
                     <span class="nav-header-primary"><i class="fa fa-list-alt"></i> Services</span>
                 </a>
                 <ul class="nav nav-list collapse" id="submenu2">
-                    <li><a href="javascript:void(0)">Filter</a></li>
-                    <li><a href="javascript:void(0)">Cleaning</a></li>
-                    <li><a href="javascript:void(0)">Testing</a></li>
+                    <li><a href="javascript:void(0)">Integrity Testing</a></li>
+                    <li><a href="javascript:void(0)">Retrofit Filters</a></li>
+                    <li><a href="javascript:void(0)">Filter Servicing</a></li>
+                    <li><a href="javascript:void(0)">Nutsche Filter Disc Servicing</a></li>
+                    <li><a href="javascript:void(0)">Screen Disc Servicing</a></li>
+                    <li><a href="javascript:void(0)">Filter Repair</a></li>
                 </ul>
             </li>
             <li>
