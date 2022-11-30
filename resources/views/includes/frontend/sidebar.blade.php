@@ -49,7 +49,8 @@
                         <ul class="nav nav-list collapse" id="submenu7">
                             <li><a href="javascript:void(0)">All PTFE (Poly Tetra Fluoro Ethylene) Filter Cartridge</a>
                             </li>
-                            <li><a href="javascript:void(0)">All PVDF Cartridge</a></li>
+                            <li><a href="javascript:void(0)">All PVDF ( Poly Vinyl Dene Fluoride) Filter Cartridge</a>
+                            </li>
                             <li><a href="javascript:void(0)">Candy Filter</a></li>
                             <li><a href="javascript:void(0)">Capsule Cartridge</a></li>
                             <li><a href="javascript:void(0)">Carbon Cartridges</a></li>
