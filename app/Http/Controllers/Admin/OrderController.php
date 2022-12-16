@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Company;
+use App\Models\UserLog;
 
 class OrderController extends BaseController
 {
@@ -49,7 +50,7 @@ class OrderController extends BaseController
     public function orderInsert(Request $request)
     {
         $request->validate([
-            'invoice_number' => 'required',
+            'invoice_number' => 'required|unique:orders,invoice_number',
             'company_name_id' => 'required',
             'quantity' => 'required',
         ]);
