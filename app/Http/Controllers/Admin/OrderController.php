@@ -61,7 +61,7 @@ class OrderController extends BaseController
         ]);
 
         $log = "Created order invoice number: " . $request->invoice_number . " & company: " . $order->getComapanyName->company_name;
-        Self::insertUserLog($log);
+        Self::insertUserLog($log, $order->id);
 
         return redirect()->route('admin.order')->with([
             "message" => [
@@ -142,8 +142,10 @@ class OrderController extends BaseController
         $updateArray[$status . '_remarks'] = $request->remarks;
         $orderArr->update($updateArray);
 
-        $log = "Order with invoice number: " . $orderArr->invoice_number . ".. " . $item . " items, remarks: " . $request->remarks . ", status updated to " . ucwords(str_replace('_', ' ', $status));
-        Self::insertUserLog($log);
+        $remarks = $request->remarks ? ", remarks: " . $request->remarks : '';
+
+        $log = "Order with invoice number: " . $orderArr->invoice_number . ".. " . $item . " items" . $remarks . ", status updated to " . ucwords(str_replace('_', ' ', $status));
+        Self::insertUserLog($log, $id);
 
         return redirect()->route('admin.order')->with([
             "message" => [
@@ -164,7 +166,7 @@ class OrderController extends BaseController
         $order->delete();
 
         $log = "Order with invoice number " . $order->invoice_number . " & company " . $order->getComapanyName->company_name . " is deleted.";
-        Self::insertUserLog($log);
+        Self::insertUserLog($log, $id);
 
         return redirect()->route('admin.order')->with([
             "message" => [

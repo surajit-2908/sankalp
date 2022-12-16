@@ -12,9 +12,12 @@ class UserLogController extends BaseController
      * UserLog listing
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function index()
+    public function index($order_id = null)
     {
-        $userLogArr = UserLog::orderBy('created_at', 'DESC')->get();
+        if ($order_id)
+            $userLogArr = UserLog::whereOrderId($order_id)->orderBy('created_at', 'DESC')->get();
+        else
+            $userLogArr = UserLog::orderBy('created_at', 'DESC')->get();
 
         $dataArr = [
             "page_title" => "User Log",
@@ -33,7 +36,7 @@ class UserLogController extends BaseController
     {
         UserLog::find($id)->delete();
 
-        return redirect()->route('admin.user.log')->with([
+        return redirect()->back()->with([
             "message" => [
                 "result" => "success",
                 "msg" => "User Log deleted successfully."

@@ -14,7 +14,7 @@ class UserLog extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'user_id','log'
+        'id', 'user_id', 'order_id','log'
     ];
 
     public function getUser()

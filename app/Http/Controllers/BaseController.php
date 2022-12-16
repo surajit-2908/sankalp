@@ -21,12 +21,13 @@ class BaseController extends Controller
      * @param string $log
      * @return string
      */
-    public function insertUserLog($log)
+    public function insertUserLog($log, $order_id = 0)
     {
         $user = Auth::guard('admin')->user();
         if ($user->admin_type != 'A') {
             UserLog::create([
                 'user_id' => $user->id,
+                'order_id' => $order_id,
                 'log' => $log
             ]);
         }

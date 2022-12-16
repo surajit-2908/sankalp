@@ -16,6 +16,7 @@ class CreateUserLogsTable extends Migration
         Schema::create('user_logs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
+            $table->integer('order_id')->default(0);
             $table->text('log')->nullable();
             $table->timestamps();
         });

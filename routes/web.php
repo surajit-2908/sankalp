@@ -80,7 +80,7 @@ Route::group([
     });
 
     Route::group(['prefix' => 'user-log'], function () {
-        Route::get('', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
+        Route::get('/{order_id?}', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
         Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
     });
 

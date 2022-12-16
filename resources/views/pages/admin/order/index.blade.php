@@ -113,6 +113,11 @@
                                         </a>
                                     </td>
                                     <td title="Action">
+                                        @if (Auth::user()->admin_type == 'A')
+                                            <a href="{{ route('admin.user.log', $order->id) }}" title="User Log">
+                                                <i class="fa fa-eye chat"></i>
+                                            </a>
+                                        @endif
                                         <a href="{{ route('admin.order.remove', $order->id) }}" title="Delete"
                                             class="delete-confirm">
                                             <i class="fa fa-trash chat"></i>
@@ -194,7 +199,7 @@
                 for (let i = 1; i <= $(this).data('quantity'); i++) {
                     if (inArray(i, selected_items))
                         html +=
-                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}" checked="checked"><label for="quantity${i}"> ${i} </label></div>`;
+                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}" checked="checked" onclick="return false"><label for="quantity${i}"> ${i} </label></div>`;
                     else
                         html +=
                         `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}"><label for="quantity${i}"> ${i} </label></div>`;
