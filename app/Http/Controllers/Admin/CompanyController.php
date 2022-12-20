@@ -47,14 +47,14 @@ class CompanyController extends BaseController
     public function companyInsert(Request $request)
     {
         $request->validate([
-            'company_name' => 'required',
+            'company_name' => 'required|unique:companies,company_name',
         ]);
 
         Company::create([
             'company_name' => $request->company_name
         ]);
 
-        $log = "Created company name is ".$request->company_name;
+        $log = "Created company name is " . $request->company_name;
         Self::insertUserLog($log);
 
         return redirect()->route('admin.company')->with([
@@ -92,13 +92,13 @@ class CompanyController extends BaseController
         $companyArr = Company::find($id);
 
         $request->validate([
-            'company_name' => 'required',
+            'company_name' => 'required|unique:companies,company_name,' . $id,
         ]);
 
         $updateArray['company_name'] = $request->company_name;
         Company::find($id)->update($updateArray);
 
-        $log = $companyArr->company_name. " is updated to ".$request->company_name;
+        $log = $companyArr->company_name . " is updated to " . $request->company_name;
         Self::insertUserLog($log);
 
         return redirect()->route('admin.company')->with([
@@ -121,8 +121,8 @@ class CompanyController extends BaseController
         if (!$oreders) {
             $companyArr->delete();
 
-        $log = $companyArr->company_name. " is deleted.";
-        Self::insertUserLog($log);
+            $log = $companyArr->company_name . " is deleted.";
+            Self::insertUserLog($log);
 
             return redirect()->route('admin.company')->with([
                 "message" => [

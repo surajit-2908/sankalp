@@ -121,6 +121,10 @@ class OrderController extends BaseController
      */
     public function orderStatus(Request $request)
     {
+        $request->validate([
+            'items' => 'required'
+        ]);
+
         $id = $request->id;
         $status = $request->status;
         $items = implode(',', $request->items);
@@ -134,7 +138,7 @@ class OrderController extends BaseController
         $collumn = $status . '_items';
         $arr = explode(',', $orderArr->$collumn);
         $diff = array_diff($request->items, $arr);
-        $item = $diff ?  "number " .implode(',', $diff) : "no";
+        $item = $diff ?  "number " . implode(',', $diff) : "no";
 
         $status_val = now();
 

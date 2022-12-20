@@ -47,7 +47,7 @@
                                             data-id="{{ $order->id }}" data-status="order_confirmed"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->order_confirmed_items }}"
-                                            data-remark="{{ $order->order_confirmed_remarks }}" />
+                                            data-remark="{{ $order->order_confirmed_remarks }}" data-items="" />
                                         {{-- @else
                                             <a href="javascript:void(0)" title="Order Confirmed">
                                         @endif --}}
@@ -65,7 +65,8 @@
                                             data-id="{{ $order->id }}" data-status="production"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->production_items }}"
-                                            data-remark="{{ $order->production_remarks }}" />
+                                            data-remark="{{ $order->production_remarks }}"
+                                            data-items="{{ $order->order_confirmed_items }}" />
                                         {{-- @else
                                             <a href="javascript:void(0)" title="Production">
                                         @endif --}}
@@ -83,7 +84,8 @@
                                             data-id="{{ $order->id }}" data-status="packaging"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->packaging_items }}"
-                                            data-remark="{{ $order->packaging_remarks }}" />
+                                            data-remark="{{ $order->packaging_remarks }}"
+                                            data-items="{{ $order->production_items }}" />
                                         {{-- @else
                                             <a href="javascript:void(0)" title="Packaging">
                                         @endif --}}
@@ -101,7 +103,8 @@
                                             data-id="{{ $order->id }}" data-status="delivery"
                                             data-quantity="{{ $order->quantity }}"
                                             data-selected="{{ $order->delivery_items }}"
-                                            data-remark="{{ $order->delivery_remarks }}" />
+                                            data-remark="{{ $order->delivery_remarks }}"
+                                            data-items="{{ $order->packaging_items }}" />
                                         {{-- @else
                                             <a href="javascript:void(0)" title="Delivery">
                                         @endif --}}
@@ -193,16 +196,31 @@
                 $('#id').val($(this).data('id'));
                 $('#status').val(status);
                 $('#remarks').val($(this).data('remark'));
+
+                // get ready items for next status update
+                let data_items = $(this).data('items').toString();
+
+                if (data_items.length > 1)
+                    data_items = $(this).data('items').split(",");
+                // get selected items
                 let selected_items = $(this).data('selected');
 
+                // set data leangth or quantity
+                let dataLength = 0;
+                if (data_items != "")
+                    dataLength = data_items.length;
+                else
+                    dataLength = $(this).data('quantity');
+
                 let html = "";
-                for (let i = 1; i <= $(this).data('quantity'); i++) {
-                    if (inArray(i, selected_items))
+                // loop to show items in modal
+                for (let i = 1; i <= dataLength; i++) {
+                    if (inArray(data_items[i - 1] ? data_items[i - 1] : i, selected_items))
                         html +=
-                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}" checked="checked" onclick="return false"><label for="quantity${i}"> ${i} </label></div>`;
+                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${data_items[i-1] ? data_items[i-1] : i}" checked="checked" onclick="return false"><label for="quantity${i}"> ${data_items[i-1] ? data_items[i-1] : i} </label></div>`;
                     else
                         html +=
-                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${i}"><label for="quantity${i}"> ${i} </label></div>`;
+                        `<div class="item-label"><input type="checkbox" class="for-check" id="quantity${i}" name="items[]" value="${data_items[i-1] ? data_items[i-1] : i}"><label for="quantity${i}"> ${data_items[i-1] ? data_items[i-1] : i} </label></div>`;
                 }
                 $("#items").append(html);
                 if (status == 'order_confirmed')
