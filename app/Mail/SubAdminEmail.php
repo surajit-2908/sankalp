@@ -5,9 +5,8 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
-class BookingCancelMail extends Mailable
+class SubAdminEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,10 +28,10 @@ class BookingCancelMail extends Mailable
      */
     public function build()
     {
-        $data['booking'] = $this->request;
-        return $this->view('mail.booking_cancel', $data)
-            ->to($this->request['email'])
-            ->subject($this->request['mail_subject'])
-            ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        $data['subAdmin'] = $this->request;
+        return $this->view('mail.sub-admin', $data)
+        ->to($data['subAdmin']['email'])
+        ->subject($data['subAdmin']['mail_subject'])
+        ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
     }
 }

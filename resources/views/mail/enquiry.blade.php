@@ -15,36 +15,48 @@
             </div>
         </div>
         <div style="max-width:620px; border:1px solid #f0f0f0; margin:0 0; padding:15px; ">
-            <h1 style="font-family:Arial; font-size:16px; font-weight:500; margin:5px 0 12px 0;">Dear Admin ,</h1>
+            <h1 style="font-family:Arial; font-size:16px; font-weight:500; margin:5px 0 12px 0;">Dear Admin,</h1>
 
             <div style="display:block;overflow:hidden; width:100%; margin: 5px 0px 10px 0px;">
                 <p
                     style="font-family:Arial; font-size:14px; font-weight:500; text-align:center; color:#000;padding: 4px; background:#f5f5f5;">
-                    A new request has been received
+                    A new enquiry has been received
                 </p>
             </div>
 
             <div style="display:block;overflow:hidden; width:100%; margin: 5px 0px 10px 0px;">
                 <p
                     style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
-                    Name : {{ @$contact['name'] }}
+                    Company Name : {{ @$enquiry['company_name'] }}
                 </p>
                 <p
                     style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
-                    Email : {{ @$contact['email'] }}
+                    Key Person : {{ @$enquiry['key_person'] }}
                 </p>
                 <p
                     style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
-                    Phone : {{ @$contact['phone'] }}
+                    Email : {{ @$enquiry['email'] }}
                 </p>
                 <p
                     style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
-                    Message : {{ @$contact['msg'] }}
+                    Country : {{ @$enquiry['country'] }}
+                </p>
+                <p
+                    style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
+                    Phone : {{ @$enquiry['phone'] }}
+                </p>
+                <p
+                    style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
+                    Industry : {{ @$enquiry['industry'] }}
+                </p>
+                <p
+                    style="font-family:Arial; font-size:14px; font-weight:500; text-align:left; color:#000;padding: 4px; margin:0px;">
+                    Enquiry : {{ @$enquiry['enquiry'] }}
                 </p>
             </div>
 
             <p style="font-family:Arial; font-size:14px; font-weight:500; color:#363839;margin: 0px 0px 0px 0px;">Thank
-                you,<br>Team Hero Fit</p>
+                you,<br>Team Sankalp</p>
 
         </div>
     </div>

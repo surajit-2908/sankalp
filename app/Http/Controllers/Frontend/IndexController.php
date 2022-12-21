@@ -8,7 +8,7 @@ use App\Models\Enquiry;
 use App\Models\Order;
 use App\Models\Tracking;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactEmail;
+use App\Mail\EnquiryEmail;
 
 class IndexController extends BaseController
 {
@@ -60,16 +60,20 @@ class IndexController extends BaseController
                 ]
             ]);
         }
-        $input = $request->all();
 
+        $input = $request->all();
         Enquiry::create($input);
 
-        // $contactDetails                  =   [];
-        // $contactDetails['name']          =   $request->fname . " " . $request->lname;
-        // $contactDetails['email']         =   $request->email;
-        // $contactDetails['phone']         =   $request->phone;
-        // $contactDetails['msg']           =   $request->msg;
-        // Mail::send(new ContactEmail($contactDetails));
+        // sending new enquiry mail to admin
+        $enquiryDetails                  =   [];
+        $enquiryDetails['company_name']  =   $request->company_name;
+        $enquiryDetails['key_person']    =   $request->key_person;
+        $enquiryDetails['email']         =   $request->email;
+        $enquiryDetails['country']       =   $request->country;
+        $enquiryDetails['phone']         =   $request->phone;
+        $enquiryDetails['industry']      =   $request->industry;
+        $enquiryDetails['enquiry']       =   $request->enquiry;
+        Mail::send(new EnquiryEmail($enquiryDetails));
 
         return redirect()->back()->with([
             "message" => [
@@ -78,27 +82,11 @@ class IndexController extends BaseController
             ]
         ]);
     }
+
     public function reloadCaptcha()
     {
         return response()->json(['captcha' => captcha_img('flat')]);
     }
-    /**
-     * send Mail
-     * @param mixed $booking
-     * @param mixed $onlineTrainingData
-     * @return void
-     */
-    public function sendMail($booking, $onlineTrainingData)
-    {
-        $bookingDetail                     =   [];
-        $bookingDetail['mail_subject']     =   "Order Successful";
-        $bookingDetail['email']            =   $booking->email;
-        $bookingDetail['booking_detail']   =   $booking;
-        $bookingDetail['training_data']   =   $onlineTrainingData;
-
-        Mail::send(new ContactEmail($bookingDetail));
-    }
-
 
     /**
      * showTrackingDetails

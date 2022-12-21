@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class BookingSuccessMail extends Mailable
+class EnquiryEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,11 +29,10 @@ class BookingSuccessMail extends Mailable
      */
     public function build()
     {
-        $data['booking'] = $this->request;
-
-        return $this->view('mail.booking_success', $data)
-        ->to($this->request['email'])
-        ->subject($this->request['mail_subject'])
+        $data['enquiry'] = $this->request;
+        return $this->view('mail.enquiry', $data)
+        ->to(env('ADMIN_EMAIL'))
+        ->subject('New Enquiry')
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
     }
 }

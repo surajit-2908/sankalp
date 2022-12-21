@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\UserLog;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SubAdminEmail;
 
 class SubAdminController extends BaseController
 {
@@ -62,6 +64,14 @@ class SubAdminController extends BaseController
             'admin_type' => 'SA',
         ]);
 
+        // send email to sub-admin
+        $subAdminDetail['mail_subject']     =   "Sub Admin Created Successfully";
+        $subAdminDetail['email']            =   $request->email;
+        $subAdminDetail['name']             =   $request->name;
+        $subAdminDetail['phone']            =   $request->phone;
+        $subAdminDetail['password']         =   $request->password;
+        Mail::send(new SubAdminEmail($subAdminDetail));
+
         return redirect()->route('admin.sub.admin')->with([
             "message" => [
                 "result" => "success",
@@ -108,6 +118,14 @@ class SubAdminController extends BaseController
         if ($request->password)
             $updateArray['password'] = bcrypt($request->password);
         Admin::find($id)->update($updateArray);
+
+        // send email to sub-admin
+        $subAdminDetail['mail_subject']     =   "Sub Admin Updated Successfully";
+        $subAdminDetail['email']            =   $request->email;
+        $subAdminDetail['name']             =   $request->name;
+        $subAdminDetail['phone']            =   $request->phone;
+        $subAdminDetail['password']         =   $request->password;
+        Mail::send(new SubAdminEmail($subAdminDetail));
 
         return redirect()->route('admin.sub.admin')->with([
             "message" => [

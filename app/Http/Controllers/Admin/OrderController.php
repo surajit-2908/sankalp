@@ -6,7 +6,6 @@ use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Company;
-use App\Models\UserLog;
 
 class OrderController extends BaseController
 {

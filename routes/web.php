@@ -70,20 +70,22 @@ Route::group([
         Route::get('remove/{id}', ['as' => 'admin.tracking.remove', 'uses' => 'Admin\TrackingController@trackingRemove']);
     });
 
-    Route::group(['prefix' => 'sub-admin'], function () {
-        Route::get('', ['as' => 'admin.sub.admin', 'uses' => 'Admin\SubAdminController@index']);
-        Route::get('add', ['as' => 'admin.sub.admin.add', 'uses' => 'Admin\SubAdminController@subAdminAdd']);
-        Route::post('insert', ['as' => 'admin.sub.admin.insert', 'uses' => 'Admin\SubAdminController@subAdminInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.sub.admin.edit', 'uses' => 'Admin\SubAdminController@subAdminEdit']);
-        Route::post('update/{id}', ['as' => 'admin.sub.admin.update', 'uses' => 'Admin\SubAdminController@subAdminUpdate']);
-        Route::get('remove/{id}', ['as' => 'admin.sub.admin.remove', 'uses' => 'Admin\SubAdminController@subAdminRemove']);
-    });
+    // sub-admin access denied
+    Route::middleware([SubAdminCheck::class])->group(function () {
+        Route::group(['prefix' => 'sub-admin'], function () {
+            Route::get('', ['as' => 'admin.sub.admin', 'uses' => 'Admin\SubAdminController@index']);
+            Route::get('add', ['as' => 'admin.sub.admin.add', 'uses' => 'Admin\SubAdminController@subAdminAdd']);
+            Route::post('insert', ['as' => 'admin.sub.admin.insert', 'uses' => 'Admin\SubAdminController@subAdminInsert']);
+            Route::get('edit/{id}', ['as' => 'admin.sub.admin.edit', 'uses' => 'Admin\SubAdminController@subAdminEdit']);
+            Route::post('update/{id}', ['as' => 'admin.sub.admin.update', 'uses' => 'Admin\SubAdminController@subAdminUpdate']);
+            Route::get('remove/{id}', ['as' => 'admin.sub.admin.remove', 'uses' => 'Admin\SubAdminController@subAdminRemove']);
+        });
 
-    Route::group(['prefix' => 'user-log'], function () {
-        Route::get('/{order_id?}', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
-        Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
+        Route::group(['prefix' => 'user-log'], function () {
+            Route::get('/{order_id?}', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
+            Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
+        });
     });
-
 });
 
 // Clear configuration cache:
