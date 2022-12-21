@@ -11,7 +11,7 @@
         <div style="background:#F5F5F3; border:1px solid #dcd7d7;">
             <div
                 style="float: none; text-align: center; margin-top: 0px; background:url('{{ URL::to('#') }}') repeat center center">
-                <img src="{{ asset('assets/images/footer-logo.png') }}" width="240" alt="" style="padding: 5px;">
+                <img src="{{ asset('assets/images/logo.png') }}" width="240" alt="" style="padding: 5px;">
             </div>
         </div>
         <div style="max-width:620px; border:1px solid #f0f0f0; margin:0 0; padding:15px; ">
