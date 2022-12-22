@@ -117,7 +117,7 @@
                                     </td>
                                     <td title="Action">
                                         @if (Auth::user()->admin_type == 'A')
-                                            <a href="{{ route('admin.user.log', $order->id) }}" title="User Log">
+                                            <a href="{{ route('admin.order.user.log', $order->id) }}" title="User Log">
                                                 <i class="fa fa-eye chat"></i>
                                             </a>
                                         @endif

@@ -44,10 +44,9 @@ Route::group([
         Route::get('', ['as' => 'admin.order', 'uses' => 'Admin\OrderController@index']);
         Route::get('add', ['as' => 'admin.order.add', 'uses' => 'Admin\OrderController@orderAdd']);
         Route::post('insert', ['as' => 'admin.order.insert', 'uses' => 'Admin\OrderController@orderInsert']);
-        Route::get('edit/{id}', ['as' => 'admin.order.edit', 'uses' => 'Admin\OrderController@orderEdit']);
-        Route::post('update/{id}', ['as' => 'admin.order.update', 'uses' => 'Admin\OrderController@orderUpdate']);
         Route::post('status', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
         Route::get('remove/{id}', ['as' => 'admin.order.remove', 'uses' => 'Admin\OrderController@orderRemove']);
+        Route::get('order-user-log/{id}', ['as' => 'admin.order.user.log', 'uses' => 'Admin\OrderController@orderUserLog']);
     });
 
     Route::group(['prefix' => 'company'], function () {
@@ -82,7 +81,7 @@ Route::group([
         });
 
         Route::group(['prefix' => 'user-log'], function () {
-            Route::get('/{order_id?}', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
+            Route::get('/', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
             Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
         });
     });

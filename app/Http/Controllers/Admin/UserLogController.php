@@ -12,12 +12,9 @@ class UserLogController extends BaseController
      * UserLog listing
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function index($order_id = null)
+    public function index()
     {
-        if ($order_id)
-            $userLogArr = UserLog::whereOrderId($order_id)->orderBy('created_at', 'DESC')->get();
-        else
-            $userLogArr = UserLog::orderBy('created_at', 'DESC')->get();
+        $userLogArr = UserLog::orderBy('created_at', 'DESC')->get();
 
         $dataArr = [
             "page_title" => "User Log",

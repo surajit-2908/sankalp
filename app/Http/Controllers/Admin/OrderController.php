@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController as BaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Company;
+use App\Models\UserLog;
 
 class OrderController extends BaseController
 {
@@ -60,55 +61,13 @@ class OrderController extends BaseController
             'quantity' => $request->quantity,
         ]);
 
-        $log = "Created order invoice number: " . $request->invoice_number . " & company: " . $order->getComapanyName->company_name;
+        $log = "Created order invoice number: " . $request->invoice_number . " & company: " . $order->getComapanyName->company_name. " with " . $order->quantity . " number of line items.";
         Self::insertUserLog($log, $order->id);
 
         return redirect()->route('admin.order')->with([
             "message" => [
                 "result" => "success",
                 "msg" => "Order added successfully."
-            ]
-        ]);
-    }
-
-    /**
-     * Order edit page
-     * @param int $id
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
-     */
-    public function orderEdit($id)
-    {
-        $orderArr = Order::find($id);
-        $dataArr = [
-            "page_title" => "Edit Order",
-            "orderArr" => $orderArr
-        ];
-
-        return view('pages.admin.order.edit_order')->with('dataArr', $dataArr);
-    }
-
-    /**
-     * Order update
-     * @param int $id
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
-     */
-    public function orderUpdate(Request $request, $id)
-    {
-        $orderArr = Order::find($id);
-
-        $request->validate([
-            'name' => 'required',
-        ]);
-
-
-        $updateArray['name'] = $request->name;
-        $orderArr->update($updateArray);
-
-        return redirect()->route('admin.order')->with([
-            "message" => [
-                "result" => "success",
-                "msg" => "Order updated successfully."
             ]
         ]);
     }
@@ -178,5 +137,24 @@ class OrderController extends BaseController
                 "msg" => "Order deleted successfully."
             ]
         ]);
+    }
+
+    /**
+     * Order UserLog listing
+     * @param mixed $order_id
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function orderUserLog($order_id)
+    {
+        $userLogArr = UserLog::whereOrderId($order_id)->orderBy('created_at', 'DESC')->get();
+        $order = Order::find($order_id);
+
+        $dataArr = [
+            "page_title" => "Order User Log",
+            "order"      => $order,
+            "userLogArr" => $userLogArr,
+        ];
+
+        return view('pages.admin.order.user_log')->with('dataArr', $dataArr);
     }
 }
