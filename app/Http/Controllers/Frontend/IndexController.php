@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Tracking;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnquiryEmail;
+use App\Mail\OrderTrackingEmail;
 
 class IndexController extends BaseController
 {
@@ -96,10 +97,17 @@ class IndexController extends BaseController
     public function showTrackingDetails(Request $request)
     {
         $input = $request->all();
+
         $order = Order::where('invoice_number', $input['invoice_number'])->first();
-        if($order)
+        if ($order) {
             Tracking::create($input);
 
+            // sending new tracking mail to admin
+            $trackingDetails                  =   [];
+            $trackingDetails['invoice_number']=   $request->invoice_number;
+            $trackingDetails['email']         =   $request->email;
+            Mail::send(new OrderTrackingEmail($trackingDetails));
+        }
         return view('pages.frontend.ajax_track', compact('order'));
     }
 }
