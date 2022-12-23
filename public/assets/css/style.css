@@ -1031,3 +1031,30 @@ p {
 }
 
 
+
+.pb20{
+    padding-bottom: 20px;
+  }
+  .pt20{
+    padding-top: 20px;
+  }
+  ul.aboutList{
+    margin: 0;
+    padding: 0;
+  }
+  ul.aboutList li{
+    font-size: 16px;
+    position: relative;
+    padding: 0 20px;
+    margin-bottom: 10px;
+  }
+  ul.aboutList li:before{
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: #68613b;
+    border-radius: 100%;
+    position: absolute;
+    top: 9px;
+    left: 0;
+  }

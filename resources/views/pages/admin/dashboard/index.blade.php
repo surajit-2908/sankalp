@@ -31,7 +31,7 @@
                         <th>Email</th>
                         <th>Country</th>
                         <th>Phone</th>
-                        <th>Industry</th>
+                        {{-- <th>Industry</th> --}}
                         <th>Enquiry Status</th>
                         <th>Order Status</th>
                         <th>Action</th>
@@ -56,9 +56,9 @@
                             <td title="Phone">
                                 {{ $enquiry->phone }}
                             </td>
-                            <td title="Industry">
+                            {{-- <td title="Industry">
                                 {{ $enquiry->industry }}
-                            </td>
+                            </td> --}}
                             <td title="Enquiry Status">
                                 <a href="{{ route('admin.enquiry.status', [$enquiry->id, 'enquiry_status']) }}"
                                     title="Enquiry Status" class="status-confirm">

@@ -18,6 +18,18 @@
                     href="{{ route('admin.dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
             <li><a class="{{ $controller_name == 'CompanyController' ? 'active' : '' }}"
                     href="{{ route('admin.company') }}"><i class="fa fa-building-o"></i> Companies</a></li>
+
+            <li><a class="{{ $controller_name == 'CategoryController' ? 'active' : '' }}"
+                    href="{{ route('admin.category') }}"><i class="fa fa-list-alt"></i> <span>Category</span></a>
+            </li>
+            <li><a class="{{ $controller_name == 'SubCategoryController' ? 'active' : '' }}"
+                    href="{{ route('admin.sub.category') }}"><i class="fa fa-list-alt"></i> <span>Sub
+                        Category</span></a>
+            </li>
+            {{-- <li><a class="{{ $controller_name == 'ProductController' ? 'active' : '' }}"
+                    href="{{ route('admin.product') }}"><i class="fa fa-tasks"></i> <span>Product</span></a>
+            </li> --}}
+
             <li><a class="{{ $controller_name == 'OrderController' ? 'active' : '' }}"
                     href="{{ route('admin.order') }}"><i class="fa fa-shopping-cart"></i> Orders</a></li>
             <li><a class="{{ $controller_name == 'EnquiryController' ? 'active' : '' }}"

@@ -200,12 +200,12 @@
                 </ul>
             </li>
             <li>
-                <a class="accordion-heading {{ Route::is('enquiry') ? 'active' : '' }} " data-toggle="collapse"
-                    data-target="#submenu4">
+                <a class="accordion-heading {{ Route::is(['enquiry', 'about.us']) ? 'active' : '' }} "
+                    data-toggle="collapse" data-target="#submenu4">
                     <span class="nav-header-primary"><i class="fa fa-handshake-o"></i> Support</span>
                 </a>
                 <ul class="nav nav-list collapse" id="submenu4">
-                    <li><a href="javascript:void(0)">About Us</a></li>
+                    <li><a href="{{ route('about.us') }}">About Us</a></li>
                     <li><a href="{{ route('enquiry') }}">Contact Us</a></li>
                 </ul>
             </li>

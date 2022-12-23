@@ -27,6 +27,15 @@ class IndexController extends BaseController
      * enquiry page
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
+    public function aboutUs()
+    {
+        return view('pages.frontend.about_us');
+    }
+
+    /**
+     * enquiry page
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function enquiry()
     {
         return view('pages.frontend.enquiry');

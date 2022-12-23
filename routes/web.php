@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
+Route::get('/about-us', ['as' => 'about.us', 'uses' => 'Frontend\IndexController@aboutUs']);
 Route::get('/enquiry', ['as' => 'enquiry', 'uses' => 'Frontend\IndexController@enquiry']);
 Route::get('/reload-captcha', ['as' => 'reload.captcha', 'uses' => 'Frontend\IndexController@reloadCaptcha']);
 Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);
@@ -46,7 +47,7 @@ Route::group([
         Route::post('insert', ['as' => 'admin.order.insert', 'uses' => 'Admin\OrderController@orderInsert']);
         Route::post('status', ['as' => 'admin.order.status', 'uses' => 'Admin\OrderController@orderStatus']);
         Route::get('remove/{id}', ['as' => 'admin.order.remove', 'uses' => 'Admin\OrderController@orderRemove']);
-        Route::get('order-user-log/{id}', ['as' => 'admin.order.user.log', 'uses' => 'Admin\OrderController@orderUserLog']);
+        Route::get('user-log/{id}', ['as' => 'admin.order.user.log', 'uses' => 'Admin\OrderController@orderUserLog']);
     });
 
     Route::group(['prefix' => 'company'], function () {
@@ -68,6 +69,37 @@ Route::group([
         Route::get('', ['as' => 'admin.tracking', 'uses' => 'Admin\TrackingController@index']);
         Route::get('remove/{id}', ['as' => 'admin.tracking.remove', 'uses' => 'Admin\TrackingController@trackingRemove']);
     });
+
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('', ['as' => 'admin.category', 'uses' => 'Admin\CategoryController@index']);
+        Route::get('add', ['as' => 'admin.category.add', 'uses' => 'Admin\CategoryController@categoryAdd']);
+        Route::post('insert', ['as' => 'admin.category.insert', 'uses' => 'Admin\CategoryController@categoryInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.category.edit', 'uses' => 'Admin\CategoryController@categoryEdit']);
+        Route::post('update/{id}', ['as' => 'admin.category.update', 'uses' => 'Admin\CategoryController@categoryUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.category.remove', 'uses' => 'Admin\CategoryController@categoryRemove']);
+    });
+
+    Route::group(['prefix' => 'sub-category'], function () {
+        Route::get('', ['as' => 'admin.sub.category', 'uses' => 'Admin\SubCategoryController@index']);
+        Route::get('add', ['as' => 'admin.sub.category.add', 'uses' => 'Admin\SubCategoryController@subCategoryAdd']);
+        Route::post('insert', ['as' => 'admin.sub.category.insert', 'uses' => 'Admin\SubCategoryController@subCategoryInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.sub.category.edit', 'uses' => 'Admin\SubCategoryController@subCategoryEdit']);
+        Route::post('update/{id}', ['as' => 'admin.sub.category.update', 'uses' => 'Admin\SubCategoryController@subCategoryUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.sub.category.remove', 'uses' => 'Admin\SubCategoryController@subCategoryRemove']);
+    });
+
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('', ['as' => 'admin.product', 'uses' => 'Admin\ProductController@index']);
+        Route::get('detail/{id}', ['as' => 'admin.product.detail', 'uses' => 'Admin\ProductController@productDetail']);
+        Route::get('add', ['as' => 'admin.product.add', 'uses' => 'Admin\ProductController@productAdd']);
+        Route::post('insert', ['as' => 'admin.product.insert', 'uses' => 'Admin\ProductController@productInsert']);
+        Route::get('edit/{id}', ['as' => 'admin.product.edit', 'uses' => 'Admin\ProductController@productEdit']);
+        Route::post('update/{id}', ['as' => 'admin.product.update', 'uses' => 'Admin\ProductController@productUpdate']);
+        Route::get('remove/{id}', ['as' => 'admin.product.remove', 'uses' => 'Admin\ProductController@productRemove']);
+        Route::get('status/{id}', ['as' => 'admin.product.status', 'uses' => 'Admin\ProductController@productStatus']);
+        Route::post('remove/img', ['as' => 'admin.product.img.remove', 'uses' => 'Admin\ProductController@imgRemove']);
+    });
+    Route::get('get-sub-cat/{cat_id}', ['as' => 'admin.get.sub-cat', 'uses' => 'Admin\ProductController@getSubCat']);
 
     // sub-admin access denied
     Route::middleware([SubAdminCheck::class])->group(function () {
