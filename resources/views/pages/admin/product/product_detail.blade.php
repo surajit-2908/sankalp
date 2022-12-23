@@ -94,8 +94,7 @@
 
                             <div class="land-data-col" style="width: 100%; margin-top: 25px;">
                                 <div class="present_prt">
-                                    <h2>Gallery Images</h2>
-                                    <div class="button_prt"></div>
+                                    <h2 style="margin-bottom: 25px;">Gallery Images</h2>
 
                                     <div class="room-img">
                                         @foreach ($dataArr['productDetail']->getImages as $img)

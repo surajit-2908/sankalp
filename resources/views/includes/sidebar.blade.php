@@ -26,9 +26,9 @@
                     href="{{ route('admin.sub.category') }}"><i class="fa fa-list-alt"></i> <span>Sub
                         Category</span></a>
             </li>
-            {{-- <li><a class="{{ $controller_name == 'ProductController' ? 'active' : '' }}"
-                    href="{{ route('admin.product') }}"><i class="fa fa-tasks"></i> <span>Product</span></a>
-            </li> --}}
+            <li><a class="{{ $controller_name == 'ProductController' ? 'active' : '' }}"
+                    href="{{ route('admin.product') }}"><i class="fa fa-product-hunt"></i> <span>Product</span></a>
+            </li>
 
             <li><a class="{{ $controller_name == 'OrderController' ? 'active' : '' }}"
                     href="{{ route('admin.order') }}"><i class="fa fa-shopping-cart"></i> Orders</a></li>

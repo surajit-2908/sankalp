@@ -26,5 +26,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        View::composer(
+            ['includes.frontend.sidebar'],
+            'App\Http\Composers\CategoryComposer'
+        );
     }
 }

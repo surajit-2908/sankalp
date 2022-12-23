@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
 Route::get('/about-us', ['as' => 'about.us', 'uses' => 'Frontend\IndexController@aboutUs']);
+Route::get('/product/{cat_id}', ['as' => 'product', 'uses' => 'Frontend\IndexController@product']);
 Route::get('/enquiry', ['as' => 'enquiry', 'uses' => 'Frontend\IndexController@enquiry']);
 Route::get('/reload-captcha', ['as' => 'reload.captcha', 'uses' => 'Frontend\IndexController@reloadCaptcha']);
 Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);

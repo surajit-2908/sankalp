@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Models\Enquiry;
 use App\Models\Order;
 use App\Models\Tracking;
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnquiryEmail;
 use App\Mail\OrderTrackingEmail;
@@ -30,6 +32,18 @@ class IndexController extends BaseController
     public function aboutUs()
     {
         return view('pages.frontend.about_us');
+    }
+
+    /**
+     * enquiry page
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
+    public function product($cat_slug)
+    {
+        $category = Category::where('slug', $cat_slug)->first();
+        $products = Product::whereStatus('1')->where('cat_id', $category->id)->orWhere('sub_cat_id', $category->id)->get();
+
+        return view('pages.frontend.product', compact('products', 'category'));
     }
 
     /**
@@ -113,7 +127,7 @@ class IndexController extends BaseController
 
             // sending new tracking mail to admin
             $trackingDetails                  =   [];
-            $trackingDetails['invoice_number']=   $request->invoice_number;
+            $trackingDetails['invoice_number'] =   $request->invoice_number;
             $trackingDetails['email']         =   $request->email;
             Mail::send(new OrderTrackingEmail($trackingDetails));
         }
