@@ -184,6 +184,24 @@
     });
 </script>
 
+
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('applications');
+    CKEDITOR.replace('special_options', {
+        allowedContent: true
+    });
+    CKEDITOR.replace('technical_specifications', {
+        allowedContent: true
+    });
+    let editor = CKEDITOR.replace('features');
+    editor.on('required', function(evt) {
+        $(".cke_notification ").hide();
+        editor.showNotification('This field is required.', 'warning');
+        evt.cancel();
+    });
+</script>
+
 </body>
 
 </html>

@@ -73,11 +73,10 @@ class ProductController extends BaseController
         $request->validate([
             'title' => 'required',
             'cat_id' => 'required',
-            // 'sub_cat_id' => 'required',
             'description' => 'required',
-            // 'quantity' => 'required',
-            // 'selling_price' => 'required',
-            // 'selling_offer_price' => 'required',
+            'features' => 'required',
+            'brochure' => 'required|mimes:pdf',
+            'youtube_link' => 'required',
             'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -85,14 +84,26 @@ class ProductController extends BaseController
         try {
             DB::beginTransaction();
 
+            if ($request->brochure) {
+                //brochure upload
+                $uploadedBrochure = $request->brochure;
+                $brochureFilename = rand('111111', '999999') . time() . "." . $uploadedBrochure->getClientOriginalExtension();
+
+                self::uploadImageToStorage(self::BROCHURE, $uploadedBrochure, $brochureFilename);
+            }
+
             $productInsert = Product::create([
                 'title' => $request->title,
                 'cat_id' => $request->cat_id,
                 'sub_cat_id' => $request->sub_cat_id,
                 'description' => nl2br($request->description),
-                // 'quantity' => $request->quantity,
-                // 'selling_price' => $request->selling_price,
-                // 'selling_offer_price' => $request->selling_offer_price,
+                'operation' => $request->operation,
+                'features' => $request->features,
+                'applications' => $request->applications,
+                'special_options' => $request->special_options,
+                'technical_specifications' => $request->technical_specifications,
+                'youtube_link' => $request->youtube_link,
+                'brochure' => $brochureFilename,
             ]);
 
             $slug = str_slug($request->title) . "-" . $productInsert->id;
@@ -168,11 +179,9 @@ class ProductController extends BaseController
         $request->validate([
             'title' => 'required',
             'cat_id' => 'required',
-            // 'sub_cat_id' => 'required',
             'description' => 'required',
-            // 'quantity' => 'required',
-            // 'selling_price' => 'required',
-            // 'selling_offer_price' => 'required',
+            'features' => 'required',
+            'youtube_link' => 'required',
             'image' => 'nullable',
             'image.*' => 'image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -181,16 +190,30 @@ class ProductController extends BaseController
             DB::beginTransaction();
 
             $slug = str_slug($request->title) . "-" . $id;
-            $productArr->update([
+            $updateArr = [
                 'title' => $request->title,
                 'slug' => $slug,
                 'cat_id' => $request->cat_id,
                 'sub_cat_id' => $request->sub_cat_id,
                 'description' => nl2br($request->description),
-                // 'quantity' => $request->quantity,
-                // 'selling_price' => $request->selling_price,
-                // 'selling_offer_price' => $request->selling_offer_price,
-            ]);
+                'operation' => $request->operation,
+                'features' => $request->features,
+                'applications' => $request->applications,
+                'special_options' => $request->special_options,
+                'technical_specifications' => $request->technical_specifications,
+                'youtube_link' => $request->youtube_link
+            ];
+
+            if ($request->brochure) {
+                //brochure upload
+                $uploadedBrochure = $request->brochure;
+                $brochureFilename = rand('111111', '999999') . time() . "." . $uploadedBrochure->getClientOriginalExtension();
+
+                self::uploadImageToStorage(self::BROCHURE, $uploadedBrochure, $brochureFilename);
+                $updateArr['brochure'] = $brochureFilename;
+            }
+
+            $productArr->update($updateArr);
 
             //upload gallery image
             $img = $request->image;
@@ -202,17 +225,6 @@ class ProductController extends BaseController
                     $filename = rand('111111', '999999') . time() . "." . $uploadedFile->getClientOriginalExtension();
 
                     self::uploadImageToStorage(self::PRODUCT_PIC, $uploadedFile, $filename);
-
-
-                    //preview image upload------------------------
-                    if (!Storage::makeDirectory('public/' . self::PRODUCT_PIC)) {
-                        throw new \Exception('Could not create the directory');
-                    }
-
-                    $thumb_image       = $img;
-                    $image_resize = Image::make($thumb_image->getRealPath());
-                    $image_resize->resize(500, 550);
-                    $image_resize->save(public_path('storage/' . self::PRODUCT_PIC . '/' . $filename));
 
                     ProductImage::create([
                         'product_id' => $id,

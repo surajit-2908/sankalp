@@ -50,6 +50,17 @@ class IndexController extends BaseController
      * enquiry page
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
+    public function productDetails($product_slug)
+    {
+        $productDetail = Product::whereSlug($product_slug)->first();
+
+        return view('pages.frontend.product_details', compact('productDetail'));
+    }
+
+    /**
+     * enquiry page
+     * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
+     */
     public function enquiry()
     {
         return view('pages.frontend.enquiry');

@@ -15,6 +15,7 @@ use App\Models\UserLog;
 class BaseController extends Controller
 {
     const PRODUCT_PIC = 'product_image';
+    const BROCHURE = 'brochure';
 
     /**
      * user log

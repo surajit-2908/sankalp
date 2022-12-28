@@ -1058,3 +1058,220 @@ p {
     top: 9px;
     left: 0;
   }
+
+/*=========================== Product Details Page Style Sheet Start Here ===========================*/
+
+.prodetailsSec{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .prodetailsSec-left{
+    width: 45%;
+  }
+  .prodetailsSec-left img{
+    width: 100%;
+  }
+  .prodetailsSec-right{
+    width: 50%;
+  }
+  .prodetailsSec-right h1{
+    font-size: 35px;
+    color: #2a3442;
+    margin-bottom: 25px;
+  }
+  .prodetailsSec-right p{
+    padding-bottom: 35px;
+  }
+  .operationSec{
+    border-top: solid 1px #ccc;
+    padding: 25px 0 0;
+    margin-top: 35px;
+  }
+  .operationSec h2{
+    font-size: 25px;
+    color: #2a3442;
+    margin-bottom: 25px;
+    font-weight: bold;
+  }
+  .proFitureNav ul{
+    border: 1px solid #c7c7c7;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .proFitureNav ul li{
+    border-right: 1px solid #c7c7c7;
+    padding: 7px 11px;
+  }
+  .proFitureNav ul li a i{
+    margin-right: 3px;
+  }
+  .proFitureNav ul li:last-child{
+    border-right:none;
+  }
+
+  .proFitureTabSec{
+    width: 100%;
+  }
+  .proFitureTabSec .nav-tabs {
+    display:none;
+    border: none;
+  }
+  .proFitureTabSec .nav-tabs .nav-link{
+    border: none;
+    border-bottom: solid 4px #e6e7e8;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px 40px;
+  }
+  .proFitureTabSec .nav-tabs .nav-link:hover{
+    border: none;
+    border-bottom: solid 4px #e6e7e8;
+  }
+  .proFitureTabSec .nav-tabs .nav-link.active{
+    background: transparent;
+    border: none;
+    border-bottom: solid 4px #ffd422;
+    color: #ffd422;
+  }
+  @media(min-width:768px) {
+    .proFitureTabSec .nav-tabs {
+        display: flex;
+    }
+
+    .card {
+        border: none;
+        background: none;
+    }
+
+    .card .card-header {
+        display:none;
+    }
+
+    .card .collapse{
+        display:block;
+    }
+  }
+
+  @media(max-width:767px){
+    .tab-content > .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+  }
+  .proFitureTabSec .card-body{
+    padding: 1.25rem 0;
+  }
+  .proFitureTabSec .card-body ul li{
+    font-size: 15px;
+    background: url(../images/bullet-text-arrow.png) 0 16px no-repeat;
+    line-height: 45px;
+    padding-left: 20px;
+  }
+
+  .responsiveTable{
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    empty-cells: show;
+    border: none;
+    border-top: 1px solid #E9E9EA;
+    border-left: 1px solid #E9E9EA;
+    border-bottom: 3px solid #E9E9EA;
+    background: #fff;
+  }
+  .responsiveTable tr:nth-child(odd) td {
+    background-color: #f7f7f7;
+  }
+  .responsiveTable td, .responsiveTable th, td, th {
+    border: none;
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid #ececed;
+    border-right: 1px solid #ececed;
+    font-size: 15px;
+  }
+  .table2{
+    margin-bottom: 30px;
+  }
+  .table2 th, th{
+    background: #ffd422;
+    color: #000000;
+  }
+  .modal-header{
+    padding:10px 20px;
+  }
+  .modal-header h2{
+    font-size: 27px;
+    font-weight: bold;
+  }
+  .modal-dialog{
+    margin: 0;
+  }
+  .img-size{
+    /* 	padding: 0;
+      margin: 0; */
+      height: 450px;
+      width: 700px;
+      background-size: cover;
+      overflow: hidden;
+    }
+    .modal-content {
+      width: 700px;
+      border:none;
+      margin: 0 auto;
+    }
+    .modal-body {
+       padding: 0;
+    }
+    .mtb25{
+      margin:10px 0 25px;
+    }
+    .enquiryCol{
+      width: 48.5%;
+    }
+    label{
+      font-size: 15px;
+      color: #000;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .carousel-control-prev-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23009be1' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+      width: 30px;
+      height: 48px;
+    }
+    .carousel-control-next-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23009be1' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+      width: 30px;
+      height: 48px;
+    }
+    .enquiry-group{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      margin-bottom: 10px;
+    }
+    label{
+      font-size: 15px;
+      color: #000;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-control{
+      border: solid 1px #ccc;
+      width: 100%;
+      padding: 15px;
+      height: 40px;
+    }
+    .texta{
+      width: 100%;
+    }
+    .form-texta{
+      border: solid 1px #ccc;
+      width: 100%;
+      padding: 5px 15px;
+      height: 80px;
+      border-radius: 5px;
+    }

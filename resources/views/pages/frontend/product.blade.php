@@ -20,7 +20,7 @@
                     <img src="{{ asset('storage/product_image/') . '/' . $product->getImages[0]->image_name }}"
                         alt="">
                     <div class="productTitleOverlay">
-                        <h2>{{ $product->title }}</h2>
+                        <h2><a href="{{ route('product.details', $product->slug) }}">{{ $product->title }}</a></h2>
                         <ul class="dFlx alignCenter">
                             <li><a class="yellowBtn" href="{{ route('enquiry') }}">ENQUIRE</a></li>
                             <li>

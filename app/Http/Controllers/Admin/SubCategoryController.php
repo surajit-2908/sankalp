@@ -52,12 +52,15 @@ class SubCategoryController extends BaseController
             'parent_id' => 'required',
         ]);
 
-        $slug = str_slug($request->name);
-        Category::create([
-            'name' => $request->name,
-            'slug' => $slug,
-            'parent_id' => $request->parent_id
-        ]);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->parent_id = $request->parent_id;
+        $category->save();
+
+        // update slug
+        $slug = str_slug($request->name) . "-" . $category->id;
+        $category->slug = $slug;
+        $category->save();
 
         return redirect()->route('admin.sub.category')->with([
             "message" => [
@@ -101,7 +104,7 @@ class SubCategoryController extends BaseController
         ]);
 
 
-        $slug = str_slug($request->name);
+        $slug = str_slug($request->name) . "-" . $id;
         $updateArray['name'] = $request->name;
         $updateArray['slug'] = $slug;
         $updateArray['parent_id'] = $request->parent_id;

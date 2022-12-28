@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['as' => 'index', 'uses' => 'Frontend\IndexController@index']);
 Route::get('/about-us', ['as' => 'about.us', 'uses' => 'Frontend\IndexController@aboutUs']);
-Route::get('/product/{cat_id}', ['as' => 'product', 'uses' => 'Frontend\IndexController@product']);
+Route::get('/product/{cat_slug}', ['as' => 'product', 'uses' => 'Frontend\IndexController@product']);
+Route::get('/product/details/{product_slug}', ['as' => 'product.details', 'uses' => 'Frontend\IndexController@productDetails']);
 Route::get('/enquiry', ['as' => 'enquiry', 'uses' => 'Frontend\IndexController@enquiry']);
 Route::get('/reload-captcha', ['as' => 'reload.captcha', 'uses' => 'Frontend\IndexController@reloadCaptcha']);
 Route::post('/save-enquiry', ['as' => 'save.enquiry', 'uses' => 'Frontend\IndexController@saveEnquiry']);
@@ -117,6 +118,7 @@ Route::group([
             Route::get('/', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
             Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);
         });
+        Route::post('ckeditor/upload', ['as' => 'ckeditor.upload', 'uses' => 'Admin\ContentController@uploadCkEditorImage']);
     });
 });
 

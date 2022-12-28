@@ -14,22 +14,26 @@ class Product extends Model
         'cat_id',
         'sub_cat_id',
         'description',
-        'quantity',
-        'selling_price',
-        'selling_offer_price',
+        'operation',
+        'features',
+        'special_options',
+        'technical_specifications',
+        'applications',
+        'brochure',
+        'youtube_link',
         'status',
     ];
 
     public function getCat()
     {
-        return $this->hasOne(Category::class,'id','cat_id');
+        return $this->hasOne(Category::class, 'id', 'cat_id');
     }
     public function getSubCat()
     {
-        return $this->hasOne(Category::class,'id','sub_cat_id');
+        return $this->hasOne(Category::class, 'id', 'sub_cat_id');
     }
     public function getImages()
     {
-        return $this->hasMany(ProductImage::class,'product_id','id');
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 }

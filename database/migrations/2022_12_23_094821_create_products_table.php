@@ -21,9 +21,13 @@ class CreateProductsTable extends Migration
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
             $table->integer('sub_cat_id')->default(0)->nullable();
             $table->text('description')->nullable();
-            // $table->integer('quantity')->nullable();
-            // $table->float('selling_price', 8, 2)->nullable();
-            // $table->float('selling_offer_price', 8, 2)->nullable();
+            $table->text('operation')->nullable();
+            $table->text('feautres')->nullable();
+            $table->text('special_options')->nullable();
+            $table->text('technical_specifications')->nullable();
+            $table->text('applications')->nullable();
+            $table->text('brochure')->nullable();
+            $table->text('youtube_link')->nullable();
             $table->enum('status', ['0', '1'])->default('1');
             $table->timestamps();
         });

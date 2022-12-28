@@ -41,11 +41,6 @@
                                     <div class="button_prt"></div>
 
                                     <div class="present-field">
-                                        <label>Title</label>
-                                        <span class="show-span">{{ @$dataArr['productDetail']->title }}</span>
-                                    </div>
-
-                                    <div class="present-field">
                                         <label>Category</label>
                                         <span class="show-span">{{ @$dataArr['productDetail']->getCat->name }}</span>
                                     </div>
@@ -56,23 +51,6 @@
                                             <span class="show-span">{{ @$dataArr['productDetail']->getSubCat->name }}</span>
                                         </div>
                                     @endif
-
-                                    {{-- <div class="present-field">
-                                        <label>Quantity</label>
-                                        <span class="show-span">{{ @$dataArr['productDetail']->quantity }}</span>
-                                    </div>
-
-                                    <div class="present-field">
-                                        <label>Product Price</label>
-                                        <span
-                                            class="show-span">${{ number_format($dataArr['productDetail']->selling_price, 2) }}</span>
-                                    </div>
-
-                                    <div class="present-field">
-                                        <label>Selling Price</label>
-                                        <span
-                                            class="show-span">${{ number_format($dataArr['productDetail']->selling_offer_price, 2) }}</span>
-                                    </div> --}}
 
                                     <div class="present-field">
                                         <label>Status</label>
@@ -85,16 +63,53 @@
                                         </span>
                                     </div>
 
+                                    <div class="present-field">
+                                        <label>Brochure</label>
+                                        <span class="show-span"><a
+                                                href="{{ asset('storage/brochure/') . '/' . $dataArr['productDetail']->brochure }}"
+                                                target="_blank"><i class="fa fa-download"></i>
+                                                Download</a></span>
+                                    </div>
+
                                     <div class="present-field" style="width: 100%;">
                                         <label style="width: 16%;">Description</label>
                                         <span class="show-span">{!! @$dataArr['productDetail']->description !!}</span>
+                                    </div>
+
+                                    <div class="present-field" style="width: 100%;">
+                                        <label style="width: 16%;">Operation</label>
+                                        <span class="show-span">{!! @$dataArr['productDetail']->operation !!}</span>
+                                    </div>
+
+                                    <div class="present-field" style="width: 100%;">
+                                        <label style="width: 16%;">Features</label>
+                                        <span class="show-span">{!! $dataArr['productDetail']->features !!}
+                                        </span>
+                                    </div>
+
+                                    <div class="present-field" style="width: 100%;">
+                                        <label style="width: 16%;">Special Options</label>
+                                        <span class="show-span">{!! $dataArr['productDetail']->special_options !!}
+                                        </span>
+                                    </div>
+
+                                    <div class="present-field" style="width: 100%;">
+                                        <label style="width: 16%;">Technical Specifications</label>
+                                        <span class="show-span">{!! $dataArr['productDetail']->technical_specifications !!}
+                                        </span>
+                                    </div>
+
+                                    <div class="present-field" style="width: 100%;">
+                                        <label style="width: 16%;">Applications</label>
+                                        <span class="show-span">{!! $dataArr['productDetail']->applications !!}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="land-data-col" style="width: 100%; margin-top: 25px;">
                                 <div class="present_prt">
-                                    <h2 style="margin-bottom: 25px;">Gallery Images</h2>
+                                    <h2 style="margin-bottom: 25px;">Images</h2>
 
                                     <div class="room-img">
                                         @foreach ($dataArr['productDetail']->getImages as $img)
@@ -102,6 +117,17 @@
                                                 <img src="{{ asset('storage/product_image/') . '/' . $img->image_name }}">
                                             </div>
                                         @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="land-data-col" style="width: 100%; margin-top: 25px;">
+                                <div class="present_prt">
+                                    <h2 style="margin-bottom: 25px;">Video</h2>
+
+                                    <div class="room-img">
+                                        <iframe width="420" height="315"
+                                            src="https://www.youtube.com/embed/{{ $dataArr['productDetail']->youtube_link }}">
+                                        </iframe>
                                     </div>
                                 </div>
                             </div>

@@ -1,9 +1,9 @@
 @extends('layouts.admin-dashboard')
 @section('content')
-<div class="dFlx spaceBet">
-    <h1 class="pageTitle mb20">Edit Product</h1>
-    <a class="addNew" href="{{ route('admin.product') }}">Back</a>
-</div>
+    <div class="dFlx spaceBet">
+        <h1 class="pageTitle mb20">Edit Product</h1>
+        <a class="addNew" href="{{ route('admin.product') }}">Back</a>
+    </div>
     <div class="admin-body-area">
         <!-- Booking Status Section Start -->
         <div class="booking-status-sec category-list-sec">
@@ -55,6 +55,13 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <label>Youtube V-Link</label>
+                                <input type="text" name="youtube_link" class="form-control"
+                                    value="{{ $dataArr['productArr']->youtube_link }}" required>
+                            </div>
+                        </div>
                         {{-- <div class="col-lg-6 col-md-6">
                             <div class="form-group">
                                 <label>Available Quantity</label>
@@ -79,10 +86,58 @@
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control" name="description" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->description) !!}</textarea>
+                                <textarea class="form-control" name="description" id="description" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->description) !!}</textarea>
                             </div>
                         </div>
 
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Operation</label>
+                                <textarea class="form-control" name="operation" id="operation" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->operation) !!}</textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Features</label>
+                                <textarea class="form-control" name="features" id="features" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->features) !!}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Special Options</label>
+                                <textarea class="form-control" name="special_options" id="special_options" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->special_options) !!}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Technical Specifications</label>
+                                <textarea class="form-control" name="technical_specifications" id="technical_specifications" rows="6"
+                                    required="">{!! str_replace('<br />', '', $dataArr['productArr']->technical_specifications) !!}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Applications</label>
+                                <textarea class="form-control" name="applications" id="applications" rows="6" required="">{!! str_replace('<br />', '', $dataArr['productArr']->applications) !!}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>brochure <small class="text-danger">*PDF size must be less than
+                                        2MB</small></label>
+
+                                <div class="custom-file mb-3">
+                                    <input type="file" name="brochure" accept="application/pdf">
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Image <small class="text-danger">*Image size must be less than
