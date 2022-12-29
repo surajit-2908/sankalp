@@ -40,7 +40,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Youtube V-Link</label>
                                 <input type="text" name="youtube_link" class="form-control" required>
@@ -70,13 +70,6 @@
 
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group">
-                                <label>Applications</label>
-                                <textarea class="form-control" name="applications" id="applications" rows="6" required=""></textarea>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group">
                                 <label>Special Options</label>
                                 <textarea class="form-control" name="special_options" id="special_options" rows="6" required=""></textarea>
                             </div>
@@ -87,6 +80,13 @@
                                 <label>Technical Specifications</label>
                                 <textarea class="form-control" name="technical_specifications" id="technical_specifications" rows="6"
                                     required=""></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Applications</label>
+                                <textarea class="form-control" name="applications" id="applications" rows="6" required=""></textarea>
                             </div>
                         </div>
 

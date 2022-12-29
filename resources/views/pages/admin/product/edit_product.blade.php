@@ -19,7 +19,7 @@
                     id="productForm" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Title</label>
                                 <input type="text" name="title" class="form-control"
@@ -55,7 +55,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
+                        <div class="col-lg-12 col-md-12">
                             <div class="form-group">
                                 <label>Youtube V-Link</label>
                                 <input type="text" name="youtube_link" class="form-control"

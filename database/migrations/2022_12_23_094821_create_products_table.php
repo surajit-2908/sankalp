@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('sub_cat_id')->default(0)->nullable();
             $table->text('description')->nullable();
             $table->text('operation')->nullable();
-            $table->text('feautres')->nullable();
+            $table->text('features')->nullable();
             $table->text('special_options')->nullable();
             $table->text('technical_specifications')->nullable();
             $table->text('applications')->nullable();
