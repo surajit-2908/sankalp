@@ -24,7 +24,7 @@
                                 </ul>
                             </li>
                         @else
-                            <li><a href="{{ route('product', $cat->slug) }}">{{ $product->name }}</a></li>
+                            <li><a href="{{ route('product', $cat->slug) }}">{{ $cat->name }}</a></li>
                         @endif
                     @endforeach
                 </ul>
