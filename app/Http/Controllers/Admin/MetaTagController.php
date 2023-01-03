@@ -60,7 +60,7 @@ class MetaTagController extends BaseController
         $updateArray['meta_title'] = $request->meta_title;
         $updateArray['meta_keywords'] = $request->meta_keywords;
         $updateArray['meta_description'] = $request->meta_description;
-        PageMetaTag::find($id)->update($updateArray);
+        $metaTagArr->update($updateArray);
 
         return redirect()->route('admin.meta.tag')->with([
             "message" => [

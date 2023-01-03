@@ -37,8 +37,8 @@
             <li><a class="{{ $controller_name == 'TrackingController' ? 'active' : '' }}"
                     href="{{ route('admin.tracking') }}"><i class="fa fa-map-marker"></i> Trackings</a></li>
             @if (Auth::user()->admin_type == 'A')
-                <li><a class="{{ $controller_name == 'MetaTagController' ? 'active' : '' }}"
-                        href="{{ route('admin.meta.tag') }}"><i class="fa fa-link"></i> Meta Tags</a></li>
+                {{-- <li><a class="{{ $controller_name == 'MetaTagController' ? 'active' : '' }}"
+                        href="{{ route('admin.meta.tag') }}"><i class="fa fa-link"></i> Meta Tags</a></li> --}}
                 <li><a class="{{ $controller_name == 'SubAdminController' ? 'active' : '' }}"
                         href="{{ route('admin.sub.admin') }}"><i class="fa fa-user"></i> Sub Admin</a></li>
                 <li><a class="{{ $controller_name == 'UserLogController' ? 'active' : '' }}"
