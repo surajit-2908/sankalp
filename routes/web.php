@@ -114,6 +114,12 @@ Route::group([
             Route::get('remove/{id}', ['as' => 'admin.sub.admin.remove', 'uses' => 'Admin\SubAdminController@subAdminRemove']);
         });
 
+        Route::group(['prefix' => 'meta-tag'], function () {
+            Route::get('', ['as' => 'admin.meta.tag', 'uses' => 'Admin\MetaTagController@index']);
+            Route::get('edit/{id}', ['as' => 'admin.meta.tag.edit', 'uses' => 'Admin\MetaTagController@metaTagEdit']);
+            Route::post('update/{id}', ['as' => 'admin.meta.tag.update', 'uses' => 'Admin\MetaTagController@metaTagUpdate']);
+        });
+
         Route::group(['prefix' => 'user-log'], function () {
             Route::get('/', ['as' => 'admin.user.log', 'uses' => 'Admin\UserLogController@index']);
             Route::get('remove/{id}', ['as' => 'admin.user.log.remove', 'uses' => 'Admin\UserLogController@userLogRemove']);

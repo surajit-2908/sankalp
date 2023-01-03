@@ -9,6 +9,7 @@ use App\Models\Order;
 use App\Models\Tracking;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\PageMetaTag;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\EnquiryEmail;
 use App\Mail\OrderTrackingEmail;
@@ -22,7 +23,8 @@ class IndexController extends BaseController
      */
     public function index()
     {
-        return view('pages.frontend.index');
+        $metaTag = PageMetaTag::find(1);
+        return view('pages.frontend.index', compact('metaTag'));
     }
 
     /**
@@ -31,7 +33,8 @@ class IndexController extends BaseController
      */
     public function aboutUs()
     {
-        return view('pages.frontend.about_us');
+        $metaTag = PageMetaTag::find(2);
+        return view('pages.frontend.about_us', compact('metaTag'));
     }
 
     /**
@@ -40,10 +43,11 @@ class IndexController extends BaseController
      */
     public function product($cat_slug)
     {
+        $metaTag = PageMetaTag::find(4);
         $category = Category::where('slug', $cat_slug)->first();
         $products = Product::whereStatus('1')->where('cat_id', $category->id)->orWhere('sub_cat_id', $category->id)->get();
 
-        return view('pages.frontend.product', compact('products', 'category'));
+        return view('pages.frontend.product', compact('products', 'category', 'metaTag'));
     }
 
     /**
@@ -52,9 +56,10 @@ class IndexController extends BaseController
      */
     public function productDetails($product_slug)
     {
+        $metaTag = PageMetaTag::find(5);
         $productDetail = Product::whereSlug($product_slug)->first();
 
-        return view('pages.frontend.product_details', compact('productDetail'));
+        return view('pages.frontend.product_details', compact('productDetail', 'metaTag'));
     }
 
     /**
@@ -63,7 +68,8 @@ class IndexController extends BaseController
      */
     public function enquiry()
     {
-        return view('pages.frontend.enquiry');
+        $metaTag = PageMetaTag::find(3);
+        return view('pages.frontend.enquiry', compact('metaTag'));
     }
 
     /**
