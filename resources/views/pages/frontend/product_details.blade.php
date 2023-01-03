@@ -139,7 +139,7 @@
         </div>
 
         <div id="youtubeVideo">
-            <iframe width="420" height="315" src="https://www.youtube.com/embed/{{ $productDetail->youtube_link }}">
+            <iframe style="border:none;" width="100%" height="500" src="https://www.youtube.com/embed/{{ $productDetail->youtube_link }}">
             </iframe>
         </div>
     </div>

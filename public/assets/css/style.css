@@ -955,7 +955,9 @@ p {
     text-transform: uppercase;
     margin-bottom: 15px;
 }
-
+.productListSec .productTitleOverlay h2 a{
+    color: #ffca29;
+}
 .productListSec .productTitleOverlay ul.dFlx {
     justify-content: center;
 }
@@ -1275,3 +1277,4 @@ p {
       height: 80px;
       border-radius: 5px;
     }
+
