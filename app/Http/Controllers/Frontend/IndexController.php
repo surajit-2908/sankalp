@@ -45,7 +45,7 @@ class IndexController extends BaseController
     {
         $metaTag = PageMetaTag::find(4);
         $category = Category::where('slug', $cat_slug)->first();
-        $products = Product::whereStatus('1')->where('cat_id', $category->id)->orWhere('sub_cat_id', $category->id)->get();
+        $products = Product::where('cat_id', $category->id)->orWhere('sub_cat_id', $category->id)->whereStatus('1')->get();
 
         return view('pages.frontend.product', compact('products', 'category', 'metaTag'));
     }
