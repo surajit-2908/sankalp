@@ -21,7 +21,7 @@
                         <li><a data-toggle="modal" data-target="#largeModal" href="javascript:void(0)"><i
                                     class="fa fa-camera"></i>
                                 Product Gallery</a> </li>
-                        <li><a data-toggle="modal" data-target="#enquirylargeModal" href="{{ route('enquiry') }}"><i
+                        <li><a href="{{ route('enquiry') }}"><i
                                     class="fa fa-envelope"></i> Enquiry</a> </li>
                         <li><a href="#youtubeVideo"><i class="fa fa-video-camera"></i> Video</a> </li>
                         <li><a href="{{ asset('storage/brochure/') . '/' . $productDetail->brochure }}" target="_blank"><i
