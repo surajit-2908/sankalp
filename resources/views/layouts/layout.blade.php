@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>{{ $metaTag->meta_title ? $metaTag->meta_title : 'Sankalp Corporation' }}</title>
-    <meta name="keywords" content="{{ $metaTag->meta_keywords ? $metaTag->meta_title : 'Sankalp Corporation' }}" />
-    <meta name="description" content="{{ $metaTag->meta_description ? $metaTag->meta_title : 'Sankalp Corporation' }}" />
+    <meta name="keywords" content="{{ $metaTag->meta_keywords ? $metaTag->meta_keywords : 'Sankalp Corporation' }}" />
+    <meta name="description" content="{{ $metaTag->meta_description ? $metaTag->meta_description : 'Sankalp Corporation' }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}" />
     <!-- Font Awesome -->
